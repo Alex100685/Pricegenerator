@@ -17,6 +17,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -141,9 +142,15 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
     @Override
     public List<PriceAutoshop> getAllModelsIterable(int offset, int max)
     {
+        return entityManager.createNativeQuery("SELECT * FROM price_autoshop LIMIT "+offset+", "+max, PriceAutoshop.class).getResultList();
+    }
+
+    /*@Override
+    public List<PriceAutoshop> getAllModelsIterable(int offset, int max)
+    {
         //entityManager.clear();
         return entityManager.createQuery("SELECT p FROM PriceAutoshop p", PriceAutoshop.class).setFirstResult(offset).setMaxResults(max).getResultList();
-    }
+    }*/
 
     @Override
     public void save(PriceAutoshop priceAutoshop) {
@@ -156,6 +163,42 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
             ex.printStackTrace();
         }
 
+    }
+
+    @Override
+    public List<PriceAutoshop> getByPrice(String pattern) {
+        try{
+            List<PriceAutoshop> list = new ArrayList<>();
+            Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE CAST(p.retailPrice AS string) LIKE '%"+pattern+"%'", PriceAutoshop.class).setMaxResults(500);
+            list = query.getResultList();
+            return list;
+        } catch(NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public List<PriceAutoshop> getByCode(String pattern) {
+        try{
+            List<PriceAutoshop> list = new ArrayList<>();
+            Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE p.code LIKE '%"+pattern+"%'", PriceAutoshop.class).setMaxResults(500);
+            list = query.getResultList();
+            return list;
+        } catch(NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public List<PriceAutoshop> getByName(String pattern) {
+        try{
+            List<PriceAutoshop> list = new ArrayList<>();
+            Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE p.name LIKE '%"+pattern+"%'", PriceAutoshop.class).setMaxResults(500);
+            list = query.getResultList();
+            return list;
+        } catch(NoResultException e) {
+            return null;
+        }
     }
 
 

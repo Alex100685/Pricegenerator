@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.DatatypeConverter;
 import java.io.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -106,6 +107,36 @@ public class AppController {
     public ModelAndView listDocs() {
         Updates [] updateArray = manager.getAllUpdates();
         return new ModelAndView("index", "updates", updateArray);
+    }
+
+    @RequestMapping("/admin/productSearch")
+    public ModelAndView productSearch() {
+        List <PriceAutoshop> autoshopPriceList = new ArrayList<>();
+        return new ModelAndView("searchpage", "mainprice", autoshopPriceList);
+    }
+
+    @RequestMapping("/admin/searchByPrice")
+    public ModelAndView searchByPrice(
+            @RequestParam(value="pattern") String pattern
+    ) {
+        List <PriceAutoshop> autoshopPriceList = manager.findAutoshopPriceByPrice(pattern);
+        return new ModelAndView("searchpage", "mainprice", autoshopPriceList);
+    }
+
+    @RequestMapping("/admin/searchByCode")
+    public ModelAndView searchByCode(
+            @RequestParam(value="pattern") String pattern
+    ) {
+        List <PriceAutoshop> autoshopPriceList = manager.findAutoshopPriceByCode(pattern);
+        return new ModelAndView("searchpage", "mainprice", autoshopPriceList);
+    }
+
+    @RequestMapping("/admin/searchByName")
+    public ModelAndView searchByName(
+            @RequestParam(value="pattern") String pattern
+    ) {
+        List <PriceAutoshop> autoshopPriceList = manager.findAutoshopPriceByName(pattern);
+        return new ModelAndView("searchpage", "mainprice", autoshopPriceList);
     }
 
     @RequestMapping("/admin/updatePriceIntercars")

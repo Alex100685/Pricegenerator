@@ -275,5 +275,23 @@ public class ManagerImpl implements Manager {
         daoPriceAmperis.saveList(priceList);
     }
 
+    @Override
+    public List<PriceAutoshop> findAutoshopPriceByPrice(String pattern) {
+        List<PriceAutoshop> autoshopList = daoPriceAshop.getByPrice(pattern);
+        return autoshopList;
+    }
+
+    @Override
+    public List<PriceAutoshop> findAutoshopPriceByCode(String pattern) {
+        List<PriceAutoshop> autoshopList = daoPriceAshop.getByCode(pattern);
+        return autoshopList;
+    }
+
+    @Override
+    public List<PriceAutoshop> findAutoshopPriceByName(String pattern) {
+        List<PriceAutoshop> autoshopList = daoPriceAshop.getByName(pattern);
+        return autoshopList;
+    }
+
 
 }

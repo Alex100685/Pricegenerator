@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface Dao <T extends BaseModel> {
 
-    public static final int PORTION = 100;
+    public static final int PORTION = 5000;
 
     List<PriceAutoshop> findByCode(String code);
 
@@ -28,4 +28,10 @@ public interface Dao <T extends BaseModel> {
     public List <T> getAllModelsIterable(int offset, int max);
 
     public void save(T t);
+
+    List<PriceAutoshop> getByPrice(String pattern);
+
+    List<PriceAutoshop> getByCode(String pattern);
+
+    List<PriceAutoshop> getByName(String pattern);
 }

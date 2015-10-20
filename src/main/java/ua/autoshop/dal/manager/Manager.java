@@ -45,4 +45,10 @@ public interface Manager {
     void saveAllPriceGenstar(List <PriceGenstar> price);
 
     void saveAllPriceAmperis(List<PriceAmperis> priceList);
+
+    List<PriceAutoshop> findAutoshopPriceByPrice(String pattern);
+
+    List<PriceAutoshop> findAutoshopPriceByCode(String pattern);
+
+    List<PriceAutoshop> findAutoshopPriceByName(String pattern);
 }

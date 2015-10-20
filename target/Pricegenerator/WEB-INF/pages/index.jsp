@@ -127,9 +127,16 @@
 
 <div class="container">
 
-  <a href="/admin/marginAdministration">Установить наценку</a>
+  <form action="/admin/marginAdministration" method="post">
+    <button title="Установить наценку" type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/price_tag.png"></button>
+  </form>
 
   <h3>Прайсы</h3>
+
+  <form action="/admin/productSearch" method="post">
+    <button title="Найти товар" type="submit" class="search"><img src="https://cdn4.iconfinder.com/data/icons/miu/22/common_search_lookup_-24.png"></button>
+  </form>
+
   <table class="table table-striped">
 
     <thead>

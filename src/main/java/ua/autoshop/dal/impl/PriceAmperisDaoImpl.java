@@ -121,4 +121,19 @@ public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
 
 
     }
+
+    @Override
+    public List<PriceAutoshop> getByPrice(String pattern) {
+        return null;
+    }
+
+    @Override
+    public List<PriceAutoshop> getByCode(String pattern) {
+        return null;
+    }
+
+    @Override
+    public List<PriceAutoshop> getByName(String pattern) {
+        return null;
+    }
 }

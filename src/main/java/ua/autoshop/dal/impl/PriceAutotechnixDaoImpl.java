@@ -51,6 +51,21 @@ public class PriceAutotechnixDaoImpl implements Dao <PriceAutotechnix> {
     }
 
     @Override
+    public List<PriceAutoshop> getByPrice(String pattern) {
+        return null;
+    }
+
+    @Override
+    public List<PriceAutoshop> getByCode(String pattern) {
+        return null;
+    }
+
+    @Override
+    public List<PriceAutoshop> getByName(String pattern) {
+        return null;
+    }
+
+    @Override
     public void saveList(List<PriceAutotechnix> priceList) {
         try{
             entityManager.getTransaction().begin();
