@@ -1,6 +1,4 @@
 package ua.autoshop.utils.savers.impl.csv;
-
-import com.univocity.parsers.csv.CsvParser;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,6 @@ import ua.autoshop.model.PriceAutotechnix;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import com.univocity.parsers.csv.CsvParserSettings;
 import ua.autoshop.utils.savers.impl.csv.BaseCsvReader;
 
 /**
@@ -77,11 +74,13 @@ public class PriceAutotechnixReader extends BaseCsvReader {
             priceAutotechnix.setAvailableKiev2(row[j]);
         }
         if(j==5){
-            row[j] = row[j].replace(" ", "");
+            row[j] = row[j].replace(">", "");
+            row[j] = row[j].replace("<", "");
             priceAutotechnix.setAvailableKiev1(row[j]);
         }
         if(j==6){
-            row[j] = row[j].replace(" ", "");
+            row[j] = row[j].replace(">", "");
+            row[j] = row[j].replace("<", "");
             priceAutotechnix.setAvailableRovno(row[j]);
         }
         if(j==7){

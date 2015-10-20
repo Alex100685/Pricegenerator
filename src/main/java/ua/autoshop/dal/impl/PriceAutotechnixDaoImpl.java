@@ -55,7 +55,10 @@ public class PriceAutotechnixDaoImpl implements Dao <PriceAutotechnix> {
         try{
             entityManager.getTransaction().begin();
             for(BaseModel price:priceList) {
-                entityManager.persist((PriceAutotechnix)price);
+                PriceAutotechnix priceAutotechnix = (PriceAutotechnix) price;
+                if(priceAutotechnix.getAvailableKiev1()!=null && !priceAutotechnix.getAvailableKiev1().equals("") && !priceAutotechnix.getAvailableKiev1().equals("0")) {
+                    entityManager.persist(priceAutotechnix);
+                }
             }
             entityManager.getTransaction().commit();
             entityManager.clear();
@@ -89,12 +92,13 @@ public class PriceAutotechnixDaoImpl implements Dao <PriceAutotechnix> {
             {
                 PriceAutoshop priceAutoshop = new PriceAutoshop();
                 priceAutoshop.setName(price.getName());
-                priceAutoshop.setAvailable(price.getAvailableKiev2());
+                priceAutoshop.setAvailable(price.getAvailableKiev1());
                 priceAutoshop.setBrand(price.getBrand());
                 priceAutoshop.setCode(price.getCode());
                 Double priceAshop = MarginMaker.addMarginToPrice(price.getPrice(), margin);
                 priceAshop = MarginMaker.roundPrice(priceAshop);
                 priceAutoshop.setRetailPrice(priceAshop);
+                priceAutoshop.setSupplier("Автотехникс");
                 entityManager.persist(priceAutoshop);
                 price = null;
             }

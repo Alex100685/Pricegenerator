@@ -42,7 +42,10 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
         try{
             entityManager.getTransaction().begin();
             for(BaseModel price:priceList) {
-                entityManager.persist((PriceGerasimenko)price);
+                PriceGerasimenko priceGerasimenko = (PriceGerasimenko) price;
+                if(priceGerasimenko.getAvailableOnCentralYourBranch()!=null && !priceGerasimenko.getAvailableOnCentralYourBranch().equals("") && !priceGerasimenko.getAvailableOnCentralYourBranch().equals("0")) {
+                    entityManager.persist(priceGerasimenko);
+                }
             }
             entityManager.getTransaction().commit();
             entityManager.clear();
@@ -83,6 +86,7 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
                 Double priceAshop = MarginMaker.addMarginToPrice(price.getClientPrice(), margin);
                 priceAshop = MarginMaker.roundPrice(priceAshop);
                 priceAutoshop.setRetailPrice(priceAshop);
+                priceAutoshop.setSupplier("Элит");
                 entityManager.persist(priceAutoshop);
                 price = null;
             }

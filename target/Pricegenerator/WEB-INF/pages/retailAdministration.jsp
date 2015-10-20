@@ -144,7 +144,7 @@
       <th align="center" style="width: 200px; "><b>От 20000 до 50000</b></th>
       <th align="center" style="width: 200px; "><b>От 50000 до 100000</b></th>
       <th align="center" style="width: 200px; "><b>Больше 100000</b></th>
-      <th align="center" style="width: 200px; "><b>Курс бакса</b></th>
+      <th align="center" style="width: 200px; "><b>Курс валюты</b></th>
 
       <th align="center" style="width: 200px; "><b>Сохранить</b></th>
     </tr>
@@ -229,6 +229,48 @@
         </td>
       </form>
     </tr>
+
+    <tr>
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/setMarginGenstar" method="post">
+        <td align="center" style="width: 200px; ">Генстар</td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].lessThanHundred}" name="lessThanHundred"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].lessThanHundredFixed}" name="lessThanHundredFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromHundredToTreeHundred}" name="fromHundredToTreeHundred"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromHundredToTreeHundredFixed}" name="fromHundredToTreeHundredFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromTreeHundredToFiveHundred}" name="fromTreeHundredToFiveHundred"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromTreeHundredToFiveHundredFixed}" name="fromTreeHundredToFiveHundredFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromFiveHundredToThousand}" name="fromFiveHundredToThousand"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromFiveHundredToThousandFixed}" name="fromFiveHundredToThousandFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromThousandToFiveThousands}" name="fromThousandToFiveThousands"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromThousandToFiveThousandsFixed}" name="fromThousandToFiveThousandsFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromFiveToTenThousands}" name="fromFiveToTenThousands"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromFiveToTenThousandsFixed}" name="fromFiveToTenThousandsFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromTenToTwentyThousands}" name="fromTenToTwentyThousands"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromTenToTwentyThousandsFixed}" name="fromTenToTwentyThousandsFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromTwentyToFifty}" name="fromTwentyToFifty"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromTwentyToFiftyFixed}" name="fromTwentyToFiftyFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromFiftyToHundred}" name="fromFiftyToHundred"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].fromFiftyToHundredFixed}" name="fromFiftyToHundredFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].aboveHundredThousands}" name="aboveHundredThousands"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].aboveHundredThousandsFixed}" name="aboveHundredThousandsFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[4].usdCurrencyRate}" name="usdCurrencyRate"></td>
+        <td align="center" style="width: 200px; ">
+          <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
+        </td>
+      </form>
+    </tr>
+
+    <tr>
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/setMarginAmperis" method="post">
+        <td align="center" style="width: 200px; ">Амперис</td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].lessThanHundred}" name="lessThanHundred"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].lessThanHundredFixed}" name="lessThanHundredFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromHundredToTreeHundred}" name="fromHundredToTreeHundred"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromHundredToTreeHundredFixed}" name="fromHundredToTreeHundredFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromTreeHundredToFiveHundred}" name="fromTreeHundredToFiveHundred"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromTreeHundredToFiveHundredFixed}" name="fromTreeHundredToFiveHundredFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromFiveHundredToThousand}" name="fromFiveHundredToThousand"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromFiveHundredToThousandFixed}" name="fromFiveHundredToThousandFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromThousandToFiveThousands}" name="fromThousandToFiveThousands"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromThousandToFiveThousandsFixed}" name="fromThousandToFiveThousandsFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromFiveToTenThousands}" name="fromFiveToTenThousands"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromFiveToTenThousandsFixed}" name="fromFiveToTenThousandsFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromTenToTwentyThousands}" name="fromTenToTwentyThousands"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromTenToTwentyThousandsFixed}" name="fromTenToTwentyThousandsFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromTwentyToFifty}" name="fromTwentyToFifty"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromTwentyToFiftyFixed}" name="fromTwentyToFiftyFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromFiftyToHundred}" name="fromFiftyToHundred"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].fromFiftyToHundredFixed}" name="fromFiftyToHundredFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].aboveHundredThousands}" name="aboveHundredThousands"><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].aboveHundredThousandsFixed}" name="aboveHundredThousandsFixed"></td>
+        <td align="center" style="width: 200px; "><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" required class="form-control" value="${margin[5].usdCurrencyRate}" name="usdCurrencyRate"></td>
+        <td align="center" style="width: 200px; ">
+          <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
+        </td>
+      </form>
+    </tr>
+
+
   </table>
 
   <h3></h3>

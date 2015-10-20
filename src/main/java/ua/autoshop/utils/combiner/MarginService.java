@@ -23,6 +23,12 @@ public class MarginService {
         if(margin.getPriceName().equals("Элит")){
             baseMargin = new DefaultMarginElit(margin);
         }
+        if(margin.getPriceName().equals("Генстар")){
+            baseMargin = new DefaultMarginGenstar(margin);
+        }
+        if(margin.getPriceName().equals("Амперис")){
+            baseMargin = new DefaultMarginAmperis(margin);
+        }
         return baseMargin;
     }
 }

@@ -56,6 +56,12 @@ public class AppController {
     Dao <Updates> daoUpdates;
 
     @Autowired
+    Dao <PriceGenstar> daoPriceGenstar;
+
+    @Autowired
+    Dao <PriceAmperis> daoPriceAmperis;
+
+    @Autowired
     private ShaPasswordEncoder passwordEncoder;
 
     @Autowired
@@ -168,6 +174,42 @@ public class AppController {
                 manager.saveUpdate("Элит");
             }catch(Exception e){
                 manager.saveUpdateFail("Элит");
+                e.printStackTrace();
+            }
+        }
+        return new ModelAndView("index", "updates", manager.getAllUpdates());
+    }
+
+    @RequestMapping("/admin/updatePriceGenstar")
+    public ModelAndView updatePriceGenstar(
+            @RequestParam(value="file") MultipartFile file
+    ) {
+        if(!file.isEmpty()) {
+            try {
+                daoPriceGenstar.cleanTable();
+                List<PriceGenstar> priceList = (List<PriceGenstar>) manager.readPrice(file, "g");
+                manager.saveAllPriceGenstar(priceList);
+                manager.saveUpdate("Генстар");
+            }catch(Exception e){
+                manager.saveUpdateFail("Генстар");
+                e.printStackTrace();
+            }
+        }
+        return new ModelAndView("index", "updates", manager.getAllUpdates());
+    }
+
+    @RequestMapping("/admin/updatePriceAmperis")
+    public ModelAndView updatePriceAmperis(
+            @RequestParam(value="file") MultipartFile file
+    ) {
+        if(!file.isEmpty()) {
+            try {
+                daoPriceAmperis.cleanTable();
+                List<PriceAmperis> priceList = (List<PriceAmperis>) manager.readPrice(file, "amp");
+                manager.saveAllPriceAmperis(priceList);
+                manager.saveUpdate("Амперис");
+            }catch(Exception e){
+                manager.saveUpdateFail("Амперис");
                 e.printStackTrace();
             }
         }
@@ -371,6 +413,106 @@ public class AppController {
             @RequestParam(value="usdCurrencyRate") Double usdCurrencyRate
     ) {
         Margin margin = manager.getMarginByName("Элит");
+        margin.setLessThanHundred(lessThanHundred);
+        margin.setLessThanHundredFixed(lessThanHundredFixed);
+        margin.setFromHundredToTreeHundred(fromHundredToTreeHundred);
+        margin.setFromHundredToTreeHundredFixed(fromHundredToTreeHundredFixed);
+        margin.setFromTreeHundredToFiveHundred(fromTreeHundredToFiveHundred);
+        margin.setFromTreeHundredToFiveHundredFixed(fromTreeHundredToFiveHundredFixed);
+        margin.setFromFiveHundredToThousand(fromFiveHundredToThousand);
+        margin.setFromFiveHundredToThousandFixed(fromFiveHundredToThousandFixed);
+        margin.setFromThousandToFiveThousands(fromThousandToFiveThousands);
+        margin.setFromThousandToFiveThousandsFixed(fromThousandToFiveThousandsFixed);
+        margin.setFromFiveToTenThousands(fromFiveToTenThousands);
+        margin.setFromFiveToTenThousandsFixed(fromFiveToTenThousandsFixed);
+        margin.setFromTenToTwentyThousands(fromTenToTwentyThousands);
+        margin.setFromTenToTwentyThousandsFixed(fromTenToTwentyThousandsFixed);
+        margin.setFromTwentyToFifty(fromTwentyToFifty);
+        margin.setFromTwentyToFiftyFixed(fromTwentyToFiftyFixed);
+        margin.setFromFiftyToHundred(fromFiftyToHundred);
+        margin.setFromFiftyToHundredFixed(fromFiftyToHundredFixed);
+        margin.setAboveHundredThousands(aboveHundredThousands);
+        margin.setAboveHundredThousandsFixed(aboveHundredThousandsFixed);
+        margin.setUsdCurrencyRate(usdCurrencyRate);
+        manager.saveMargin(margin);
+        return new ModelAndView("retailAdministration", "margin", manager.getAllMargin());
+    }
+
+    @RequestMapping("/admin/setMarginGenstar")
+    public ModelAndView setMarginGenstar(
+            @RequestParam(value="lessThanHundred") Double lessThanHundred,
+            @RequestParam(value="lessThanHundredFixed") Double lessThanHundredFixed,
+            @RequestParam(value="fromHundredToTreeHundred") Double fromHundredToTreeHundred,
+            @RequestParam(value="fromHundredToTreeHundredFixed") Double fromHundredToTreeHundredFixed,
+            @RequestParam(value="fromTreeHundredToFiveHundred") Double fromTreeHundredToFiveHundred,
+            @RequestParam(value="fromTreeHundredToFiveHundredFixed") Double fromTreeHundredToFiveHundredFixed,
+            @RequestParam(value="fromFiveHundredToThousand") Double fromFiveHundredToThousand,
+            @RequestParam(value="fromFiveHundredToThousandFixed") Double fromFiveHundredToThousandFixed,
+            @RequestParam(value="fromThousandToFiveThousands") Double fromThousandToFiveThousands,
+            @RequestParam(value="fromThousandToFiveThousandsFixed") Double fromThousandToFiveThousandsFixed,
+            @RequestParam(value="fromFiveToTenThousands") Double fromFiveToTenThousands,
+            @RequestParam(value="fromFiveToTenThousandsFixed") Double fromFiveToTenThousandsFixed,
+            @RequestParam(value="fromTenToTwentyThousands") Double fromTenToTwentyThousands,
+            @RequestParam(value="fromTenToTwentyThousandsFixed") Double fromTenToTwentyThousandsFixed,
+            @RequestParam(value="fromTwentyToFifty") Double fromTwentyToFifty,
+            @RequestParam(value="fromTwentyToFiftyFixed") Double fromTwentyToFiftyFixed,
+            @RequestParam(value="fromFiftyToHundred") Double fromFiftyToHundred,
+            @RequestParam(value="fromFiftyToHundredFixed") Double fromFiftyToHundredFixed,
+            @RequestParam(value="aboveHundredThousands") Double aboveHundredThousands,
+            @RequestParam(value="aboveHundredThousandsFixed") Double aboveHundredThousandsFixed,
+            @RequestParam(value="usdCurrencyRate") Double usdCurrencyRate
+    ) {
+        Margin margin = manager.getMarginByName("Генстар");
+        margin.setLessThanHundred(lessThanHundred);
+        margin.setLessThanHundredFixed(lessThanHundredFixed);
+        margin.setFromHundredToTreeHundred(fromHundredToTreeHundred);
+        margin.setFromHundredToTreeHundredFixed(fromHundredToTreeHundredFixed);
+        margin.setFromTreeHundredToFiveHundred(fromTreeHundredToFiveHundred);
+        margin.setFromTreeHundredToFiveHundredFixed(fromTreeHundredToFiveHundredFixed);
+        margin.setFromFiveHundredToThousand(fromFiveHundredToThousand);
+        margin.setFromFiveHundredToThousandFixed(fromFiveHundredToThousandFixed);
+        margin.setFromThousandToFiveThousands(fromThousandToFiveThousands);
+        margin.setFromThousandToFiveThousandsFixed(fromThousandToFiveThousandsFixed);
+        margin.setFromFiveToTenThousands(fromFiveToTenThousands);
+        margin.setFromFiveToTenThousandsFixed(fromFiveToTenThousandsFixed);
+        margin.setFromTenToTwentyThousands(fromTenToTwentyThousands);
+        margin.setFromTenToTwentyThousandsFixed(fromTenToTwentyThousandsFixed);
+        margin.setFromTwentyToFifty(fromTwentyToFifty);
+        margin.setFromTwentyToFiftyFixed(fromTwentyToFiftyFixed);
+        margin.setFromFiftyToHundred(fromFiftyToHundred);
+        margin.setFromFiftyToHundredFixed(fromFiftyToHundredFixed);
+        margin.setAboveHundredThousands(aboveHundredThousands);
+        margin.setAboveHundredThousandsFixed(aboveHundredThousandsFixed);
+        margin.setUsdCurrencyRate(usdCurrencyRate);
+        manager.saveMargin(margin);
+        return new ModelAndView("retailAdministration", "margin", manager.getAllMargin());
+    }
+
+    @RequestMapping("/admin/setMarginAmperis")
+    public ModelAndView setMarginAmperis(
+            @RequestParam(value="lessThanHundred") Double lessThanHundred,
+            @RequestParam(value="lessThanHundredFixed") Double lessThanHundredFixed,
+            @RequestParam(value="fromHundredToTreeHundred") Double fromHundredToTreeHundred,
+            @RequestParam(value="fromHundredToTreeHundredFixed") Double fromHundredToTreeHundredFixed,
+            @RequestParam(value="fromTreeHundredToFiveHundred") Double fromTreeHundredToFiveHundred,
+            @RequestParam(value="fromTreeHundredToFiveHundredFixed") Double fromTreeHundredToFiveHundredFixed,
+            @RequestParam(value="fromFiveHundredToThousand") Double fromFiveHundredToThousand,
+            @RequestParam(value="fromFiveHundredToThousandFixed") Double fromFiveHundredToThousandFixed,
+            @RequestParam(value="fromThousandToFiveThousands") Double fromThousandToFiveThousands,
+            @RequestParam(value="fromThousandToFiveThousandsFixed") Double fromThousandToFiveThousandsFixed,
+            @RequestParam(value="fromFiveToTenThousands") Double fromFiveToTenThousands,
+            @RequestParam(value="fromFiveToTenThousandsFixed") Double fromFiveToTenThousandsFixed,
+            @RequestParam(value="fromTenToTwentyThousands") Double fromTenToTwentyThousands,
+            @RequestParam(value="fromTenToTwentyThousandsFixed") Double fromTenToTwentyThousandsFixed,
+            @RequestParam(value="fromTwentyToFifty") Double fromTwentyToFifty,
+            @RequestParam(value="fromTwentyToFiftyFixed") Double fromTwentyToFiftyFixed,
+            @RequestParam(value="fromFiftyToHundred") Double fromFiftyToHundred,
+            @RequestParam(value="fromFiftyToHundredFixed") Double fromFiftyToHundredFixed,
+            @RequestParam(value="aboveHundredThousands") Double aboveHundredThousands,
+            @RequestParam(value="aboveHundredThousandsFixed") Double aboveHundredThousandsFixed,
+            @RequestParam(value="usdCurrencyRate") Double usdCurrencyRate
+    ) {
+        Margin margin = manager.getMarginByName("Амперис");
         margin.setLessThanHundred(lessThanHundred);
         margin.setLessThanHundredFixed(lessThanHundredFixed);
         margin.setFromHundredToTreeHundred(fromHundredToTreeHundred);

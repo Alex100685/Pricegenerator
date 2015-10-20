@@ -49,6 +49,18 @@ public class AppConfig {
         return new MarginDaoImpl();
     }
 
+
+    @Bean
+    public Dao<PriceGenstar> daoPriceGensar() {
+        return new PriceGenstarDaoImpl();
+    }
+
+    @Bean
+    public Dao<PriceAmperis> daoPriceAmperis() {
+        return new PriceAmperisDaoImpl();
+    }
+
+
     @Bean
     public Dao<PriceAutoshop> daoPriceAshop() {
         return new PriceAutoshopDaoImpl();

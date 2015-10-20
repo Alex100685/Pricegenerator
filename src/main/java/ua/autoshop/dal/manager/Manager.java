@@ -42,4 +42,7 @@ public interface Manager {
 
     public void iterateAllAndRemoveDuplicates();
 
+    void saveAllPriceGenstar(List <PriceGenstar> price);
+
+    void saveAllPriceAmperis(List<PriceAmperis> priceList);
 }

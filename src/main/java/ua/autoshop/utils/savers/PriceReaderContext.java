@@ -1,14 +1,13 @@
 package ua.autoshop.utils.savers;
 
 import org.springframework.stereotype.Component;
-import ua.autoshop.model.PriceAutotechnix;
-import ua.autoshop.model.PriceGerasimenko;
-import ua.autoshop.model.PriceIntercarsi;
-import ua.autoshop.model.PriceVlad;
+import ua.autoshop.model.*;
 import ua.autoshop.utils.savers.impl.*;
 import ua.autoshop.utils.savers.impl.csv.PriceAutotechnixReader;
 import ua.autoshop.utils.savers.impl.csv.PriceVladReader;
+import ua.autoshop.utils.savers.impl.excel.PriceAmperisReader;
 import ua.autoshop.utils.savers.impl.excel.PriceElitReader;
+import ua.autoshop.utils.savers.impl.excel.PriceGenstarReader;
 import ua.autoshop.utils.savers.impl.excel.PriseIntercarsReader;
 
 /**
@@ -32,6 +31,13 @@ public class PriceReaderContext {
         if(index.equals("e")){
             baseReader = new PriceElitReader(PriceGerasimenko.class);
         }
+        if(index.equals("g")){
+            baseReader = new PriceGenstarReader(PriceGenstar.class);
+        }
+        if(index.equals("amp")){
+            baseReader = new PriceAmperisReader(PriceAmperis.class);
+        }
+
         return baseReader;
     }
 

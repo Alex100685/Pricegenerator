@@ -92,6 +92,7 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
         row.createCell(2).setCellValue("Наличие всего");
         row.createCell(3).setCellValue("Код");
         row.createCell(4).setCellValue("Описание");
+        row.createCell(5).setCellValue("Поставщик");
         while ((priceList = getAllModelsIterable(offset, PORTION)).size() > 0)
         {
             for (PriceAutoshop price : priceList)
@@ -103,6 +104,7 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
                 row.createCell(2).setCellValue(price.getAvailable());
                 row.createCell(3).setCellValue(price.getCode());
                 row.createCell(4).setCellValue(price.getName());
+                row.createCell(5).setCellValue(price.getSupplier());
                 price = null;
 
                 /*List <PriceAutoshop> duplicateList = daoPriceAshop.findByCode(price.getCode());

@@ -1,7 +1,5 @@
 package ua.autoshop.utils.savers.impl.csv;
 
-import com.univocity.parsers.csv.CsvParser;
-import com.univocity.parsers.csv.CsvParserSettings;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,12 +52,14 @@ public class PriceVladReader extends BaseCsvReader {
             return;
         }
         if(j==5){
-            row[j] = row[j].replace(" ", "");
+            row[j] = row[j].replace(">", "");
+            row[j] = row[j].replace("<", "");
             priceVlad.setLeftByDefault(row[j]);
             return;
         }
         if(j==6){
-            row[j] = row[j].replace(" ", "");
+            row[j] = row[j].replace(">", "");
+            row[j] = row[j].replace("<", "");
             priceVlad.setLeftTotal(row[j]);
             return;
         }

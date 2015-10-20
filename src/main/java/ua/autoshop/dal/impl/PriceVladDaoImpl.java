@@ -43,7 +43,10 @@ public class PriceVladDaoImpl implements Dao<PriceVlad> {
         try{
             entityManager.getTransaction().begin();
             for(BaseModel price:priceList) {
-                entityManager.persist((PriceVlad)price);
+                PriceVlad priceVlad = (PriceVlad) price;
+                if(priceVlad.getLeftByDefault()!=null && !priceVlad.getLeftByDefault().equals("") && !priceVlad.getLeftByDefault().equals("0")) {
+                    entityManager.persist(priceVlad);
+                }
             }
             entityManager.getTransaction().commit();
             entityManager.clear();
@@ -77,14 +80,14 @@ public class PriceVladDaoImpl implements Dao<PriceVlad> {
             {
                 PriceAutoshop priceAutoshop = new PriceAutoshop();
                 priceAutoshop.setName(price.getFullName());
-                priceAutoshop.setAvailable(price.getLeftTotal());
+                priceAutoshop.setAvailable(price.getLeftByDefault());
                 priceAutoshop.setBrand(price.getBrand());
                 priceAutoshop.setCode(price.getArticule());
                 Double priceAshop = MarginMaker.addMarginToPrice(price.getPrice(), margin);
                 priceAshop = MarginMaker.roundPrice(priceAshop);
                 priceAutoshop.setRetailPrice(priceAshop);
+                priceAutoshop.setSupplier("Владислав");
                 entityManager.persist(priceAutoshop);
-                price = null;
             }
 
             entityManager.flush();

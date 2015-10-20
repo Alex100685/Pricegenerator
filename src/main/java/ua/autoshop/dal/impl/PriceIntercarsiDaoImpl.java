@@ -43,7 +43,10 @@ public class PriceIntercarsiDaoImpl implements Dao<PriceIntercarsi> {
         try{
             entityManager.getTransaction().begin();
             for(BaseModel price:priceList) {
-                entityManager.persist((PriceIntercarsi)price);
+                PriceIntercarsi priceIntercarsi = (PriceIntercarsi) price;
+                if(priceIntercarsi.getAvailableUr1()!=null && !priceIntercarsi.getAvailableUr1().equals("") && !priceIntercarsi.getAvailableUr1().equals("0")) {
+                    entityManager.persist(priceIntercarsi);
+                }
             }
             entityManager.getTransaction().commit();
             entityManager.clear();
@@ -83,6 +86,7 @@ public class PriceIntercarsiDaoImpl implements Dao<PriceIntercarsi> {
                 Double priceAshop = MarginMaker.addMarginToPrice(price.getWholesalePrice(), margin);
                 priceAshop = MarginMaker.roundPrice(priceAshop);
                 priceAutoshop.setRetailPrice(priceAshop);
+                priceAutoshop.setSupplier("Интеркарс");
                 entityManager.persist(priceAutoshop);
                 price = null;
             }

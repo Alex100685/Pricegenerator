@@ -11,6 +11,9 @@ public class MarginMaker {
         if(strPrice.contains(",")){
             strPrice = strPrice.replace(',', '.');
         }
+        if(strPrice.contains("#")){
+            strPrice = "0.0";
+        }
         Double price = Double.parseDouble(strPrice);
         price *=margin.getUsdCurrencyRate();
         if(price < 100){

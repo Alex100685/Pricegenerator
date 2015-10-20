@@ -192,6 +192,33 @@
           </td>
         </form>
       </tr>
+
+    <tr>
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceGenstar" method="post">
+        <td align="center" style="width: 200px; ">Генстар</td>
+        <td align="center" style="width: 200px; ">${updates[4].dateOfUpdate}</td>
+        <td align="center" style="width: 200px; ">
+          <input type="file" name="file">
+        </td>
+        <td align="center" style="width: 200px; ">
+          <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
+        </td>
+      </form>
+    </tr>
+
+    <tr>
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceAmperis" method="post">
+        <td align="center" style="width: 200px; ">Амперис</td>
+        <td align="center" style="width: 200px; ">${updates[5].dateOfUpdate}</td>
+        <td align="center" style="width: 200px; ">
+          <input type="file" name="file">
+        </td>
+        <td align="center" style="width: 200px; ">
+          <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
+        </td>
+      </form>
+    </tr>
+
   </table>
 
   <h3></h3>

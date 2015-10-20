@@ -52,22 +52,33 @@ public class ManagerImpl implements Manager {
     @Autowired
     Dao <PriceAutoshop> daoPriceAshop;
 
+    @Autowired
+    Dao <PriceGenstar> daoPriceGenstar;
+
+    @Autowired
+    Dao <PriceAmperis> daoPriceAmperis;
+
 
     public Updates [] getAllUpdates() {
-        Updates[] updateArray = new Updates[4];
+        Updates[] updateArray = new Updates[6];
         Updates updAutotechniks = daoUpdates.findByName("Автотехникс");
         Updates updIntercars = daoUpdates.findByName("Интеркарс");
         Updates updVlad = daoUpdates.findByName("Влад");
         Updates updElit = daoUpdates.findByName("Элит");
+        Updates updGensar = daoUpdates.findByName("Генстар");
+        Updates updAmperis = daoUpdates.findByName("Амперис");
         updateArray[0] = updAutotechniks;
         updateArray[1] = updIntercars;
         updateArray[2] = updVlad;
         updateArray[3] = updElit;
+        updateArray[4] = updGensar;
+        updateArray[5] = updAmperis;
+
         return updateArray;
     }
 
     public Margin [] getAllMargin(){
-        Margin [] marginArray = new Margin [4];
+        Margin [] marginArray = new Margin [6];
         Margin mAutotechniks = daoMargin.findByName("Автотехникс");
         if(mAutotechniks == null){
             mAutotechniks = createNewMarginWithName("Автотехникс");
@@ -84,10 +95,20 @@ public class ManagerImpl implements Manager {
         if(mElit == null){
             mElit = createNewMarginWithName("Элит");
         }
+        Margin mGenstar = daoMargin.findByName("Генстар");
+        if(mGenstar == null){
+            mGenstar = createNewMarginWithName("Генстар");
+        }
+        Margin mAmperis = daoMargin.findByName("Амперис");
+        if(mAmperis == null){
+            mAmperis = createNewMarginWithName("Амперис");
+        }
         marginArray [0] = mAutotechniks;
         marginArray [1] = mIntercars;
         marginArray [2] = mVlad;
         marginArray [3] = mElit;
+        marginArray [4] = mGenstar;
+        marginArray [5] = mAmperis;
         return marginArray;
     }
 
@@ -107,6 +128,8 @@ public class ManagerImpl implements Manager {
         daoPriceG.iterateAllAndSaveToMainTable(getMarginByName("Элит"));
         daoPriceI.iterateAllAndSaveToMainTable(getMarginByName("Интеркарс"));
         daoPriceV.iterateAllAndSaveToMainTable(getMarginByName("Влад"));
+        daoPriceGenstar.iterateAllAndSaveToMainTable(getMarginByName("Генстар"));
+        daoPriceAmperis.iterateAllAndSaveToMainTable(getMarginByName("Амперис"));
     }
 
     @Override
@@ -126,18 +149,19 @@ public class ManagerImpl implements Manager {
         row.createCell(2).setCellValue("Наличие всего");
         row.createCell(3).setCellValue("Код");
         row.createCell(4).setCellValue("Описание");
+        row.createCell(5).setCellValue("Поставщик");
         while ((priceList = daoPriceAshop.getAllModelsIterable(offset, PORTION)).size() > 0)
         {
             for (PriceAutoshop price : priceList)
             {
-            rowNumber++;
-            row = (SXSSFRow) sheet.createRow(rowNumber);
-            row.createCell(0).setCellValue(price.getBrand());
-            row.createCell(1).setCellValue(Double.toString(price.getRetailPrice()));
-            row.createCell(2).setCellValue(price.getAvailable());
-            row.createCell(3).setCellValue(price.getCode());
-            row.createCell(4).setCellValue(price.getName());
-                price = null;
+                rowNumber++;
+                row = (SXSSFRow) sheet.createRow(rowNumber);
+                row.createCell(0).setCellValue(price.getBrand());
+                row.createCell(1).setCellValue(Double.toString(price.getRetailPrice()));
+                row.createCell(2).setCellValue(price.getAvailable());
+                row.createCell(3).setCellValue(price.getCode());
+                row.createCell(4).setCellValue(price.getName());
+                row.createCell(5).setCellValue(price.getSupplier());
 
                 /*List <PriceAutoshop> duplicateList = daoPriceAshop.findByCode(price.getCode());
                 if(duplicateList!=null) {
@@ -168,6 +192,8 @@ public class ManagerImpl implements Manager {
             e.printStackTrace();
         }
     }
+
+
 
     public Margin createNewMarginWithName (String name){
         Margin margin = new Margin();
@@ -237,6 +263,16 @@ public class ManagerImpl implements Manager {
     @Override
     public void saveAllPriceAutotechix(List<PriceAutotechnix> priceList) {
         daoPriceA.saveList(priceList);
+    }
+
+    @Override
+    public void saveAllPriceGenstar(List <PriceGenstar> price) {
+        daoPriceGenstar.saveList(price);
+    }
+
+    @Override
+    public void saveAllPriceAmperis(List<PriceAmperis> priceList) {
+        daoPriceAmperis.saveList(priceList);
     }
 
 
