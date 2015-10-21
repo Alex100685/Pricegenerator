@@ -234,18 +234,30 @@
     <thead>
 
     <tr>
-      <th align="center" style="width: 461px; ">Обновить сводный прайс</th>
-      <th align="center" style="width: 461px; ">Скачать сводный прайс</th>
+      <th align="center" style="width: 266px; ">Формат файла</th>
+      <th align="center" style="width: 307px; ">Обновить сводный прайс</th>
+      <th align="center" style="width: 308px; ">Скачать сводный прайс</th>
     </tr>
 
     </thead>
 
     <tr>
-      <td align="center" style="width: 461px; ">
-        <a class="search" title="Обновить сводный прайс" href="/admin/refreshPrice"><img class="image" src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-24.png"></a>
+      <td align="center" style="width: 266px; ">XLSX</td>
+      <td align="center" style="width: 307px; ">
+        <a class="search" title="Обновить сводный прайс xlsx" href="/admin/refreshPrice"><img class="image" src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-24.png"></a>
       </td>
-      <td align="center" style="width: 461px; ">
-        <a class="search" title="Скачать сводный прайс" href="/admin/downloadPrice"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
+      <td align="center" style="width: 308px; ">
+        <a class="search" title="Скачать сводный прайс xlsx" href="/admin/downloadPrice"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
+      </td>
+    </tr>
+
+    <tr>
+      <td align="center" style="width: 266px; ">CSV</td>
+      <td align="center" style="width: 307px; ">
+        <a class="search" title="Обновить сводный прайс csv" href="/admin/refreshPriceCsv"><img class="image" src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-24.png"></a>
+      </td>
+      <td align="center" style="width: 308px; ">
+        <a class="search" title="Скачать сводный прайс csv" href="/admin/downloadPriceCsv"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
       </td>
     </tr>
 

@@ -254,7 +254,24 @@ public class AppController {
             manager.getAllMargin();
             daoPriceAshop.cleanTable();
             manager.createCommonPriceInDB();
-            daoPriceAshop.iterateAllAndSaveToMainTable(null);
+            Margin margin = new Margin();
+            margin.setPriceName("xlsx");
+            daoPriceAshop.iterateAllAndSaveToMainTable(margin);
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return new ModelAndView("index", "updates", manager.getAllUpdates());
+    }
+    @RequestMapping("/admin/refreshPriceCsv")
+    public ModelAndView refreshPriceCsv() {
+        try {
+            manager.getAllMargin();
+            daoPriceAshop.cleanTable();
+            manager.createCommonPriceInDB();
+            Margin margin = new Margin();
+            margin.setPriceName("csv");
+            daoPriceAshop.iterateAllAndSaveToMainTable(margin);
 
         }catch(Exception e){
             e.printStackTrace();
@@ -597,6 +614,48 @@ public class AppController {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         String date = sdf.format(d);
         response.setHeader("Content-Disposition:attachment; filename=", "Autoshop "+date+".xlsx");
+        response.setContentLength((int) bytes.length);
+        OutputStream os;
+        BufferedOutputStream bos;
+        try {
+            os = response.getOutputStream();
+            bos = new BufferedOutputStream(os);
+            bos.write(bytes);
+            bos.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
+    }
+
+    @RequestMapping(value = "/admin/downloadPriceCsv")
+    public void downloadFileCsv(
+            HttpServletResponse response
+    ) {
+        String tempDir = System.getProperty(TEMP_DIR);
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(new File(tempDir+"/output.csv"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        byte[] bytes = new byte[0];
+        try {
+            bytes = IOUtils.toByteArray(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        response.setCharacterEncoding("Content-Transfer-Encoding:binary");
+        response.setContentType("Content-Type:application/octet-stream");
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        String date = sdf.format(d);
+        response.setHeader("Content-Disposition:attachment; filename=", "Autoshop "+date+".csv");
         response.setContentLength((int) bytes.length);
         OutputStream os;
         BufferedOutputStream bos;
