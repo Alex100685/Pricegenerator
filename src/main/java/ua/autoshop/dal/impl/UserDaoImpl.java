@@ -18,6 +18,11 @@ public class UserDaoImpl implements Dao<User> {
     private EntityManager entityManager;
 
     @Override
+    public List<User> findAll() {
+        return null;
+    }
+
+    @Override
     public List<PriceAutoshop> findByCode(String code) {
         return null;
     }
@@ -67,6 +72,11 @@ public class UserDaoImpl implements Dao<User> {
     @Override
     public List<PriceAutoshop> getByName(String pattern) {
         return null;
+    }
+
+    @Override
+    public void sortPriceByArticule() {
+
     }
 
     @Override

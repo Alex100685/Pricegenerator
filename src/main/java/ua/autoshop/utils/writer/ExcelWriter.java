@@ -23,12 +23,11 @@ public class ExcelWriter {
     private static Logger logger = LoggerFactory.getLogger(ExcelWriter.class);
 
     protected static final String TEMP_DIR =  "java.io.tmpdir";
-    protected static final String OUTPUT_FILE =  "/output.xlsx";
     protected static final int LIMIT =  100;
 
-    public static void createFullPathIfNotExists() {
+    public static void createFullPathIfNotExists(String filename) {
         String tempDir = System.getProperty(TEMP_DIR);
-        File targetFile = new File(tempDir+OUTPUT_FILE);
+        File targetFile = new File(tempDir+filename);
         if(!targetFile.exists()){
             try {
                 targetFile.createNewFile();
@@ -38,19 +37,19 @@ public class ExcelWriter {
         }
     }
 
-    public static SXSSFWorkbook openForWritting(){
-        createFullPathIfNotExists();
+    public static SXSSFWorkbook openForWritting(String filename){
+        createFullPathIfNotExists(filename);
         XSSFWorkbook workbook = new XSSFWorkbook();
         SXSSFWorkbook hsfWorkbook = new SXSSFWorkbook(workbook, LIMIT);
         return hsfWorkbook;
     }
 
-    public static FileOutputStream openOutputStream() {
-        createFullPathIfNotExists();
+    public static FileOutputStream openOutputStream(String filename) {
+        createFullPathIfNotExists(filename);
         String tempDir = System.getProperty(TEMP_DIR);
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream(tempDir+OUTPUT_FILE);
+            fos = new FileOutputStream(tempDir+filename);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

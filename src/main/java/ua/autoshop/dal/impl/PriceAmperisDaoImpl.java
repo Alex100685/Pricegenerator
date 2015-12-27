@@ -3,20 +3,31 @@ package ua.autoshop.dal.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.filecreator.BrandMatcherContent;
+import ua.autoshop.utils.filecreator.CsvCreator;
 import ua.autoshop.utils.marginmaker.MarginMaker;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Пользователь on 19.10.2015.
  */
 public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
 
+
+
     @Autowired
     EntityManager entityManager;
 
+
+    @Override
+    public List<PriceAmperis> findAll() {
+        return null;
+    }
 
     @Override
     public List<PriceAutoshop> findByCode(String code) {
@@ -71,9 +82,25 @@ public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
 
     }
 
+    public Margin getMarginByName(String name) {
+        try{
+            entityManager.getTransaction().begin();
+            Query query = entityManager.createQuery("SELECT m FROM Margin m WHERE m.priceName ='"+name+"'", Margin.class);
+            Margin m = (Margin) query.getSingleResult();
+            entityManager.getTransaction().commit();
+            return m;
+        }catch(Exception e){
+            entityManager.getTransaction().rollback();
+            return null;
+        }
+    }
+
     @Override
     public void iterateAllAndSaveToMainTable(Margin margin) {
         int offset = 0;
+        Margin wholesaleMargin = getMarginByName("Амперис ОПТ");
+
+        CsvCreator csvCreator = new CsvCreator();
 
         List<PriceAmperis> priceList;
         while ((priceList = getAllModelsIterable(offset, PORTION)).size() > 0)
@@ -85,11 +112,17 @@ public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
                 priceAutoshop.setName(price.getName());
                 priceAutoshop.setAvailable(price.getAvailable());
                 priceAutoshop.setBrand(price.getProductGroup());
-                priceAutoshop.setCode(price.getFullCode());
+                String code = createTrueArticule(price, csvCreator);
+                priceAutoshop.setCode(code);
+                Double priceAshopWholesale = MarginMaker.addMarginToPrice(price.getPrice(), wholesaleMargin);
+                priceAshopWholesale = MarginMaker.roundPrice(priceAshopWholesale);
+                priceAutoshop.setWholesalePrice(priceAshopWholesale);
                 Double priceAshop = MarginMaker.addMarginToPrice(price.getPrice(), margin);
                 priceAshop = MarginMaker.roundPrice(priceAshop);
                 priceAutoshop.setRetailPrice(priceAshop);
                 priceAutoshop.setSupplier("Амперис");
+                priceAutoshop.setShelf("Амперис");
+                priceAutoshop.setAdditionalInformation("Доставка в течении 2 часов");
                 entityManager.persist(priceAutoshop);
                 price = null;
             }
@@ -100,6 +133,21 @@ public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
             offset += priceList.size();
         }
 
+    }
+
+    private String  createTrueArticule(PriceAmperis price, CsvCreator csvCreator){
+        String articule = price.getFullCode();
+        if(articule!=null){
+            articule = articule.trim();
+            if(price.getProductGroup()!=null) {
+                BrandMatcherContent bmc = csvCreator.getBrandMatchesMap().get(price.getProductGroup().trim());
+                if (bmc!=null){
+                    articule = articule.replace(bmc.getArtCut(), "");
+                }
+
+            }
+        }
+        return articule;
     }
 
     @Override
@@ -135,5 +183,10 @@ public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
     @Override
     public List<PriceAutoshop> getByName(String pattern) {
         return null;
+    }
+
+    @Override
+    public void sortPriceByArticule() {
+
     }
 }

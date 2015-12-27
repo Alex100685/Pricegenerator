@@ -49,10 +49,19 @@ public class AppConfig {
         return new MarginDaoImpl();
     }
 
-
     @Bean
     public Dao<PriceGenstar> daoPriceGensar() {
         return new PriceGenstarDaoImpl();
+    }
+
+    @Bean
+    public Dao<PriceElitOriginal> daoPriceElitOriginal() {
+        return new PriceElitOriginalDaoImpl();
+    }
+
+    @Bean
+    public Dao<PriceUnicTrade> daoPriceUnicTrade() {
+        return new PriceUnicTradeDaoImpl();
     }
 
     @Bean
@@ -76,9 +85,29 @@ public class AppConfig {
         return new ManagerImpl();
     }
 
+    @Bean(name = "fileCreatorManager")
+    public Manager fileCreatorManager() {
+        return new ManagerImpl();
+    }
+
     @Bean
     public Dao<Updates> daoUpdates() {
         return new UpdatesDaoImpl();
+    }
+
+    @Bean
+    public Dao<Comment> daoComment() {
+        return new CommentImpl();
+    }
+
+    @Bean
+    public Dao <PriceTomarket> daoPriceT() {
+        return new PriceTomarketImpl();
+    }
+
+    @Bean
+    public Dao <BrandMatches> daoBrandMatches() {
+        return new BrandMatchesImpl();
     }
 
     @Bean

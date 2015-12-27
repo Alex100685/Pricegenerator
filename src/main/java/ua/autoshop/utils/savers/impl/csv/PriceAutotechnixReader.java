@@ -59,7 +59,9 @@ public class PriceAutotechnixReader extends BaseCsvReader {
             priceAutotechnix.setBrand(row[j]);
         }
         if(j==1){
-            row[j] = row[j].replace(" ", "");
+            if(row[j].contains(" ")) {
+                row[j] = row[j].substring(row[j].indexOf(" "));
+            }
             priceAutotechnix.setCode(row[j]);
         }
         if(j==2){

@@ -17,6 +17,11 @@ public class MarginDaoImpl implements Dao {
     EntityManager entityManager;
 
     @Override
+    public List findAll() {
+        return null;
+    }
+
+    @Override
     public List<PriceAutoshop> findByCode(String code) {
         return null;
     }
@@ -90,5 +95,10 @@ public class MarginDaoImpl implements Dao {
     @Override
     public List<PriceAutoshop> getByName(String pattern) {
         return null;
+    }
+
+    @Override
+    public void sortPriceByArticule() {
+
     }
 }

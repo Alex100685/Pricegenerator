@@ -19,6 +19,15 @@ public class PriceAutoshop extends BaseModel {
     @Column(name="brand")
     private String brand;
 
+    @Column(name="wholesale_price")
+    private Double wholesalePrice;
+
+    @Column(name="tomarket_retail")
+    private Double retailTomarket;
+
+    @Column(name="tomarket_wholesale")
+    private Double wholesaleToMarket;
+
     @Column(name="retail_price")
     private Double retailPrice;
 
@@ -33,6 +42,55 @@ public class PriceAutoshop extends BaseModel {
 
     @Column(name="supplier")
     private String supplier;
+
+    @Column(name="shelf")
+    private String shelf;
+
+    @Column(name="category")
+    private String category;
+
+    @Column(name="additional_information")
+    private String additionalInformation;
+
+    public String getAdditionalInformation() {
+        return additionalInformation;
+    }
+
+    public void setAdditionalInformation(String additionalInformation) {
+        this.additionalInformation = additionalInformation;
+    }
+
+    public Double getRetailTomarket() {
+        return retailTomarket;
+    }
+
+    public void setRetailTomarket(Double retailTomarket) {
+        this.retailTomarket = retailTomarket;
+    }
+
+    public Double getWholesaleToMarket() {
+        return wholesaleToMarket;
+    }
+
+    public void setWholesaleToMarket(Double wholesaleToMarket) {
+        this.wholesaleToMarket = wholesaleToMarket;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getShelf() {
+        return shelf;
+    }
+
+    public void setShelf(String shelf) {
+        this.shelf = shelf;
+    }
 
     public String getSupplier() {
         return supplier;
@@ -89,4 +147,13 @@ public class PriceAutoshop extends BaseModel {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Double getWholesalePrice() {
+        return wholesalePrice;
+    }
+
+    public void setWholesalePrice(Double wholesalePrice) {
+        this.wholesalePrice = wholesalePrice;
+    }
+
 }

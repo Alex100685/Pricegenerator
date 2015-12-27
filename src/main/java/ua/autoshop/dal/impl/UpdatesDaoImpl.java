@@ -17,6 +17,11 @@ public class UpdatesDaoImpl implements Dao<Updates> {
     private EntityManager entityManager;
 
     @Override
+    public List<Updates> findAll() {
+        return null;
+    }
+
+    @Override
     public List<PriceAutoshop> findByCode(String code) {
         return null;
     }
@@ -71,6 +76,11 @@ public class UpdatesDaoImpl implements Dao<Updates> {
     @Override
     public List<PriceAutoshop> getByName(String pattern) {
         return null;
+    }
+
+    @Override
+    public void sortPriceByArticule() {
+
     }
 
     @Override

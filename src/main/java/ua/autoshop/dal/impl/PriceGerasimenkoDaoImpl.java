@@ -3,6 +3,8 @@ package ua.autoshop.dal.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.filecreator.BrandMatcherContent;
+import ua.autoshop.utils.filecreator.CsvCreator;
 import ua.autoshop.utils.marginmaker.MarginMaker;
 
 import javax.persistence.EntityManager;
@@ -16,6 +18,11 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
 
     @Autowired
     EntityManager entityManager;
+
+    @Override
+    public List<PriceGerasimenko> findAll() {
+        return null;
+    }
 
     @Override
     public List<PriceAutoshop> findByCode(String code) {
@@ -68,10 +75,24 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
         }
     }
 
+    public Margin getMarginByName(String name) {
+        try{
+            entityManager.getTransaction().begin();
+            Query query = entityManager.createQuery("SELECT m FROM Margin m WHERE m.priceName ='"+name+"'", Margin.class);
+            Margin m = (Margin) query.getSingleResult();
+            entityManager.getTransaction().commit();
+            return m;
+        }catch(Exception e){
+            entityManager.getTransaction().rollback();
+            return null;
+        }
+    }
+
     @Override
     public void iterateAllAndSaveToMainTable(Margin margin) {
         int offset = 0;
-
+        Margin wholesaleMargin = getMarginByName("Элит ОПТ");
+        CsvCreator csvCreator = new CsvCreator();
         List<PriceGerasimenko> priceList;
         while ((priceList = getAllModelsIterable(offset, PORTION)).size() > 0)
         {
@@ -82,11 +103,17 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
                 priceAutoshop.setName(price.getProductDescription());
                 priceAutoshop.setAvailable(price.getAvailableOnCentralYourBranch());
                 priceAutoshop.setBrand(price.getBrand());
-                priceAutoshop.setCode(price.getCatalogNumber());
+                String code = createTrueArticule(price, csvCreator);
+                priceAutoshop.setCode(code);
+                Double priceAshopWholesale = MarginMaker.addMarginToPrice(price.getClientPrice(), wholesaleMargin);
+                priceAshopWholesale = MarginMaker.roundPrice(priceAshopWholesale);
+                priceAutoshop.setWholesalePrice(priceAshopWholesale);
                 Double priceAshop = MarginMaker.addMarginToPrice(price.getClientPrice(), margin);
                 priceAshop = MarginMaker.roundPrice(priceAshop);
                 priceAutoshop.setRetailPrice(priceAshop);
                 priceAutoshop.setSupplier("Элит");
+                priceAutoshop.setShelf("Элит");
+                priceAutoshop.setAdditionalInformation("Доставка в течении 2 часов");
                 entityManager.persist(priceAutoshop);
                 price = null;
             }
@@ -96,6 +123,21 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
             entityManager.getTransaction().commit();
             offset += priceList.size();
         }
+    }
+
+    private String  createTrueArticule(PriceGerasimenko price, CsvCreator csvCreator){
+        String articule = price.getCatalogNumber();
+        if(articule!=null){
+            articule = articule.trim();
+            if(price.getBrand()!=null) {
+                BrandMatcherContent bmc = csvCreator.getBrandMatchesMap().get(price.getBrand().trim());
+                if (bmc!=null){
+                    articule = articule.replace(bmc.getArtCut(), "");
+                }
+
+            }
+        }
+        return articule;
     }
 
     @Override
@@ -130,6 +172,11 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
     @Override
     public List<PriceAutoshop> getByName(String pattern) {
         return null;
+    }
+
+    @Override
+    public void sortPriceByArticule() {
+
     }
 
 }

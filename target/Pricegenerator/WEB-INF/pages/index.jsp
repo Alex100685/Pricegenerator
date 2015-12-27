@@ -137,6 +137,10 @@
     <button title="Найти товар" type="submit" class="search"><img src="https://cdn4.iconfinder.com/data/icons/miu/22/common_search_lookup_-24.png"></button>
   </form>
 
+  <form action="/admin/brandMatches" method="post">
+    <button title="Таблица соответствий брендов" type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/rental-icon/240/airbnb-24.png"></button>
+  </form>
+
   <table class="table table-striped">
 
     <thead>
@@ -145,6 +149,7 @@
       <th align="center" style="width: 200px; "><b>Дата последней загрузки</b></th>
       <th align="center" style="width: 200px; "><b>Выбрать прайс</b></th>
       <th align="center" style="width: 200px; "><b>Загрузить</b></th>
+      <th align="center" style="width: 200px; "><b>Удалить</b></th>
     </tr>
     </thead>
 
@@ -159,6 +164,7 @@
           <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
         </td>
         </form>
+        <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Автотехникс"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
       </tr>
 
       <tr>
@@ -172,6 +178,7 @@
             <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
           </td>
         </form>
+        <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Интеркарс"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
       </tr>
 
       <tr>
@@ -185,6 +192,7 @@
             <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
           </td>
         </form>
+        <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Влад"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
       </tr>
 
       <tr>
@@ -198,6 +206,7 @@
             <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
           </td>
         </form>
+        <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Элит"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
       </tr>
 
     <tr>
@@ -211,6 +220,7 @@
           <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
         </td>
       </form>
+      <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Генстар"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
     </tr>
 
     <tr>
@@ -224,6 +234,49 @@
           <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
         </td>
       </form>
+      <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Амперис"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+    </tr>
+
+    <tr>
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceTomarket" method="post">
+        <td align="center" style="width: 200px; ">ТОМАРКЕТ</td>
+        <td align="center" style="width: 200px; ">${updates[6].dateOfUpdate}</td>
+        <td align="center" style="width: 200px; ">
+          <input type="file" name="file">
+        </td>
+        <td align="center" style="width: 200px; ">
+          <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
+        </td>
+      </form>
+      <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Томаркет"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+    </tr>
+
+    <tr>
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceUnicTrade" method="post">
+        <td align="center" style="width: 200px; ">Юник Трейд</td>
+        <td align="center" style="width: 200px; ">${updates[7].dateOfUpdate}</td>
+        <td align="center" style="width: 200px; ">
+          <input type="file" name="file">
+        </td>
+        <td align="center" style="width: 200px; ">
+          <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
+        </td>
+      </form>
+      <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Юниктрейд"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+    </tr>
+
+    <tr>
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceElitOrignal" method="post">
+        <td align="center" style="width: 200px; ">Элит Оригинал</td>
+        <td align="center" style="width: 200px; ">${updates[8].dateOfUpdate}</td>
+        <td align="center" style="width: 200px; ">
+          <input type="file" name="file">
+        </td>
+        <td align="center" style="width: 200px; ">
+          <button type="submit" class="search"><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button>
+        </td>
+      </form>
+      <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Элиторигинал"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
     </tr>
 
   </table>
@@ -234,35 +287,66 @@
     <thead>
 
     <tr>
-      <th align="center" style="width: 266px; ">Формат файла</th>
-      <th align="center" style="width: 307px; ">Обновить сводный прайс</th>
-      <th align="center" style="width: 308px; ">Скачать сводный прайс</th>
+      <th align="center" style="width: 397px; ">Формат файла</th>
+      <th align="center" style="width: 150px; ">Обновить</th>
+      <th align="center" style="width: 150px; ">Cводный прайс</th>
+      <th align="center" style="width: 150px; ">AvtoXCatalog ТОМаркета</th>
+      <th align="center" style="width: 150px; ">AvtoXCatalog avtostop.net</th>
     </tr>
 
     </thead>
 
     <tr>
-      <td align="center" style="width: 266px; ">XLSX</td>
-      <td align="center" style="width: 307px; ">
+      <td align="center" style="width: 438px; ">XLSX</td>
+      <td align="center" style="width: 150px; ">
         <a class="search" title="Обновить сводный прайс xlsx" href="/admin/refreshPrice"><img class="image" src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-24.png"></a>
       </td>
-      <td align="center" style="width: 308px; ">
+      <td align="center" style="width: 150px; ">
         <a class="search" title="Скачать сводный прайс xlsx" href="/admin/downloadPrice"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
+      </td>
+      <td align="center" style="width: 150px; ">
+      <a class="search" title="Скачать AvtoXCatalog для ТОМаркета xlsx" href="/admin/downloadPriceAvtoXCatalogTomarket"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
+    </td>
+      <td align="center" style="width: 150px; ">
+        <a class="search" title="Скачать AvtoXCatalog для shop.avtostop.net xlsx" href="/admin/downloadPriceAvtoXCatalogAuto"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
       </td>
     </tr>
 
     <tr>
-      <td align="center" style="width: 266px; ">CSV</td>
-      <td align="center" style="width: 307px; ">
+      <td align="center" style="width: 438px; ">CSV</td>
+      <td align="center" style="width: 150px; ">
         <a class="search" title="Обновить сводный прайс csv" href="/admin/refreshPriceCsv"><img class="image" src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-24.png"></a>
       </td>
-      <td align="center" style="width: 308px; ">
+      <td align="center" style="width: 150px; ">
         <a class="search" title="Скачать сводный прайс csv" href="/admin/downloadPriceCsv"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
+      </td>
+      <td align="center" style="width: 150px; ">
+        <a class="search" title="Скачать AvtoXCatalog для ТОМаркета csv" href="/admin/downloadPriceAvtoXCatalogTomarketCsv"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
+      </td>
+      <td align="center" style="width: 150px; ">
+        <a class="search" title="Скачать AvtoXCatalog для shop.avtostop.net csv" href="/admin/downloadPriceAvtoXCatalogAutoCsv"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
       </td>
     </tr>
 
   </table>
 
+  <table>
+  <thead>
+  <tr>
+    <th align="center" style="width: 964px; "><b>Дополнительный комментарий</b></th>
+    <th align="center" style="width: 200px; "><b>Сохранить</b></th>
+  </tr>
+  </thead>
+
+  <thead>
+  <tr>
+    <form role="form" enctype="multipart/form-data" class="search" action="/admin/saveComment" method="post">
+      <td align="center" style="width: 964px; "><input type="text" class="search" name="comment" placeholder="Комментрий" style="width: 500px; "></td>
+      <td align="center" style="width: 200px; "><button type="submit" class="search" title="Добавить соответствие"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/save.png"></button></td>
+    </form>
+  </tr>
+  </thead>
+  </table>
 
 
 

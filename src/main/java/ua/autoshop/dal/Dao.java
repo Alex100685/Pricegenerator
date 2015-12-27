@@ -11,6 +11,8 @@ public interface Dao <T extends BaseModel> {
 
     public static final int PORTION = 5000;
 
+    List <T> findAll();
+
     List<PriceAutoshop> findByCode(String code);
 
     T findByName(String name);
@@ -34,4 +36,6 @@ public interface Dao <T extends BaseModel> {
     List<PriceAutoshop> getByCode(String pattern);
 
     List<PriceAutoshop> getByName(String pattern);
+
+    void sortPriceByArticule();
 }

@@ -1,25 +1,14 @@
 package ua.autoshop.dal.manager;
 
-import org.apache.poi.xssf.streaming.SXSSFCell;
-import org.apache.poi.xssf.streaming.SXSSFRow;
-import org.apache.poi.xssf.streaming.SXSSFSheet;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
 import ua.autoshop.utils.combiner.MarginService;
-import ua.autoshop.utils.marginmaker.MarginMaker;
 import ua.autoshop.utils.savers.PriceReaderContext;
-import ua.autoshop.utils.sixlsx.excel.xlsx.Sheet;
-import ua.autoshop.utils.sixlsx.excel.xlsx.SimpleXLSXWorkbook;
-import ua.autoshop.utils.sorter.SortByPrice;
-import ua.autoshop.utils.writer.ExcelWriter;
-
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +16,12 @@ import java.util.List;
  * Created by Пользователь on 09.10.2015.
  */
 public class ManagerImpl implements Manager {
+
+    @Autowired
+    Dao<Comment>daoComment;
+
+    @Autowired
+    Dao<BrandMatches> daoBrandMatches;
 
     @Autowired
     Dao<Margin> daoMargin;
@@ -47,6 +42,9 @@ public class ManagerImpl implements Manager {
     Dao <PriceIntercarsi> daoPriceI;
 
     @Autowired
+    Dao <PriceTomarket> daoPriceT;
+
+    @Autowired
     Dao <Updates> daoUpdates;
 
     @Autowired
@@ -58,57 +56,132 @@ public class ManagerImpl implements Manager {
     @Autowired
     Dao <PriceAmperis> daoPriceAmperis;
 
+    @Autowired
+    Dao<PriceElitOriginal> daoPriceElitOriginal;
+
+    @Autowired
+    Dao<PriceUnicTrade> daoPriceUnicTrade;
+
 
     public Updates [] getAllUpdates() {
-        Updates[] updateArray = new Updates[6];
+        Updates[] updateArray = new Updates[9];
         Updates updAutotechniks = daoUpdates.findByName("Автотехникс");
         Updates updIntercars = daoUpdates.findByName("Интеркарс");
         Updates updVlad = daoUpdates.findByName("Влад");
         Updates updElit = daoUpdates.findByName("Элит");
         Updates updGensar = daoUpdates.findByName("Генстар");
         Updates updAmperis = daoUpdates.findByName("Амперис");
+        Updates updTomarket = daoUpdates.findByName("ТОМАРКЕТ");
+        Updates updUnicTrade = daoUpdates.findByName("Юник ТРЕЙД");
+        Updates updElitOriginal = daoUpdates.findByName("Элит ОРИГИНАЛ");
         updateArray[0] = updAutotechniks;
         updateArray[1] = updIntercars;
         updateArray[2] = updVlad;
         updateArray[3] = updElit;
         updateArray[4] = updGensar;
         updateArray[5] = updAmperis;
+        updateArray[6] = updTomarket;
+        updateArray[7] = updUnicTrade;
+        updateArray[8] = updElitOriginal;
 
         return updateArray;
     }
 
     public Margin [] getAllMargin(){
-        Margin [] marginArray = new Margin [6];
+        Margin [] marginArray = new Margin [18];
         Margin mAutotechniks = daoMargin.findByName("Автотехникс");
         if(mAutotechniks == null){
             mAutotechniks = createNewMarginWithName("Автотехникс");
+        }
+        Margin mAutotechniksW = daoMargin.findByName("Автотехникс ОПТ");
+        if(mAutotechniksW == null){
+            mAutotechniksW = createNewMarginWithName("Автотехникс ОПТ");
         }
         Margin mIntercars = daoMargin.findByName("Интеркарс");
         if(mIntercars == null){
             mIntercars = createNewMarginWithName("Интеркарс");
         }
+        Margin mIntercarsW = daoMargin.findByName("Интеркарс ОПТ");
+        if(mIntercarsW == null){
+            mIntercarsW = createNewMarginWithName("Интеркарс ОПТ");
+        }
         Margin mVlad = daoMargin.findByName("Влад");
         if(mVlad == null){
             mVlad = createNewMarginWithName("Влад");
+        }
+        Margin mVladW = daoMargin.findByName("Влад ОПТ");
+        if(mVladW == null){
+            mVladW = createNewMarginWithName("Влад ОПТ");
         }
         Margin mElit = daoMargin.findByName("Элит");
         if(mElit == null){
             mElit = createNewMarginWithName("Элит");
         }
+        Margin mElitW = daoMargin.findByName("Элит ОПТ");
+        if(mElitW == null){
+            mElitW = createNewMarginWithName("Элит ОПТ");
+        }
         Margin mGenstar = daoMargin.findByName("Генстар");
         if(mGenstar == null){
             mGenstar = createNewMarginWithName("Генстар");
+        }
+        Margin mGenstarW = daoMargin.findByName("Генстар ОПТ");
+        if(mGenstarW == null){
+            mGenstarW = createNewMarginWithName("Генстар ОПТ");
         }
         Margin mAmperis = daoMargin.findByName("Амперис");
         if(mAmperis == null){
             mAmperis = createNewMarginWithName("Амперис");
         }
+        Margin mAmperisW = daoMargin.findByName("Амперис ОПТ");
+        if(mAmperisW == null){
+            mAmperisW = createNewMarginWithName("Амперис ОПТ");
+        }
+        Margin mTomarketRetail = daoMargin.findByName("ТОМАРКЕТ РОЗНИЦА");
+        if(mTomarketRetail == null){
+            mTomarketRetail = createNewMarginWithName("ТОМАРКЕТ РОЗНИЦА");
+        }
+        Margin mTomarketWholesale = daoMargin.findByName("ТОМАРКЕТ ОПТ");
+        if(mTomarketWholesale == null){
+            mTomarketWholesale = createNewMarginWithName("ТОМАРКЕТ ОПТ");
+        }
+        Margin mUnicTradeRetail = daoMargin.findByName("Юник ТРЕЙД РОЗНИЦА");
+        if(mUnicTradeRetail == null){
+            mUnicTradeRetail = createNewMarginWithName("Юник ТРЕЙД РОЗНИЦА");
+        }
+        Margin mUnicTradeW = daoMargin.findByName("Юник ТРЕЙД ОПТ");
+        if(mUnicTradeW == null){
+            mUnicTradeW = createNewMarginWithName("Юник ТРЕЙД ОПТ");
+        }
+
+        Margin mElitOriginalRetail = daoMargin.findByName("Элит ОРИГИНАЛ РОЗНИЦА");
+        if(mElitOriginalRetail == null){
+            mElitOriginalRetail = createNewMarginWithName("Элит ОРИГИНАЛ РОЗНИЦА");
+        }
+        Margin mElitOriginalW = daoMargin.findByName("Элит ОРИГИНАЛ ОПТ");
+        if(mElitOriginalW == null){
+            mElitOriginalW = createNewMarginWithName("Элит ОРИГИНАЛ ОПТ");
+        }
+
         marginArray [0] = mAutotechniks;
+        marginArray [8] = mAutotechniksW;
         marginArray [1] = mIntercars;
+        marginArray [9] = mIntercarsW;
         marginArray [2] = mVlad;
+        marginArray [10] = mVladW;
         marginArray [3] = mElit;
+        marginArray [11] = mElitW;
         marginArray [4] = mGenstar;
+        marginArray [12] = mGenstarW;
         marginArray [5] = mAmperis;
+        marginArray [13] = mAmperisW;
+        marginArray [6] = mTomarketRetail;
+        marginArray [7] = mTomarketWholesale;
+        marginArray [14] = mUnicTradeRetail;
+        marginArray [15] = mUnicTradeW;
+        marginArray [16] = mElitOriginalRetail;
+        marginArray [17] = mElitOriginalW;
+
         return marginArray;
     }
 
@@ -130,11 +203,14 @@ public class ManagerImpl implements Manager {
         daoPriceV.iterateAllAndSaveToMainTable(getMarginByName("Влад"));
         daoPriceGenstar.iterateAllAndSaveToMainTable(getMarginByName("Генстар"));
         daoPriceAmperis.iterateAllAndSaveToMainTable(getMarginByName("Амперис"));
+        daoPriceT.iterateAllAndSaveToMainTable(getMarginByName("ТОМАРКЕТ РОЗНИЦА"));
+        daoPriceUnicTrade.iterateAllAndSaveToMainTable(getMarginByName("Юник ТРЕЙД РОЗНИЦА"));
+        daoPriceElitOriginal.iterateAllAndSaveToMainTable(getMarginByName("Элит ОРИГИНАЛ РОЗНИЦА"));
     }
 
     @Override
     public void iterateAllAndRemoveDuplicates() {
-        int offset = 0;
+        /*int offset = 0;
         List<PriceAutoshop> priceList;
         //SortByPrice sbp = new SortByPrice();
         int rowNumber = 0;
@@ -163,7 +239,7 @@ public class ManagerImpl implements Manager {
                 row.createCell(4).setCellValue(price.getName());
                 row.createCell(5).setCellValue(price.getSupplier());
 
-                /*List <PriceAutoshop> duplicateList = daoPriceAshop.findByCode(price.getCode());
+                *//*List <PriceAutoshop> duplicateList = daoPriceAshop.findByCode(price.getCode());
                 if(duplicateList!=null) {
                     if(duplicateList.size()>1) {
                         PriceAutoshop[] priceAutoshops = new PriceAutoshop[duplicateList.size()];
@@ -175,7 +251,7 @@ public class ManagerImpl implements Manager {
                             daoPriceAshop.delete(priceAutoshops[j]);
                         }
                     }
-                }*/
+                }*//*
         }
             offset += priceList.size();
         }
@@ -190,7 +266,7 @@ public class ManagerImpl implements Manager {
             tempOutput.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 
@@ -240,9 +316,71 @@ public class ManagerImpl implements Manager {
         daoUpdates.save(u);
     }
 
+    public void saveUpdateEmpty(String updateName){
+        Updates u = daoUpdates.findByName(updateName);
+        if (u == null) {
+            u = new Updates();
+            u.setPriceName(updateName);
+            daoUpdates.save(u);
+        }
+        u.setDateOfUpdate("ПУСТО");
+        daoUpdates.save(u);
+    }
+
     @Override
     public void saveAllPriceIntercarsi(List<PriceIntercarsi> priceList) {
         daoPriceI.saveList(priceList);
+    }
+
+    @Override
+    public void saveAllPriceTomarket(List <PriceTomarket> priceList) {
+        daoPriceT.saveList(priceList);
+    }
+
+    @Override
+    public void sortCommonTableByArticule() {
+        daoPriceAshop.sortPriceByArticule();
+    }
+
+    @Override
+    public List<BrandMatches> getBrandMatches() {
+       return daoBrandMatches.findAll();
+    }
+
+    @Override
+    public void saveBrandMatch(BrandMatches bm) {
+        daoBrandMatches.save(bm);
+    }
+
+    @Override
+    public BrandMatches findBrandMatchByName(String name) {
+        return daoBrandMatches.findByName(name);
+    }
+
+    @Override
+    public void deleteBrandMatch(BrandMatches bm) {
+        daoBrandMatches.delete(bm);
+    }
+
+    @Override
+    public void saveComment(Comment comment) {
+        daoComment.save(comment);
+    }
+
+    @Override
+    public Comment getComment() {
+        Comment comment = daoComment.findByName("1");
+        return comment;
+    }
+
+    @Override
+    public void saveAllPriceUnicTrade(List<PriceUnicTrade> priceList) {
+        daoPriceUnicTrade.saveList(priceList);
+    }
+
+    @Override
+    public void saveAllPriceElitOriginal(List<PriceElitOriginal> priceList) {
+        daoPriceElitOriginal.saveList(priceList);
     }
 
     @Override

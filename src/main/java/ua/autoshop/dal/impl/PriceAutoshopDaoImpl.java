@@ -5,10 +5,7 @@ import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
-import ua.autoshop.model.BaseModel;
-import ua.autoshop.model.Margin;
-import ua.autoshop.model.PriceAutoshop;
-import ua.autoshop.model.PriceAutotechnix;
+import ua.autoshop.model.*;
 import ua.autoshop.utils.filecreator.FileCreator;
 import ua.autoshop.utils.filecreator.FileCreatorContext;
 import ua.autoshop.utils.marginmaker.MarginMaker;
@@ -20,7 +17,9 @@ import javax.persistence.Query;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Пользователь on 13.10.2015.
@@ -30,6 +29,15 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
     @Autowired
     EntityManager entityManager;
 
+    PriceAutoshop lastWrittenPrice;
+
+
+
+
+    @Override
+    public List<PriceAutoshop> findAll() {
+        return null;
+    }
 
     @Override
     public List <PriceAutoshop> findByCode(String code) {
@@ -41,6 +49,17 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
             return null;
         }
     }
+
+    public List<String> fetchAllToMarketEntities(){
+        try{
+            Query query = entityManager.createQuery("SELECT p.articule FROM PriceTomarket p");
+            List <String> codeSet = (List <String>) query.getResultList();
+            return codeSet;
+        } catch(NoResultException e) {
+            return null;
+        }
+    }
+
 
     @Override
     public PriceAutoshop findByName(String name) {
@@ -77,22 +96,95 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
 
     }
 
+    private PriceAutoshop createCommonNextRowIfNecessary(PriceAutoshop commonPriceEntity, PriceAutoshop price, FileCreator fileCreator){
+        if(commonPriceEntity!=null){
+            if(price.getCode()!=null) {
+                if (!price.getCode().equalsIgnoreCase(commonPriceEntity.getCode())) {
+                    fileCreator.createNextRow(commonPriceEntity);
+                    commonPriceEntity = price;
+                }
+            }
+        }
+        if(commonPriceEntity==null || price.getRetailPrice()<=commonPriceEntity.getRetailPrice()){
+            commonPriceEntity = price;
+        }
+        return commonPriceEntity;
+    }
+
+    private PriceAutoshop createAutoXCatalogTOMarketNextRowIfNecessary(PriceAutoshop autoXCatalogTOMarketEntity, PriceAutoshop price, FileCreator fileCreator, Comment comment){
+        if(autoXCatalogTOMarketEntity!=null && price.getCode()!=null){
+            if(lastWrittenPrice!=null && lastWrittenPrice.getSupplier().equals("ТОМАРКЕТ") && !autoXCatalogTOMarketEntity.getSupplier().equals("ТОМАРКЕТ") && lastWrittenPrice.getCode().equalsIgnoreCase(autoXCatalogTOMarketEntity.getCode())){
+                autoXCatalogTOMarketEntity = price;
+                return autoXCatalogTOMarketEntity;
+            }
+            if(!price.getCode().equalsIgnoreCase(autoXCatalogTOMarketEntity.getCode()) || autoXCatalogTOMarketEntity.getSupplier().equals("ТОМАРКЕТ")){
+                    fileCreator.createNextRowAutoXCatalogTOMarket(autoXCatalogTOMarketEntity, comment);
+                    lastWrittenPrice = autoXCatalogTOMarketEntity;
+                    autoXCatalogTOMarketEntity = price;
+            }
+        }
+        if(autoXCatalogTOMarketEntity==null || price.getRetailPrice()<=autoXCatalogTOMarketEntity.getRetailPrice() || price.getSupplier().equals("ТОМАРКЕТ")){
+            if(autoXCatalogTOMarketEntity==null){
+                autoXCatalogTOMarketEntity = price;
+                return autoXCatalogTOMarketEntity;
+            }
+            if (!autoXCatalogTOMarketEntity.getSupplier().equals("ТОМАРКЕТ")) {
+                    autoXCatalogTOMarketEntity = price;
+            }
+
+        }
+        return autoXCatalogTOMarketEntity;
+    }
+
+    private PriceAutoshop createAutoXCatalogAutoshopNetNextRowIfNecessary(PriceAutoshop commonPriceEntity, PriceAutoshop price, FileCreator fileCreator){
+        if(commonPriceEntity!=null){
+            if(price.getCode()!=null) {
+                if (!price.getCode().equalsIgnoreCase(commonPriceEntity.getCode())) {
+                    fileCreator.createNextRowAutoXCatalogAutoshopNet(commonPriceEntity);
+                    commonPriceEntity = price;
+                }
+            }
+        }
+        if(commonPriceEntity==null || price.getRetailPrice()<=commonPriceEntity.getRetailPrice()){
+            commonPriceEntity = price;
+        }
+        return commonPriceEntity;
+    }
+
     @Override
     public void iterateAllAndSaveToMainTable(Margin margin) {
+
+        sortPriceByArticule();
+
+        Comment comment = getComment();
 
         FileCreator fileCreator = FileCreatorContext.getStrategy(margin.getPriceName());
 
         int offset = 0;
 
+                PriceAutoshop commonPriceEntity = null;
+                PriceAutoshop autoXCatalogTOMarketEntity = null;
+                PriceAutoshop autoXCatalogAutoshopNetEntity = null;
+
         List<PriceAutoshop> priceList;
         //SortByPrice sbp = new SortByPrice();
-        fileCreator.prepareForReading();
+        fileCreator.prepareForReading("/output"+fileCreator.getSuffix());
+        fileCreator.prepareForReadingAutoXCatalogTOMarket("/outputto" + fileCreator.getSuffix());
+        fileCreator.prepareForReadingAutoXCatalogAutoshopNet("/outputauto"+fileCreator.getSuffix());
         fileCreator.createHeaders();
+        fileCreator.createHeadersAutoXCatalogTOMarket();
+        fileCreator.createHeadersAutoXCatalogAutoshopNet();
         while ((priceList = getAllModelsIterable(offset, PORTION)).size() > 0)
         {
             for (PriceAutoshop price : priceList)
             {
-                fileCreator.createNextRow(price);
+                commonPriceEntity = createCommonNextRowIfNecessary(commonPriceEntity, price, fileCreator);
+
+                autoXCatalogTOMarketEntity = createAutoXCatalogTOMarketNextRowIfNecessary(autoXCatalogTOMarketEntity, price, fileCreator, comment);
+
+                if(!price.getSupplier().equals("ТОМАРКЕТ")) {
+                    autoXCatalogAutoshopNetEntity = createAutoXCatalogAutoshopNetNextRowIfNecessary(autoXCatalogAutoshopNetEntity, price, fileCreator);
+                }
 
                 /*List <PriceAutoshop> duplicateList = daoPriceAshop.findByCode(price.getCode());
                 if(duplicateList!=null) {
@@ -111,7 +203,37 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
             entityManager.clear();
             offset += priceList.size();
         }
-        fileCreator.finishReading();
+        fileCreator.createNextRow(commonPriceEntity);
+        fileCreator.createNextRowAutoXCatalogTOMarket(autoXCatalogTOMarketEntity, comment);
+        if(autoXCatalogAutoshopNetEntity!=null) {
+            fileCreator.createNextRowAutoXCatalogAutoshopNet(autoXCatalogAutoshopNetEntity);
+        }
+        fileCreator.finishReadingAutoXCatalogTOMarket();
+        fileCreator.finishReadingAutoXCatalogAutoshopNet();
+    }
+
+    public Comment getComment() {
+        try{
+            entityManager.getTransaction().begin();
+            Query query = entityManager.createQuery("SELECT c FROM Comment c WHERE c.id ="+1, Comment.class);
+            Comment c = (Comment) query.getSingleResult();
+            entityManager.getTransaction().commit();
+            return c;
+        }catch(Exception e){
+            entityManager.getTransaction().rollback();
+            return null;
+        }
+    }
+
+    public void saveComment(Comment comment) {
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.persist(comment);
+            entityManager.getTransaction().commit();
+        }catch(Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -174,6 +296,25 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
         } catch(NoResultException e) {
             return null;
         }
+    }
+
+    @Override
+    public void sortPriceByArticule() {
+        try{
+        entityManager.getTransaction().begin();
+            Query q = entityManager.createNativeQuery("CREATE TABLE IF NOT EXISTS price_autoshop2 LIKE price_autoshop");
+            q.executeUpdate();
+            Query q1 = entityManager.createNativeQuery("INSERT INTO price_autoshop2 (brand, wholesale_price, retail_price, tomarket_retail, tomarket_wholesale, available, code, name, supplier, shelf, category, additional_information) SELECT brand, wholesale_price, retail_price, tomarket_retail, tomarket_wholesale, available, code, name, supplier, shelf, category, additional_information FROM price_autoshop ORDER BY code");
+            q1.executeUpdate();
+            Query q2 = entityManager.createNativeQuery("DROP TABLE price_autoshop");
+            q2.executeUpdate();
+            Query q3 = entityManager.createNativeQuery("RENAME TABLE price_autoshop2 TO price_autoshop");
+            q3.executeUpdate();
+        entityManager.getTransaction().commit();
+    } catch (Exception ex) {
+        entityManager.getTransaction().rollback();
+        ex.printStackTrace();
+    }
     }
 
 

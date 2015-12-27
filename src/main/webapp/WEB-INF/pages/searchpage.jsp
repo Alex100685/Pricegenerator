@@ -139,6 +139,7 @@
     <thead>
     <tr>
       <td align="center" style="width: 200px; "><b></b></td>
+      <td align="center" style="width: 200px; "><b></b></td>
       <td align="center"><b><form class="form-inline" role="form" action="/admin/searchByPrice" method="post" style="width: 200px; ">
         <button type="submit" class="search"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/search.png"> </button><input type="text" pattern = "^[0-9]+(\.[0-9]{1,3})?$" class="form-control" name="pattern" placeholder="по цене" style="width: 200px; ">
       </form></b></td>
@@ -150,6 +151,7 @@
         <button type="submit" class="search"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/search.png"> </button><input type="text" class="form-control" name="pattern" placeholder="по описанию" style="width: 200px; ">
       </form></b></td>
       <td align="center" style="width: 200px; "><b></b></td>
+      <td align="center" style="width: 200px; "><b></b></td>
 
     </tr>
     </thead>
@@ -159,22 +161,26 @@
     <tr>
 
       <th align="center" style="width: 200px; "><b>Бренд</b></th>
+      <th align="center" style="width: 200px; "><b>Закупочная цена</b></th>
       <th align="center" style="width: 200px; "><b>Розничная цена</b></th>
       <th align="center" style="width: 200px; "><b>Наличие всего</b></th>
       <th align="center" style="width: 200px; "><b>Код</b></th>
       <th align="center" style="width: 200px; "><b>Описание</b></th>
       <th align="center" style="width: 200px; "><b>Поставщик</b></th>
+      <th align="center" style="width: 200px; "><b>Полка</b></th>
     </tr>
     </thead>
 
       <c:forEach items="${mainprice}" var="price">
       <tr>
         <td align="right" style="width: 200px; ">${price.brand}</td>
+        <td align="center" style="width: 200px; ">${price.wholesalePrice}</td>
         <td align="center" style="width: 200px; ">${price.retailPrice}</td>
         <td align="center" style="width: 200px; ">${price.available}</td>
         <td align="center" style="width: 200px; ">${price.code}</td>
         <td align="center" style="width: 200px; ">${price.name}</td>
         <td align="center" style="width: 200px; ">${price.supplier}</td>
+        <td align="center" style="width: 200px; ">${price.shelf}</td>
       </tr>
       </c:forEach>
   </table>

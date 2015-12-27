@@ -26,6 +26,8 @@ public interface Manager {
 
     void saveUpdateFail(String updateName);
 
+    void saveUpdateEmpty(String updateName);
+
     void saveAllPriceIntercarsi(List<PriceIntercarsi> priceList);
 
     void saveAllPriceVlad(List<PriceVlad> priceList);
@@ -51,4 +53,24 @@ public interface Manager {
     List<PriceAutoshop> findAutoshopPriceByCode(String pattern);
 
     List<PriceAutoshop> findAutoshopPriceByName(String pattern);
+
+    void saveAllPriceTomarket(List <PriceTomarket> price);
+
+    void sortCommonTableByArticule();
+
+    List<BrandMatches> getBrandMatches();
+
+    void saveBrandMatch(BrandMatches bm);
+
+    BrandMatches findBrandMatchByName(String name);
+
+    void deleteBrandMatch(BrandMatches bm);
+
+    void saveComment(Comment comment);
+
+    Comment getComment();
+
+    void saveAllPriceUnicTrade(List<PriceUnicTrade> priceList);
+
+    void saveAllPriceElitOriginal(List<PriceElitOriginal> priceList);
 }

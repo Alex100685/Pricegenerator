@@ -3,6 +3,8 @@ package ua.autoshop.dal.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.filecreator.BrandMatcherContent;
+import ua.autoshop.utils.filecreator.CsvCreator;
 import ua.autoshop.utils.marginmaker.MarginMaker;
 
 import javax.persistence.EntityManager;
@@ -16,6 +18,11 @@ public class PriceAutotechnixDaoImpl implements Dao <PriceAutotechnix> {
 
     @Autowired
     EntityManager entityManager;
+
+    @Override
+    public List<PriceAutotechnix> findAll() {
+        return null;
+    }
 
     @Override
     public List<PriceAutoshop> findByCode(String code) {
@@ -66,6 +73,11 @@ public class PriceAutotechnixDaoImpl implements Dao <PriceAutotechnix> {
     }
 
     @Override
+    public void sortPriceByArticule() {
+
+    }
+
+    @Override
     public void saveList(List<PriceAutotechnix> priceList) {
         try{
             entityManager.getTransaction().begin();
@@ -95,10 +107,25 @@ public class PriceAutotechnixDaoImpl implements Dao <PriceAutotechnix> {
         }
     }
 
+    public Margin getMarginByName(String name) {
+        try{
+            entityManager.getTransaction().begin();
+            Query query = entityManager.createQuery("SELECT m FROM Margin m WHERE m.priceName ='"+name+"'", Margin.class);
+            Margin m = (Margin) query.getSingleResult();
+            entityManager.getTransaction().commit();
+            return m;
+        }catch(Exception e){
+            entityManager.getTransaction().rollback();
+            return null;
+        }
+    }
+
     @Override
     public void iterateAllAndSaveToMainTable(Margin margin) {
         int offset = 0;
+        Margin wholesaleMargin = getMarginByName("Автотехникс ОПТ");
 
+        CsvCreator csvCreator = new CsvCreator();
         List<PriceAutotechnix> priceList;
         while ((priceList = getAllModelsIterable(offset, PORTION)).size() > 0)
         {
@@ -107,13 +134,19 @@ public class PriceAutotechnixDaoImpl implements Dao <PriceAutotechnix> {
             {
                 PriceAutoshop priceAutoshop = new PriceAutoshop();
                 priceAutoshop.setName(price.getName());
-                priceAutoshop.setAvailable(price.getAvailableKiev1());
+                priceAutoshop.setAvailable(price.getAvailableKiev2());
                 priceAutoshop.setBrand(price.getBrand());
-                priceAutoshop.setCode(price.getCode());
+                String code = createTrueArticule(price, csvCreator);
+                priceAutoshop.setCode(code);
+                Double priceAshopWholesale = MarginMaker.addMarginToPrice(price.getPrice(), wholesaleMargin);
+                priceAshopWholesale = MarginMaker.roundPrice(priceAshopWholesale);
+                priceAutoshop.setWholesalePrice(priceAshopWholesale);
                 Double priceAshop = MarginMaker.addMarginToPrice(price.getPrice(), margin);
                 priceAshop = MarginMaker.roundPrice(priceAshop);
                 priceAutoshop.setRetailPrice(priceAshop);
                 priceAutoshop.setSupplier("Автотехникс");
+                priceAutoshop.setShelf("Автотехникс");
+                priceAutoshop.setAdditionalInformation("Доставка в течении 2 часов");
                 entityManager.persist(priceAutoshop);
                 price = null;
             }
@@ -123,6 +156,21 @@ public class PriceAutotechnixDaoImpl implements Dao <PriceAutotechnix> {
             entityManager.getTransaction().commit();
             offset += priceList.size();
         }
+    }
+
+    private String  createTrueArticule(PriceAutotechnix price, CsvCreator csvCreator){
+        String articule = price.getCode();
+        if(articule!=null){
+            articule = articule.trim();
+            if(price.getBrand()!=null) {
+                BrandMatcherContent bmc = csvCreator.getBrandMatchesMap().get(price.getBrand().trim());
+                if (bmc!=null){
+                    articule = articule.replace(bmc.getArtCut(), "");
+                }
+
+            }
+        }
+        return articule;
     }
 
     @Override

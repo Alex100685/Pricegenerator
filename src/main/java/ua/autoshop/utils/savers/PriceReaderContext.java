@@ -5,10 +5,7 @@ import ua.autoshop.model.*;
 import ua.autoshop.utils.savers.impl.*;
 import ua.autoshop.utils.savers.impl.csv.PriceAutotechnixReader;
 import ua.autoshop.utils.savers.impl.csv.PriceVladReader;
-import ua.autoshop.utils.savers.impl.excel.PriceAmperisReader;
-import ua.autoshop.utils.savers.impl.excel.PriceElitReader;
-import ua.autoshop.utils.savers.impl.excel.PriceGenstarReader;
-import ua.autoshop.utils.savers.impl.excel.PriseIntercarsReader;
+import ua.autoshop.utils.savers.impl.excel.*;
 
 /**
  * Created by Пользователь on 09.10.2015.
@@ -36,6 +33,15 @@ public class PriceReaderContext {
         }
         if(index.equals("amp")){
             baseReader = new PriceAmperisReader(PriceAmperis.class);
+        }
+        if(index.equals("to")){
+            baseReader = new PriceTomarketReader(PriceTomarket.class);
+        }
+        if(index.equals("unic")){
+            baseReader = new PriceUnicTradeReader(PriceUnicTrade.class);
+        }
+        if(index.equals("eo")){
+            baseReader = new PriceElitOriginalReader(PriceElitOriginal.class);
         }
 
         return baseReader;
