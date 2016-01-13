@@ -132,11 +132,15 @@ public class PriceGenstarDaoImpl implements Dao<PriceGenstar> {
     private String  createTrueArticule(PriceGenstar price, CsvCreator csvCreator){
         String articule = price.getProductCode();
         if(articule!=null){
+            articule = articule.replaceAll(" ","");
             articule = articule.trim();
             if(price.getBrand()!=null) {
                 BrandMatcherContent bmc = csvCreator.getBrandMatchesMap().get(price.getBrand().trim());
                 if (bmc!=null){
-                    articule = articule.replace(bmc.getArtCut(), "");
+                    List <String> attributesToCut = csvCreator.getArticuleMatchesMap().get(price.getBrand().trim());
+                    for(String attr : attributesToCut){
+                        articule = articule.replace(attr, "");
+                    }
                 }
 
             }
@@ -173,5 +177,10 @@ public class PriceGenstarDaoImpl implements Dao<PriceGenstar> {
     @Override
     public void sortPriceByArticule() {
 
+    }
+
+    @Override
+    public PriceGenstar findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
     }
 }

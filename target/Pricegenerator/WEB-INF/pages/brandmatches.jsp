@@ -163,7 +163,7 @@
         <td align="center" style="width: 200px; ">${match.priceBrand}</td>
         <td align="center" style="width: 200px; ">${match.priceBrandMatch}</td>
         <td align="center" style="width: 200px; ">${match.cutFromArticule}</td>
-        <td align="center" style="width: 200px; "><a class="search" title="Удалить соответствие" href="/admin/deleteMatch?name=${match.priceBrand}"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+        <td align="center" style="width: 200px; "><a class="search" title="Удалить соответствие" href="/admin/deleteMatch?brand=${match.priceBrand}&trueBrand=${match.priceBrandMatch}&cut=${match.cutFromArticule}"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
       </tr>
     </c:forEach>
   </table>

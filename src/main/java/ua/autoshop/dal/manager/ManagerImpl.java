@@ -358,6 +358,11 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
+    public BrandMatches findBrandMatchByBrandAndTrueBrandAndCut(String brand, String trueBrand, String cut) {
+        return daoBrandMatches.findByThreeParams(brand, trueBrand, cut);
+    }
+
+    @Override
     public void deleteBrandMatch(BrandMatches bm) {
         daoBrandMatches.delete(bm);
     }

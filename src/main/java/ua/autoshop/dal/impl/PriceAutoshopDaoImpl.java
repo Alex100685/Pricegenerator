@@ -317,5 +317,10 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
     }
     }
 
+    @Override
+    public PriceAutoshop findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
+
 
 }

@@ -1526,7 +1526,7 @@ public class AppController {
             @RequestParam (value="to") String to,
             @RequestParam (value="cut") String cut
     ){
-        BrandMatches bm = manager.findBrandMatchByName(from);
+        BrandMatches bm = manager.findBrandMatchByBrandAndTrueBrandAndCut(from, to, cut);
         if(bm==null){
             bm = new BrandMatches();
             bm.setPriceBrand(from.trim());
@@ -1548,8 +1548,10 @@ public class AppController {
     public ModelAndView deleteMatch(
             HttpServletRequest request
     ){
-        String name = request.getParameter("name");
-        BrandMatches bm = manager.findBrandMatchByName(name);
+        String brand = request.getParameter("brand");
+        String trueBrand = request.getParameter("trueBrand");
+        String cut = request.getParameter("cut");
+        BrandMatches bm = manager.findBrandMatchByBrandAndTrueBrandAndCut(brand, trueBrand, cut);
         manager.deleteBrandMatch(bm);
 
         return new ModelAndView("brandmatches", "barndmatchesList", manager.getBrandMatches());

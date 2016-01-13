@@ -114,4 +114,16 @@ public class BrandMatchesImpl implements Dao <BrandMatches> {
     public void sortPriceByArticule() {
 
     }
+
+    @Override
+    public BrandMatches findByThreeParams(String brand, String trueBrand, String cut) {
+        try {
+            Query query = entityManager.createQuery("SELECT b FROM BrandMatches b WHERE b.priceBrand ='" + brand + "' AND b.priceBrandMatch = '"+trueBrand+"' AND b.cutFromArticule = '"+cut+"'", BrandMatches.class);
+            BrandMatches b = (BrandMatches) query.getSingleResult();
+            return b;
+        }
+        catch (NoResultException e){
+            return null;
+        }
+    }
 }

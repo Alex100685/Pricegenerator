@@ -129,11 +129,15 @@ public class PriceIntercarsiDaoImpl implements Dao<PriceIntercarsi> {
     private String  createTrueArticule(PriceIntercarsi price, CsvCreator csvCreator){
         String articule = price.getArticule();
         if(articule!=null){
+            articule = articule.replaceAll(" ","");
             articule = articule.trim();
             if(price.getBrand()!=null) {
                 BrandMatcherContent bmc = csvCreator.getBrandMatchesMap().get(price.getBrand().trim());
                 if (bmc!=null){
-                    articule = articule.replace(bmc.getArtCut(), "");
+                    List <String> attributesToCut = csvCreator.getArticuleMatchesMap().get(price.getBrand().trim());
+                    for(String attr : attributesToCut){
+                        articule = articule.replace(attr, "");
+                    }
                 }
 
             }
@@ -178,5 +182,10 @@ public class PriceIntercarsiDaoImpl implements Dao<PriceIntercarsi> {
     @Override
     public void sortPriceByArticule() {
 
+    }
+
+    @Override
+    public PriceIntercarsi findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
     }
 }

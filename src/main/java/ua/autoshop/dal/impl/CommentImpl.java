@@ -3,10 +3,7 @@ package ua.autoshop.dal.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
 import ua.autoshop.dal.manager.Manager;
-import ua.autoshop.model.BaseModel;
-import ua.autoshop.model.Comment;
-import ua.autoshop.model.Margin;
-import ua.autoshop.model.PriceAutoshop;
+import ua.autoshop.model.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -105,5 +102,10 @@ public class CommentImpl implements Dao {
     @Override
     public void sortPriceByArticule() {
 
+    }
+
+    @Override
+    public Comment findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
     }
 }

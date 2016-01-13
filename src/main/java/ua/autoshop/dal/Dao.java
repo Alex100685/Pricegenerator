@@ -38,4 +38,6 @@ public interface Dao <T extends BaseModel> {
     List<PriceAutoshop> getByName(String pattern);
 
     void sortPriceByArticule();
+
+    T findByThreeParams(String brand, String trueBrand, String cut);
 }

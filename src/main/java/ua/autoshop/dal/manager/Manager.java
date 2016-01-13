@@ -64,6 +64,8 @@ public interface Manager {
 
     BrandMatches findBrandMatchByName(String name);
 
+    BrandMatches findBrandMatchByBrandAndTrueBrandAndCut(String brand, String trueBrand, String cut);
+
     void deleteBrandMatch(BrandMatches bm);
 
     void saveComment(Comment comment);

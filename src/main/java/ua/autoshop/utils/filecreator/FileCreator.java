@@ -6,6 +6,7 @@ import ua.autoshop.model.BrandMatches;
 import ua.autoshop.model.Comment;
 import ua.autoshop.model.PriceAutoshop;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,12 +24,29 @@ public abstract class FileCreator {
             bmc.setTrueBrand(brandMatch.getPriceBrandMatch());
             bmc.setArtCut(brandMatch.getCutFromArticule());
             brandMatchesMap.put(brandMatch.getPriceBrand(), bmc);
+            if(articuleMatchesMap.get(brandMatch.getPriceBrand())==null){
+                List <String> cutList = new ArrayList<>();
+                if(brandMatch.getCutFromArticule()!=null && !brandMatch.getCutFromArticule().equals("")) {
+                    cutList.add(brandMatch.getCutFromArticule());
+                }
+                articuleMatchesMap.put(brandMatch.getPriceBrand(), cutList);
+            }else{
+                List <String> cutList = articuleMatchesMap.get(brandMatch.getPriceBrand());
+                if(brandMatch.getCutFromArticule()!=null && !brandMatch.getCutFromArticule().equals("")) {
+                    cutList.add(brandMatch.getCutFromArticule());
+                }
+                articuleMatchesMap.put(brandMatch.getPriceBrand(), cutList);
+            }
         }
     }
+
+
 
     Manager fileCreatorManager;
 
     protected Map<String, BrandMatcherContent> brandMatchesMap = new HashMap<>();
+
+    protected Map<String, List <String>> articuleMatchesMap = new HashMap<>();
 
     protected static final String TEMP_DIR =  "java.io.tmpdir";
 
@@ -66,4 +84,11 @@ public abstract class FileCreator {
         this.brandMatchesMap = brandMatchesMap;
     }
 
+    public Map<String, List<String>> getArticuleMatchesMap() {
+        return articuleMatchesMap;
+    }
+
+    public void setArticuleMatchesMap(Map<String, List<String>> articuleMatchesMap) {
+        this.articuleMatchesMap = articuleMatchesMap;
+    }
 }

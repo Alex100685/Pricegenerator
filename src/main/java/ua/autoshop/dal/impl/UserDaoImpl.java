@@ -80,6 +80,11 @@ public class UserDaoImpl implements Dao<User> {
     }
 
     @Override
+    public User findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
+
+    @Override
     public void saveList(List<User> priceList) {
 
     }

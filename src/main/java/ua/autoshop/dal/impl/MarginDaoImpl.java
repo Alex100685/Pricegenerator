@@ -101,4 +101,9 @@ public class MarginDaoImpl implements Dao {
     public void sortPriceByArticule() {
 
     }
+
+    @Override
+    public Margin findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
 }

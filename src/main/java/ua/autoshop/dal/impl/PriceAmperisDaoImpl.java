@@ -138,11 +138,15 @@ public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
     private String  createTrueArticule(PriceAmperis price, CsvCreator csvCreator){
         String articule = price.getFullCode();
         if(articule!=null){
+            articule = articule.replaceAll(" ","");
             articule = articule.trim();
             if(price.getProductGroup()!=null) {
                 BrandMatcherContent bmc = csvCreator.getBrandMatchesMap().get(price.getProductGroup().trim());
                 if (bmc!=null){
-                    articule = articule.replace(bmc.getArtCut(), "");
+                    List <String> attributesToCut = csvCreator.getArticuleMatchesMap().get(price.getProductGroup().trim());
+                    for(String attr : attributesToCut){
+                        articule = articule.replace(attr, "");
+                    }
                 }
 
             }
@@ -188,5 +192,10 @@ public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
     @Override
     public void sortPriceByArticule() {
 
+    }
+
+    @Override
+    public PriceAmperis findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
     }
 }

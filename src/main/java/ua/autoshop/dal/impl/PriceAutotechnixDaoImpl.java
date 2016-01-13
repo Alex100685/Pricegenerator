@@ -78,6 +78,11 @@ public class PriceAutotechnixDaoImpl implements Dao <PriceAutotechnix> {
     }
 
     @Override
+    public PriceAutotechnix findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
+
+    @Override
     public void saveList(List<PriceAutotechnix> priceList) {
         try{
             entityManager.getTransaction().begin();
@@ -161,13 +166,16 @@ public class PriceAutotechnixDaoImpl implements Dao <PriceAutotechnix> {
     private String  createTrueArticule(PriceAutotechnix price, CsvCreator csvCreator){
         String articule = price.getCode();
         if(articule!=null){
+            articule = articule.replaceAll(" ","");
             articule = articule.trim();
             if(price.getBrand()!=null) {
                 BrandMatcherContent bmc = csvCreator.getBrandMatchesMap().get(price.getBrand().trim());
                 if (bmc!=null){
-                    articule = articule.replace(bmc.getArtCut(), "");
+                    List <String> attributesToCut = csvCreator.getArticuleMatchesMap().get(price.getBrand().trim());
+                    for(String attr : attributesToCut){
+                        articule = articule.replace(attr, "");
+                    }
                 }
-
             }
         }
         return articule;

@@ -30,71 +30,33 @@
       <file leaf-file-name="PriceAutoshopDaoImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAutoshopDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1445" max-vertical-offset="5168">
-              <caret line="117" column="50" selection-start-line="117" selection-start-column="50" selection-end-line="117" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="5049" max-vertical-offset="5219">
+              <caret line="320" column="24" selection-start-line="320" selection-start-column="24" selection-end-line="320" selection-end-column="24" />
               <folding>
-                <marker date="1450298743516" expanded="true" signature="2400:2426" placeholder="DELETE FROM ..." />
-                <marker date="1450298743516" expanded="true" signature="9302:9349" placeholder="SELECT * FRO..price_autoshop..." />
-                <marker date="1450298743516" expanded="true" signature="11616:11678" placeholder="CREATE TABLE..IF..." />
-                <marker date="1450298743516" expanded="true" signature="11769:12135" placeholder="INSERT INTO ..." />
-                <marker date="1450298743516" expanded="true" signature="11947:12121" placeholder="SELECT brand..price_autoshop..." />
-                <marker date="1450298743516" expanded="true" signature="12227:12252" placeholder="DROP TABLE p..." />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1039#1040#0" expanded="false" />
+                <element signature="e#1066#1067#0" expanded="false" />
+                <element signature="e#1875#1876#0" expanded="false" />
+                <element signature="e#1902#1903#0" expanded="false" />
+                <element signature="e#12699#12700#0" expanded="false" />
+                <element signature="e#12726#12727#0" expanded="false" />
+                <marker date="1451294269011" expanded="true" signature="2400:2426" placeholder="DELETE FROM ..." />
+                <marker date="1451294269011" expanded="true" signature="9302:9349" placeholder="SELECT * FRO..price_autoshop..." />
+                <marker date="1451294269011" expanded="true" signature="11616:11678" placeholder="CREATE TABLE..IF..." />
+                <marker date="1451294269011" expanded="true" signature="11769:12135" placeholder="INSERT INTO ..." />
+                <marker date="1451294269011" expanded="true" signature="11947:12121" placeholder="SELECT brand..price_autoshop..." />
+                <marker date="1451294269011" expanded="true" signature="12227:12252" placeholder="DROP TABLE p..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManagerImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/manager/ManagerImpl.java">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1491" max-vertical-offset="6766">
-              <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+            <state vertical-scroll-proportion="82.69231" vertical-offset="6179" max-vertical-offset="7004">
+              <caret line="237" column="83" selection-start-line="237" selection-start-column="83" selection-end-line="237" selection-end-column="83" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseCsvReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/csv/BaseCsvReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1921">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PriceReaderContext.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/PriceReaderContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="867">
-              <caret line="43" column="78" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PriceTomarketImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceTomarketImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.5370152" vertical-offset="0" max-vertical-offset="2941">
-              <caret line="142" column="69" selection-start-line="142" selection-start-column="69" selection-end-line="142" selection-end-column="69" />
-              <folding>
-                <marker date="1449872175441" expanded="true" signature="1857:1883" placeholder="DELETE FROM ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileCreator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/FileCreator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="1139">
-              <caret line="60" column="44" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
-              <folding>
-                <element signature="e#2050#2051#0" expanded="true" />
-                <element signature="e#2088#2089#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -102,33 +64,11 @@
       <file leaf-file-name="PriceAmperisDaoImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAmperisDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2975">
-              <caret line="112" column="61" selection-start-line="112" selection-start-column="61" selection-end-line="112" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1853" max-vertical-offset="3094">
+              <caret line="137" column="63" selection-start-line="137" selection-start-column="63" selection-end-line="137" selection-end-column="63" />
               <folding>
-                <marker date="1450114505880" expanded="true" signature="1877:1902" placeholder="DELETE FROM ..." />
+                <marker date="1452538111699" expanded="true" signature="1877:1902" placeholder="DELETE FROM ..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PriceElitOriginalDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceElitOriginalDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="2873">
-              <caret line="121" column="83" selection-start-line="121" selection-start-column="83" selection-end-line="121" selection-end-column="83" />
-              <folding>
-                <marker date="1450114949516" expanded="true" signature="2016:2047" placeholder="DELETE FROM ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/controller/AppController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="25242" max-vertical-offset="26945">
-              <caret line="1528" column="16" selection-start-line="1528" selection-start-column="16" selection-end-line="1528" selection-end-column="16" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -136,8 +76,18 @@
       <file leaf-file-name="CsvCreator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/CsvCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="5185">
-              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5185">
+              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileCreator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/FileCreator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.74041814" vertical-offset="51" max-vertical-offset="1479">
+              <caret line="37" column="76" selection-start-line="37" selection-start-column="76" selection-end-line="37" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -148,13 +98,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/BrandMatchesMap.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/BrandMatchesImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/model/BrandMatches.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/brandmatches.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/BrandMatcherContent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginTomarketRetail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginVladWholesale.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginAmperisWholesale.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginAutotechnixWholesale.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginElitWholesale.java" />
@@ -162,10 +105,7 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaulyMarginIntercarsWholesale.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginIntercarsWholesale.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/model/Comment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/CommentImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/FileCreator.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceTomarketImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/security/CustomUserDetailsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/model/PriceAutoshop2.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/model/UnicTrade.java" />
@@ -178,27 +118,37 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/retailAdministration.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/config/AppConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/PriceReaderContext.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/manager/Manager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/manager/ManagerImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/controller/AppController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/model/PriceAutoshop.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAmperisDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceGenstarDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceGerasimenkoDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceIntercarsiDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/PriceElitOriginalReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/model/PriceElitOriginal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceElitOriginalDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceVladDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/model/PriceUnicTrade.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/PriceUnicTradeReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/marginmaker/MarginMaker.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceUnicTradeDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAutotechnixDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAutoshopDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/CsvCreator.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/ExcelCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/PriceElitReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/manager/Manager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/Dao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/UpdatesDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/MarginDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/CommentImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAutoshopDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/BrandMatchesImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/FileCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/manager/ManagerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/controller/AppController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/brandmatches.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAutotechnixDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceElitOriginalDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceGenstarDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceGerasimenkoDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceIntercarsiDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceTomarketImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceUnicTradeDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceVladDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAmperisDaoImpl.java" />
       </list>
     </option>
   </component>
@@ -1557,47 +1507,53 @@
       <workItem from="1450893730768" duration="1641000" />
       <workItem from="1450895984491" duration="305000" />
       <workItem from="1450896510670" duration="1071000" />
-      <workItem from="1451226325363" duration="221000" />
+      <workItem from="1451226325363" duration="777000" />
+      <workItem from="1451286026194" duration="13578000" />
+      <workItem from="1451301107085" duration="96000" />
+      <workItem from="1452157117093" duration="4271000" />
+      <workItem from="1452330763690" duration="10155000" />
+      <workItem from="1452353708240" duration="7624000" />
+      <workItem from="1452537168844" duration="3764000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="547184000" />
+    <option name="totallyTimeSpent" value="587228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36434978" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3251121" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295964" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18571429" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20654762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39013454" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2600897" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3251121" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20654762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39013454" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2600897" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39910313" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3251121" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295964" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1650,34 +1606,16 @@
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAmperisDaoImpl.java</url>
-          <line>144</line>
-          <properties />
-          <option name="timeStamp" value="144" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceGenstarDaoImpl.java</url>
-          <line>138</line>
-          <properties />
-          <option name="timeStamp" value="146" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceIntercarsiDaoImpl.java</url>
           <line>96</line>
           <properties />
           <option name="timeStamp" value="159" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/CsvCreator.java</url>
-          <line>188</line>
-          <properties />
-          <option name="timeStamp" value="186" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="193" />
+      <option name="time" value="208" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1686,62 +1624,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginUnicTradeWholesale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginUnicTrade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginElit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginElitOriginal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginElitOriginalWholesale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/retailAdministration.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7845" max-vertical-offset="8959">
-          <caret line="471" column="86" selection-start-line="471" selection-start-column="86" selection-end-line="471" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/model/PriceTomarket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2023">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/manager/Manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="341" max-vertical-offset="1309">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/PriseIntercarsReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5868056" vertical-offset="513" max-vertical-offset="1802">
@@ -1756,31 +1638,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="3876">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5312" max-vertical-offset="6137">
-          <caret line="343" column="42" selection-start-line="343" selection-start-column="42" selection-end-line="343" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/model/PriceElitOriginal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1360">
           <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/PriceElitOriginalReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="513" max-vertical-offset="1479">
-          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1805,62 +1666,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceGenstarDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2754">
-          <caret line="118" column="85" selection-start-line="118" selection-start-column="85" selection-end-line="118" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceIntercarsiDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1165" max-vertical-offset="2839">
-          <caret line="116" column="16" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/UpdatesDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/config/ApplicationContextHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/csv/PriceAutotechnixReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1496">
-          <caret line="75" column="45" selection-start-line="75" selection-start-column="45" selection-end-line="75" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/PriceElitReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1377">
-          <caret line="73" column="37" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/config/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1768">
-          <caret line="62" column="11" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1871,83 +1680,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/CommentImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/BrandMatchesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="1802">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/model/PriceAutoshop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="1955">
           <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="40" />
-          <folding>
-            <element signature="e#1157#1158#0" expanded="false" />
-            <element signature="e#1201#1202#0" expanded="false" />
-            <element signature="e#1382#1383#0" expanded="false" />
-            <element signature="e#1419#1420#0" expanded="false" />
-            <element signature="e#1479#1480#0" expanded="false" />
-            <element signature="e#1531#1532#0" expanded="false" />
-            <element signature="e#1575#1576#0" expanded="false" />
-            <element signature="e#1615#1616#0" expanded="false" />
-            <element signature="e#1681#1682#0" expanded="false" />
-            <element signature="e#1739#1740#0" expanded="false" />
-            <element signature="e#1774#1775#0" expanded="false" />
-            <element signature="e#1805#1806#0" expanded="false" />
-            <element signature="e#1853#1854#0" expanded="false" />
-            <element signature="e#1893#1894#0" expanded="false" />
-            <element signature="e#1925#1926#0" expanded="false" />
-            <element signature="e#1953#1954#0" expanded="false" />
-            <element signature="e#1995#1996#0" expanded="false" />
-            <element signature="e#2029#2030#0" expanded="false" />
-            <element signature="e#2064#2065#0" expanded="false" />
-            <element signature="e#2095#2096#0" expanded="false" />
-            <element signature="e#2143#2144#0" expanded="false" />
-            <element signature="e#2183#2184#0" expanded="false" />
-            <element signature="e#2209#2210#0" expanded="false" />
-            <element signature="e#2234#2235#0" expanded="false" />
-            <element signature="e#2267#2268#0" expanded="false" />
-            <element signature="e#2295#2296#0" expanded="false" />
-            <element signature="e#2327#2328#0" expanded="false" />
-            <element signature="e#2355#2356#0" expanded="false" />
-            <element signature="e#2397#2398#0" expanded="false" />
-            <element signature="e#2431#2432#0" expanded="false" />
-            <element signature="e#2469#2470#0" expanded="false" />
-            <element signature="e#2503#2504#0" expanded="false" />
-            <element signature="e#2557#2558#0" expanded="false" />
-            <element signature="e#2603#2604#0" expanded="false" />
-            <element signature="e#2639#2640#0" expanded="false" />
-            <element signature="e#2671#2672#0" expanded="false" />
-            <element signature="e#2721#2722#0" expanded="false" />
-            <element signature="e#2763#2764#0" expanded="false" />
-            <element signature="e#2794#2795#0" expanded="false" />
-            <element signature="e#2821#2822#0" expanded="false" />
-            <element signature="e#2861#2862#0" expanded="false" />
-            <element signature="e#2893#2894#0" expanded="false" />
-            <element signature="e#2924#2925#0" expanded="false" />
-            <element signature="e#2951#2952#0" expanded="false" />
-            <element signature="e#2991#2992#0" expanded="false" />
-            <element signature="e#3023#3024#0" expanded="false" />
-            <element signature="e#3064#3065#0" expanded="false" />
-            <element signature="e#3101#3102#0" expanded="false" />
-            <element signature="e#3161#3162#0" expanded="false" />
-            <element signature="e#3213#3214#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/Dao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="191" max-vertical-offset="765">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1958,169 +1694,423 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/BrandMatcherContent.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/PriceReaderContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16472869" vertical-offset="0" max-vertical-offset="516">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
+          <caret line="43" column="78" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/BaseExcelReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1377314" vertical-offset="54" max-vertical-offset="1785">
+          <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/PriceElitOriginalReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3900463" vertical-offset="547" max-vertical-offset="1411">
+          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/PriceAmperisReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6493056" vertical-offset="153" max-vertical-offset="1122">
+          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/writer/ExcelWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="884">
+        <state vertical-scroll-proportion="0.4097222" vertical-offset="20" max-vertical-offset="884">
           <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceUnicTradeDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/BaseReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="3026">
-          <caret line="123" column="61" selection-start-line="123" selection-start-column="61" selection-end-line="123" selection-end-column="61" />
+        <state vertical-scroll-proportion="-0.25578704" vertical-offset="663" max-vertical-offset="2550">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceGerasimenkoDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/PriceElitReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="2839">
-          <caret line="110" column="97" selection-start-line="110" selection-start-column="97" selection-end-line="110" selection-end-column="97" />
+        <state vertical-scroll-proportion="1.1805556" vertical-offset="51" max-vertical-offset="1377">
+          <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/excel/PriceGenstarReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.082175925" vertical-offset="190" max-vertical-offset="1105">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/csv/PriceVladReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1105">
+        <state vertical-scroll-proportion="0.09490741" vertical-offset="241" max-vertical-offset="1105">
           <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceVladDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/csv/PriceAutotechnixReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2839">
-          <caret line="121" column="34" selection-start-line="121" selection-start-column="34" selection-end-line="121" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/MarginDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="1564">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAutotechnixDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1801" max-vertical-offset="2822">
-          <caret line="143" column="91" selection-start-line="143" selection-start-column="91" selection-end-line="143" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/ExcelCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4049" max-vertical-offset="4913">
-          <caret line="231" column="45" selection-start-line="231" selection-start-column="45" selection-end-line="231" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/model/BrandMatches.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/controller/AppController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="25242" max-vertical-offset="26945">
-          <caret line="1528" column="16" selection-start-line="1528" selection-start-column="16" selection-end-line="1528" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAmperisDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1428" max-vertical-offset="2975">
-          <caret line="112" column="61" selection-start-line="112" selection-start-column="61" selection-end-line="112" selection-end-column="61" />
-          <folding>
-            <marker date="1450114505880" expanded="true" signature="1877:1902" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceElitOriginalDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="2873">
-          <caret line="121" column="83" selection-start-line="121" selection-start-column="83" selection-end-line="121" selection-end-column="83" />
-          <folding>
-            <marker date="1450114949516" expanded="true" signature="2016:2047" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/CsvCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="5185">
-          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAutoshopDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1445" max-vertical-offset="5168">
-          <caret line="117" column="50" selection-start-line="117" selection-start-column="50" selection-end-line="117" selection-end-column="50" />
-          <folding>
-            <marker date="1450298743516" expanded="true" signature="2400:2426" placeholder="DELETE FROM ..." />
-            <marker date="1450298743516" expanded="true" signature="9302:9349" placeholder="SELECT * FRO..price_autoshop..." />
-            <marker date="1450298743516" expanded="true" signature="11616:11678" placeholder="CREATE TABLE..IF..." />
-            <marker date="1450298743516" expanded="true" signature="11769:12135" placeholder="INSERT INTO ..." />
-            <marker date="1450298743516" expanded="true" signature="11947:12121" placeholder="SELECT brand..price_autoshop..." />
-            <marker date="1450298743516" expanded="true" signature="12227:12252" placeholder="DROP TABLE p..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/manager/ManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1491" max-vertical-offset="6766">
-          <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.48842594" vertical-offset="632" max-vertical-offset="1496">
+          <caret line="75" column="45" selection-start-line="75" selection-start-column="45" selection-end-line="75" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/impl/csv/BaseCsvReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1921">
+        <state vertical-scroll-proportion="0.11805555" vertical-offset="0" max-vertical-offset="1921">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/combiner/dafaultmargin/DefaultMarginAutotechnix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/BrandMatcherContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/manager/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="827" max-vertical-offset="1343">
+          <caret line="66" column="101" selection-start-line="66" selection-start-column="101" selection-end-line="66" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/Dao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="283" max-vertical-offset="799">
+          <caret line="41" column="68" selection-start-line="41" selection-start-column="68" selection-end-line="41" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/ExcelCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1286" max-vertical-offset="4913">
+          <caret line="231" column="45" selection-start-line="231" selection-start-column="45" selection-end-line="231" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/manager/ManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5502" max-vertical-offset="6851">
+          <caret line="361" column="72" selection-start-line="361" selection-start-column="72" selection-end-line="361" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/model/BrandMatches.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45470384" vertical-offset="164" max-vertical-offset="833">
+          <caret line="25" column="34" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/brandmatches.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76448596" vertical-offset="2396" max-vertical-offset="3009">
+          <caret line="165" column="210" selection-start-line="165" selection-start-column="210" selection-end-line="165" selection-end-column="210" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/controller/AppController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9111498" vertical-offset="25436" max-vertical-offset="26979">
+          <caret line="1552" column="49" selection-start-line="1552" selection-start-column="49" selection-end-line="1552" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/savers/PriceReaderContext.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/config/AppConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
-          <caret line="43" column="78" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1768">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/FileCreator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/BrandMatchesImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="1139">
-          <caret line="60" column="44" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1452" max-vertical-offset="2006">
+          <caret line="120" column="179" selection-start-line="120" selection-start-column="179" selection-end-line="120" selection-end-column="179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/CommentImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="768" max-vertical-offset="1666">
+          <caret line="107" column="18" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/MarginDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1116" max-vertical-offset="1649">
+          <caret line="105" column="17" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2789352" vertical-offset="0" max-vertical-offset="1666">
+          <caret line="82" column="16" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAutotechnixDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2056" max-vertical-offset="2924">
+          <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceElitOriginalDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1818" max-vertical-offset="2992">
+          <caret line="134" column="51" selection-start-line="134" selection-start-column="51" selection-end-line="134" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceGenstarDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1784" max-vertical-offset="2873">
+          <caret line="134" column="51" selection-start-line="134" selection-start-column="51" selection-end-line="134" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceGerasimenkoDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1767" max-vertical-offset="2941">
+          <caret line="130" column="51" selection-start-line="130" selection-start-column="51" selection-end-line="130" selection-end-column="51" />
           <folding>
-            <element signature="e#2050#2051#0" expanded="true" />
-            <element signature="e#2088#2089#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#634#635#0" expanded="false" />
+            <element signature="e#661#662#0" expanded="false" />
+            <element signature="e#733#734#0" expanded="false" />
+            <element signature="e#760#761#0" expanded="false" />
+            <element signature="e#829#830#0" expanded="false" />
+            <element signature="e#856#857#0" expanded="false" />
+            <element signature="e#5926#5927#0" expanded="false" />
+            <element signature="e#5953#5954#0" expanded="false" />
+            <element signature="e#6027#6028#0" expanded="false" />
+            <element signature="e#6054#6055#0" expanded="false" />
+            <element signature="e#6128#6129#0" expanded="false" />
+            <element signature="e#6155#6156#0" expanded="false" />
+            <element signature="e#6324#6325#0" expanded="false" />
+            <element signature="e#6351#6352#0" expanded="false" />
+            <marker date="1452157534887" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceIntercarsiDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1733" max-vertical-offset="2958">
+          <caret line="131" column="51" selection-start-line="131" selection-start-column="51" selection-end-line="131" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#631#632#0" expanded="false" />
+            <element signature="e#658#659#0" expanded="false" />
+            <element signature="e#730#731#0" expanded="false" />
+            <element signature="e#757#758#0" expanded="false" />
+            <element signature="e#825#826#0" expanded="false" />
+            <element signature="e#852#853#0" expanded="false" />
+            <element signature="e#5865#5866#0" expanded="false" />
+            <element signature="e#5892#5893#0" expanded="false" />
+            <element signature="e#5966#5967#0" expanded="false" />
+            <element signature="e#5993#5994#0" expanded="false" />
+            <element signature="e#6067#6068#0" expanded="false" />
+            <element signature="e#6094#6095#0" expanded="false" />
+            <element signature="e#6262#6263#0" expanded="false" />
+            <element signature="e#6289#6290#0" expanded="false" />
+            <marker date="1452157534932" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceTomarketImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5370152" vertical-offset="0" max-vertical-offset="2941">
-          <caret line="142" column="69" selection-start-line="142" selection-start-column="69" selection-end-line="142" selection-end-column="69" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1894" max-vertical-offset="3043">
+          <caret line="138" column="51" selection-start-line="138" selection-start-column="51" selection-end-line="138" selection-end-column="51" />
           <folding>
-            <marker date="1449872175441" expanded="true" signature="1857:1883" placeholder="DELETE FROM ..." />
+            <element signature="imports" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+            <element signature="e#650#651#0" expanded="false" />
+            <element signature="e#722#723#0" expanded="false" />
+            <element signature="e#749#750#0" expanded="false" />
+            <element signature="e#815#816#0" expanded="false" />
+            <element signature="e#842#843#0" expanded="false" />
+            <element signature="e#6231#6232#0" expanded="false" />
+            <element signature="e#6258#6259#0" expanded="false" />
+            <element signature="e#6332#6333#0" expanded="false" />
+            <element signature="e#6359#6360#0" expanded="false" />
+            <element signature="e#6433#6434#0" expanded="false" />
+            <element signature="e#6460#6461#0" expanded="false" />
+            <element signature="e#6626#6627#0" expanded="false" />
+            <element signature="e#6653#6654#0" expanded="false" />
+            <marker date="1452157534918" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceUnicTradeDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1988" max-vertical-offset="3145">
+          <caret line="143" column="51" selection-start-line="143" selection-start-column="51" selection-end-line="143" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#629#630#0" expanded="false" />
+            <element signature="e#656#657#0" expanded="false" />
+            <element signature="e#728#729#0" expanded="false" />
+            <element signature="e#755#756#0" expanded="false" />
+            <element signature="e#822#823#0" expanded="false" />
+            <element signature="e#849#850#0" expanded="false" />
+            <element signature="e#6473#6474#0" expanded="false" />
+            <element signature="e#6500#6501#0" expanded="false" />
+            <element signature="e#6574#6575#0" expanded="false" />
+            <element signature="e#6601#6602#0" expanded="false" />
+            <element signature="e#6675#6676#0" expanded="false" />
+            <element signature="e#6702#6703#0" expanded="false" />
+            <element signature="e#6869#6870#0" expanded="false" />
+            <element signature="e#6896#6897#0" expanded="false" />
+            <marker date="1452157540658" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceVladDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1655" max-vertical-offset="2941">
+          <caret line="130" column="51" selection-start-line="130" selection-start-column="51" selection-end-line="130" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#613#614#0" expanded="false" />
+            <element signature="e#640#641#0" expanded="false" />
+            <element signature="e#712#713#0" expanded="false" />
+            <element signature="e#739#740#0" expanded="false" />
+            <element signature="e#801#802#0" expanded="false" />
+            <element signature="e#828#829#0" expanded="false" />
+            <element signature="e#5672#5673#0" expanded="false" />
+            <element signature="e#5699#5700#0" expanded="false" />
+            <element signature="e#5773#5774#0" expanded="false" />
+            <element signature="e#5800#5801#0" expanded="false" />
+            <element signature="e#5874#5875#0" expanded="false" />
+            <element signature="e#5901#5902#0" expanded="false" />
+            <element signature="e#6063#6064#0" expanded="false" />
+            <element signature="e#6090#6091#0" expanded="false" />
+            <marker date="1452157548072" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/UpdatesDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="785" max-vertical-offset="1683">
+          <caret line="86" column="18" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#458#459#0" expanded="false" />
+            <element signature="e#485#486#0" expanded="false" />
+            <element signature="e#557#558#0" expanded="false" />
+            <element signature="e#584#585#0" expanded="false" />
+            <element signature="e#1634#1635#0" expanded="false" />
+            <element signature="e#1661#1662#0" expanded="false" />
+            <element signature="e#1735#1736#0" expanded="false" />
+            <element signature="e#1762#1763#0" expanded="false" />
+            <element signature="e#1836#1837#0" expanded="false" />
+            <element signature="e#1863#1864#0" expanded="false" />
+            <element signature="e#2023#2024#0" expanded="false" />
+            <element signature="e#2050#2051#0" expanded="false" />
+            <element signature="e#2345#2346#0" expanded="false" />
+            <element signature="e#2372#2373#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAutoshopDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="424" max-vertical-offset="5253">
+          <caret line="320" column="24" selection-start-line="320" selection-start-column="24" selection-end-line="320" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1039#1040#0" expanded="false" />
+            <element signature="e#1066#1067#0" expanded="false" />
+            <element signature="e#1875#1876#0" expanded="false" />
+            <element signature="e#1902#1903#0" expanded="false" />
+            <element signature="e#12699#12700#0" expanded="false" />
+            <element signature="e#12726#12727#0" expanded="false" />
+            <marker date="1451294269011" expanded="true" signature="2400:2426" placeholder="DELETE FROM ..." />
+            <marker date="1451294269011" expanded="true" signature="9302:9349" placeholder="SELECT * FRO..price_autoshop..." />
+            <marker date="1451294269011" expanded="true" signature="11616:11678" placeholder="CREATE TABLE..IF..." />
+            <marker date="1451294269011" expanded="true" signature="11769:12135" placeholder="INSERT INTO ..." />
+            <marker date="1451294269011" expanded="true" signature="11947:12121" placeholder="SELECT brand..price_autoshop..." />
+            <marker date="1451294269011" expanded="true" signature="12227:12252" placeholder="DROP TABLE p..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3086" max-vertical-offset="3876">
+          <caret line="88" column="18" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="82.69231" vertical-offset="6179" max-vertical-offset="7004">
+          <caret line="237" column="83" selection-start-line="237" selection-start-column="83" selection-end-line="237" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/dal/impl/PriceAmperisDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1853" max-vertical-offset="3094">
+          <caret line="137" column="63" selection-start-line="137" selection-start-column="63" selection-end-line="137" selection-end-column="63" />
+          <folding>
+            <marker date="1452538111699" expanded="true" signature="1877:1902" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/retailAdministration.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5719626" vertical-offset="1785" max-vertical-offset="8959">
+          <caret line="123" column="9" selection-start-line="123" selection-start-column="2" selection-end-line="123" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/CsvCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5185">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/autoshop/utils/filecreator/FileCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74041814" vertical-offset="51" max-vertical-offset="1479">
+          <caret line="37" column="76" selection-start-line="37" selection-start-column="76" selection-end-line="37" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>

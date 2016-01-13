@@ -2,10 +2,7 @@ package ua.autoshop.dal.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
-import ua.autoshop.model.BaseModel;
-import ua.autoshop.model.Margin;
-import ua.autoshop.model.PriceAutoshop;
-import ua.autoshop.model.PriceElitOriginal;
+import ua.autoshop.model.*;
 import ua.autoshop.utils.filecreator.BrandMatcherContent;
 import ua.autoshop.utils.filecreator.CsvCreator;
 import ua.autoshop.utils.marginmaker.MarginMaker;
@@ -135,11 +132,15 @@ public class PriceElitOriginalDaoImpl implements Dao<PriceElitOriginal> {
     private String  createTrueArticule(PriceElitOriginal price, CsvCreator csvCreator){
         String articule = price.getArticule();
         if(articule!=null){
+            articule = articule.replaceAll(" ","");
             articule = articule.trim();
             if(price.getBrand()!=null) {
                 BrandMatcherContent bmc = csvCreator.getBrandMatchesMap().get(price.getBrand().trim());
                 if (bmc!=null){
-                    articule = articule.replace(bmc.getArtCut(), "");
+                    List <String> attributesToCut = csvCreator.getArticuleMatchesMap().get(price.getBrand().trim());
+                    for(String attr : attributesToCut){
+                        articule = articule.replace(attr, "");
+                    }
                 }
 
             }
@@ -183,5 +184,10 @@ public class PriceElitOriginalDaoImpl implements Dao<PriceElitOriginal> {
     @Override
     public void sortPriceByArticule() {
 
+    }
+
+    @Override
+    public PriceElitOriginal findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
     }
 }

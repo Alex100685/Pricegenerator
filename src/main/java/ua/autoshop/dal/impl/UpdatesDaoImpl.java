@@ -84,6 +84,11 @@ public class UpdatesDaoImpl implements Dao<Updates> {
     }
 
     @Override
+    public Updates findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
+
+    @Override
     public void saveList(List<Updates> priceList) {
 
     }

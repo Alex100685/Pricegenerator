@@ -86,7 +86,7 @@ public class PriceElitReader extends BaseExcelReader {
             priceGerasimenko.setAvailableOnCentral(value);
             return priceGerasimenko;
         }
-        if(cell.getColumnIndex()==7){
+        if(cell.getColumnIndex()==8){
             if(value!=null) {
                 value = value.replace(" ", "");
             }

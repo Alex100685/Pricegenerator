@@ -128,13 +128,16 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
     private String  createTrueArticule(PriceGerasimenko price, CsvCreator csvCreator){
         String articule = price.getCatalogNumber();
         if(articule!=null){
+            articule = articule.replaceAll(" ","");
             articule = articule.trim();
             if(price.getBrand()!=null) {
                 BrandMatcherContent bmc = csvCreator.getBrandMatchesMap().get(price.getBrand().trim());
                 if (bmc!=null){
-                    articule = articule.replace(bmc.getArtCut(), "");
+                    List <String> attributesToCut = csvCreator.getArticuleMatchesMap().get(price.getBrand().trim());
+                    for(String attr : attributesToCut){
+                        articule = articule.replace(attr, "");
+                    }
                 }
-
             }
         }
         return articule;
@@ -177,6 +180,11 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
     @Override
     public void sortPriceByArticule() {
 
+    }
+
+    @Override
+    public PriceGerasimenko findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
     }
 
 }

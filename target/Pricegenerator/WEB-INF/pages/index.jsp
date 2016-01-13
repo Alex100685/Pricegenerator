@@ -12,7 +12,15 @@
     a:hover {
       font-weight:bold;
     }
-
+    .loader {
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: url('http://jimpunk.net/Loading/wp-content/uploads/loading2.gif') 50% 50% no-repeat rgb(249,249,249);
+    }
     .search {
       display: inline-block;
       font-family: arial,sans-serif;
@@ -121,9 +129,52 @@
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
   <a title="Exit" href="<c:url value="/j_spring_security_logout"/>"><h4><img src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/logout.png"></h4></a>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <%--<script type="text/javascript">
+
+    function onclickLoadPage(){
+      $(".loader").show()
+    }
+
+    function onclickHide(){
+      $(".loader").hide()
+    }
+
+    function hrefCall(hrefId) {
+      var element = document.getElementById(hrefId);
+      element.click();
+    }
+
+    function clickCall(hrefId) {
+      onclickLoadPage()
+      hrefCall(hrefId)
+      onclickHide();
+    }
+  </script>--%>
+
+  <script type="text/javascript">
+
+
+    function onclickLoadPage(){
+      $(".loader").fadeIn(4000);
+      $(".container").fadeIn(4000);
+    }
+
+    $(document).ready(function(){
+
+      $(".container").fadeIn(4000);
+      $(".loader").fadeOut(4000);
+
+    });
+
+  </script>
+
+
 </head>
 <body>
 
+<div class="loader"></div>
 
 <div class="container">
 
@@ -154,7 +205,7 @@
     </thead>
 
       <tr>
-        <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceAutotechnix" method="post">
+        <form role="form" enctype="multipart/form-data" class="form-horizontal" onsubmit=onclickLoadPage() action="/admin/updatePriceAutotechnix" method="post">
         <td align="center" style="width: 200px; ">Автотоехникс</td>
         <td align="center" style="width: 200px; ">${updates[0].dateOfUpdate}</td>
         <td align="center" style="width: 200px; ">
@@ -168,7 +219,7 @@
       </tr>
 
       <tr>
-        <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceIntercars" method="post">
+        <form role="form" enctype="multipart/form-data" class="form-horizontal" onsubmit=onclickLoadPage() action="/admin/updatePriceIntercars" method="post">
           <td align="center" style="width: 200px; ">Интеркарс</td>
           <td align="center" style="width: 200px; ">${updates[1].dateOfUpdate}</td>
           <td align="center" style="width: 200px; ">
@@ -182,7 +233,7 @@
       </tr>
 
       <tr>
-        <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceVlad" method="post">
+        <form role="form" enctype="multipart/form-data" class="form-horizontal" onsubmit=onclickLoadPage() action="/admin/updatePriceVlad" method="post">
           <td align="center" style="width: 200px; ">Влад</td>
           <td align="center" style="width: 200px; ">${updates[2].dateOfUpdate}</td>
           <td align="center" style="width: 200px; ">
@@ -196,7 +247,7 @@
       </tr>
 
       <tr>
-        <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceElit" method="post">
+        <form role="form" enctype="multipart/form-data" class="form-horizontal" onsubmit=onclickLoadPage() action="/admin/updatePriceElit" method="post">
           <td align="center" style="width: 200px; ">Элит</td>
           <td align="center" style="width: 200px; ">${updates[3].dateOfUpdate}</td>
           <td align="center" style="width: 200px; ">
@@ -210,7 +261,7 @@
       </tr>
 
     <tr>
-      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceGenstar" method="post">
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" onsubmit=onclickLoadPage() action="/admin/updatePriceGenstar" method="post">
         <td align="center" style="width: 200px; ">Генстар</td>
         <td align="center" style="width: 200px; ">${updates[4].dateOfUpdate}</td>
         <td align="center" style="width: 200px; ">
@@ -224,7 +275,7 @@
     </tr>
 
     <tr>
-      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceAmperis" method="post">
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" onsubmit=onclickLoadPage() action="/admin/updatePriceAmperis" method="post">
         <td align="center" style="width: 200px; ">Амперис</td>
         <td align="center" style="width: 200px; ">${updates[5].dateOfUpdate}</td>
         <td align="center" style="width: 200px; ">
@@ -238,7 +289,7 @@
     </tr>
 
     <tr>
-      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceTomarket" method="post">
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" onsubmit=onclickLoadPage() action="/admin/updatePriceTomarket" method="post">
         <td align="center" style="width: 200px; ">ТОМАРКЕТ</td>
         <td align="center" style="width: 200px; ">${updates[6].dateOfUpdate}</td>
         <td align="center" style="width: 200px; ">
@@ -252,7 +303,7 @@
     </tr>
 
     <tr>
-      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceUnicTrade" method="post">
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" onsubmit=onclickLoadPage() action="/admin/updatePriceUnicTrade" method="post">
         <td align="center" style="width: 200px; ">Юник Трейд</td>
         <td align="center" style="width: 200px; ">${updates[7].dateOfUpdate}</td>
         <td align="center" style="width: 200px; ">
@@ -266,7 +317,7 @@
     </tr>
 
     <tr>
-      <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/updatePriceElitOrignal" method="post">
+      <form role="form" enctype="multipart/form-data" class="form-horizontal" onsubmit=onclickLoadPage() action="/admin/updatePriceElitOrignal" method="post">
         <td align="center" style="width: 200px; ">Элит Оригинал</td>
         <td align="center" style="width: 200px; ">${updates[8].dateOfUpdate}</td>
         <td align="center" style="width: 200px; ">
@@ -299,7 +350,7 @@
     <tr>
       <td align="center" style="width: 438px; ">XLSX</td>
       <td align="center" style="width: 150px; ">
-        <a class="search" title="Обновить сводный прайс xlsx" href="/admin/refreshPrice"><img class="image" src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-24.png"></a>
+        <a class="search" title="Обновить сводный прайс xlsx" onclick=onclickLoadPage() href="/admin/refreshPrice"><img class="image" src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-24.png"></a>
       </td>
       <td align="center" style="width: 150px; ">
         <a class="search" title="Скачать сводный прайс xlsx" href="/admin/downloadPrice"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
@@ -315,7 +366,7 @@
     <tr>
       <td align="center" style="width: 438px; ">CSV</td>
       <td align="center" style="width: 150px; ">
-        <a class="search" title="Обновить сводный прайс csv" href="/admin/refreshPriceCsv"><img class="image" src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-24.png"></a>
+        <a class="search" title="Обновить сводный прайс csv" onclick=onclickLoadPage() href="/admin/refreshPriceCsv"><img class="image" src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-24.png"></a>
       </td>
       <td align="center" style="width: 150px; ">
         <a class="search" title="Скачать сводный прайс csv" href="/admin/downloadPriceCsv"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/download.png"></a>
