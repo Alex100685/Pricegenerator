@@ -3,6 +3,7 @@ package ua.autoshop.dal.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.CommonVariables;
 import ua.autoshop.utils.filecreator.BrandMatcherContent;
 import ua.autoshop.utils.filecreator.CsvCreator;
 import ua.autoshop.utils.marginmaker.MarginMaker;
@@ -99,12 +100,15 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
             entityManager.getTransaction().begin();
             for (PriceGerasimenko price : priceList)
             {
+                CommonVariables.writeToFile = true;
                 PriceAutoshop priceAutoshop = new PriceAutoshop();
                 priceAutoshop.setName(price.getProductDescription());
                 priceAutoshop.setAvailable(price.getAvailableOnCentralYourBranch());
                 priceAutoshop.setBrand(price.getBrand());
                 String code = createTrueArticule(price, csvCreator);
                 priceAutoshop.setCode(code);
+                Double incomePrice = MarginMaker.getTrueIncomePrice(price.getClientPrice(), margin);
+                priceAutoshop.setIncomePrice(incomePrice);
                 Double priceAshopWholesale = MarginMaker.addMarginToPrice(price.getClientPrice(), wholesaleMargin);
                 priceAshopWholesale = MarginMaker.roundPrice(priceAshopWholesale);
                 priceAutoshop.setWholesalePrice(priceAshopWholesale);
@@ -114,7 +118,9 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
                 priceAutoshop.setSupplier("Элит");
                 priceAutoshop.setShelf("Элит");
                 priceAutoshop.setAdditionalInformation("Доставка в течении 2 часов");
-                entityManager.persist(priceAutoshop);
+                if(CommonVariables.writeToFile == true) {
+                    entityManager.persist(priceAutoshop);
+                }
                 price = null;
             }
 
@@ -184,6 +190,11 @@ public class PriceGerasimenkoDaoImpl implements Dao<PriceGerasimenko> {
 
     @Override
     public PriceGerasimenko findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
+
+    @Override
+    public PriceGerasimenko getColumnMatches(String className) {
         return null;
     }
 

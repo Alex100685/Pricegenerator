@@ -7,6 +7,11 @@ import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
 import ua.autoshop.utils.combiner.MarginService;
 import ua.autoshop.utils.savers.PriceReaderContext;
+import ua.autoshop.utils.savers.impl.BaseReader;
+import ua.autoshop.utils.savers.impl.csv.PriceAutotechnixReader;
+import ua.autoshop.utils.savers.impl.csv.PriceVladReader;
+import ua.autoshop.utils.savers.impl.excel.*;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -61,6 +66,9 @@ public class ManagerImpl implements Manager {
 
     @Autowired
     Dao<PriceUnicTrade> daoPriceUnicTrade;
+
+    @Autowired
+    Dao<ColumnMatches> daoColumnMatches;
 
 
     public Updates [] getAllUpdates() {
@@ -386,6 +394,17 @@ public class ManagerImpl implements Manager {
     @Override
     public void saveAllPriceElitOriginal(List<PriceElitOriginal> priceList) {
         daoPriceElitOriginal.saveList(priceList);
+    }
+
+    @Override
+    public ColumnMatches getColumnMatches(Class clazz) {
+        String className = clazz.getName();
+        return daoColumnMatches.getColumnMatches(className);
+    }
+
+    @Override
+    public void saveColumnMatch(ColumnMatches columnMatches) {
+        daoColumnMatches.save(columnMatches);
     }
 
     @Override

@@ -3,6 +3,7 @@ package ua.autoshop.dal.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.CommonVariables;
 import ua.autoshop.utils.filecreator.BrandMatcherContent;
 import ua.autoshop.utils.filecreator.CsvCreator;
 import ua.autoshop.utils.marginmaker.MarginMaker;
@@ -100,12 +101,15 @@ public class PriceIntercarsiDaoImpl implements Dao<PriceIntercarsi> {
             entityManager.getTransaction().begin();
             for (PriceIntercarsi price : priceList)
             {
+                CommonVariables.writeToFile = true;
                 PriceAutoshop priceAutoshop = new PriceAutoshop();
                 priceAutoshop.setName(price.getName());
                 priceAutoshop.setAvailable(price.getAvailableUr1());
                 priceAutoshop.setBrand(price.getBrand());
                 String articule = createTrueArticule(price, csvCreator);
                 priceAutoshop.setCode(articule);
+                Double incomePrice = MarginMaker.getTrueIncomePrice(price.getWholesalePrice(), margin);
+                priceAutoshop.setIncomePrice(incomePrice);
                 Double priceAshopWholesale = MarginMaker.addMarginToPrice(price.getWholesalePrice(), wholesaleMargin);
                 priceAshopWholesale = MarginMaker.roundPrice(priceAshopWholesale);
                 priceAutoshop.setWholesalePrice(priceAshopWholesale);
@@ -115,7 +119,9 @@ public class PriceIntercarsiDaoImpl implements Dao<PriceIntercarsi> {
                 priceAutoshop.setSupplier("Интеркарс");
                 priceAutoshop.setShelf("Интеркарс");
                 priceAutoshop.setAdditionalInformation("Доставка в течении 2 часов");
-                entityManager.persist(priceAutoshop);
+                if(CommonVariables.writeToFile == true) {
+                    entityManager.persist(priceAutoshop);
+                }
                 price = null;
             }
 
@@ -186,6 +192,11 @@ public class PriceIntercarsiDaoImpl implements Dao<PriceIntercarsi> {
 
     @Override
     public PriceIntercarsi findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
+
+    @Override
+    public PriceIntercarsi getColumnMatches(String className) {
         return null;
     }
 }

@@ -126,4 +126,9 @@ public class BrandMatchesImpl implements Dao <BrandMatches> {
             return null;
         }
     }
+
+    @Override
+    public BrandMatches getColumnMatches(String className) {
+        return null;
+    }
 }

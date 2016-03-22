@@ -19,6 +19,9 @@ public class PriceAutoshop extends BaseModel {
     @Column(name="brand")
     private String brand;
 
+    @Column(name="income_price")
+    private Double incomePrice;
+
     @Column(name="wholesale_price")
     private Double wholesalePrice;
 
@@ -51,6 +54,25 @@ public class PriceAutoshop extends BaseModel {
 
     @Column(name="additional_information")
     private String additionalInformation;
+
+    @Column(name="picture")
+    private String picture;
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public Double getIncomePrice() {
+        return incomePrice;
+    }
+
+    public void setIncomePrice(Double incomePrice) {
+        this.incomePrice = incomePrice;
+    }
 
     public String getAdditionalInformation() {
         return additionalInformation;

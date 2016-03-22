@@ -3,6 +3,7 @@ package ua.autoshop.dal.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.CommonVariables;
 import ua.autoshop.utils.filecreator.BrandMatcherContent;
 import ua.autoshop.utils.filecreator.CsvCreator;
 import ua.autoshop.utils.marginmaker.MarginMaker;
@@ -102,6 +103,7 @@ public class PriceUnicTradeDaoImpl implements Dao<PriceUnicTrade> {
             entityManager.getTransaction().begin();
             for (PriceUnicTrade price : priceList)
             {
+                CommonVariables.writeToFile = true;
                 PriceAutoshop priceAutoshop = new PriceAutoshop();
                 priceAutoshop.setName(price.getName());
                 priceAutoshop.setAvailable(price.getAvailable());
@@ -109,6 +111,8 @@ public class PriceUnicTradeDaoImpl implements Dao<PriceUnicTrade> {
                 String code = createTrueArticule(price, csvCreator);
                 priceAutoshop.setCode(code);
                 if(price.getCurrency()!=null && price.getCurrency().contains("EUR")) {
+                    Double incomePrice = MarginMaker.getTrueIncomePrice(price.getPrice(), margin);
+                    priceAutoshop.setIncomePrice(incomePrice);
                     Double priceAshopWholesale = MarginMaker.addMarginToPrice(price.getPrice(), wholesaleMargin);
                     priceAshopWholesale = MarginMaker.roundPrice(priceAshopWholesale);
                     priceAutoshop.setWholesalePrice(priceAshopWholesale);
@@ -116,6 +120,8 @@ public class PriceUnicTradeDaoImpl implements Dao<PriceUnicTrade> {
                     priceAshop = MarginMaker.roundPrice(priceAshop);
                     priceAutoshop.setRetailPrice(priceAshop);
                 }else{
+                    Double incomePrice = MarginMaker.getTrueIncomePriceNoCurrency(price.getPrice(), margin);
+                    priceAutoshop.setIncomePrice(incomePrice);
                     Double priceAshopWholesale = MarginMaker.addMarginToPriceNoCurrency(price.getPrice(), wholesaleMargin);
                     priceAshopWholesale = MarginMaker.roundPrice(priceAshopWholesale);
                     priceAutoshop.setWholesalePrice(priceAshopWholesale);
@@ -127,7 +133,9 @@ public class PriceUnicTradeDaoImpl implements Dao<PriceUnicTrade> {
                 priceAutoshop.setSupplier("Юник ТРЕЙД");
                 priceAutoshop.setShelf("Юник ТРЕЙД");
                 priceAutoshop.setAdditionalInformation("Доставка в течении 2-3 часов (заказ до 15:00)");
-                entityManager.persist(priceAutoshop);
+                if(CommonVariables.writeToFile == true) {
+                    entityManager.persist(priceAutoshop);
+                }
             }
 
             entityManager.flush();
@@ -197,6 +205,11 @@ public class PriceUnicTradeDaoImpl implements Dao<PriceUnicTrade> {
 
     @Override
     public PriceUnicTrade findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
+
+    @Override
+    public PriceUnicTrade getColumnMatches(String className) {
         return null;
     }
 }

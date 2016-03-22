@@ -3,6 +3,7 @@ package ua.autoshop.dal.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.CommonVariables;
 import ua.autoshop.utils.filecreator.BrandMatcherContent;
 import ua.autoshop.utils.filecreator.CsvCreator;
 import ua.autoshop.utils.marginmaker.MarginMaker;
@@ -102,12 +103,15 @@ public class PriceGenstarDaoImpl implements Dao<PriceGenstar> {
             entityManager.getTransaction().begin();
             for (PriceGenstar price : priceList)
             {
+                CommonVariables.writeToFile = true;
                 PriceAutoshop priceAutoshop = new PriceAutoshop();
                 priceAutoshop.setName(price.getName());
                 priceAutoshop.setAvailable(price.getAvailable());
                 priceAutoshop.setBrand(price.getBrand());
                 String code = createTrueArticule(price, csvCreator);
                 priceAutoshop.setCode(code);
+                Double incomePrice = MarginMaker.getTrueIncomePrice(price.getPrice(), margin);
+                priceAutoshop.setIncomePrice(incomePrice);
                 Double priceAshopWholesale = MarginMaker.addMarginToPrice(price.getPrice(), wholesaleMargin);
                 priceAshopWholesale = MarginMaker.roundPrice(priceAshopWholesale);
                 priceAutoshop.setWholesalePrice(priceAshopWholesale);
@@ -117,7 +121,9 @@ public class PriceGenstarDaoImpl implements Dao<PriceGenstar> {
                 priceAutoshop.setSupplier("Генстар");
                 priceAutoshop.setShelf("Генстар");
                 priceAutoshop.setAdditionalInformation("Доставка в течении 2 часов");
-                entityManager.persist(priceAutoshop);
+                if(CommonVariables.writeToFile == true) {
+                    entityManager.persist(priceAutoshop);
+                }
                 price = null;
             }
 
@@ -181,6 +187,11 @@ public class PriceGenstarDaoImpl implements Dao<PriceGenstar> {
 
     @Override
     public PriceGenstar findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
+
+    @Override
+    public PriceGenstar getColumnMatches(String className) {
         return null;
     }
 }

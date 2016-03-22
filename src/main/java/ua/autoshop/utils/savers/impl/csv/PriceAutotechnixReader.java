@@ -52,7 +52,7 @@ public class PriceAutotechnixReader extends BaseCsvReader {
         return row;
     }
 
-    @Override
+    /*@Override
     protected void writeCellToObject(BaseModel baseModel, String[] row, int j){
         PriceAutotechnix priceAutotechnix = (PriceAutotechnix) baseModel;
         if(j==0) {
@@ -89,7 +89,39 @@ public class PriceAutotechnixReader extends BaseCsvReader {
             row[j] = row[j].replace(" ", "");
             priceAutotechnix.setAvailableKhmelnitskiy(row[j]);
         }
+    }*/
+
+    @Override
+    protected void writeCellToObject(BaseModel baseModel, String[] row, int j){
+        PriceAutotechnix priceAutotechnix = (PriceAutotechnix) baseModel;
+        if(j==columnMatches.getBrandMatch()) {
+            priceAutotechnix.setBrand(row[j]);
+            return;
+        }
+        if(j==columnMatches.getCodeMatch()){
+            if(row[j].contains(" ")) {
+                row[j] = row[j].substring(row[j].indexOf(" "));
+            }
+            priceAutotechnix.setCode(row[j]);
+            return;
+        }
+        if(j==columnMatches.getNameMatch()){
+            priceAutotechnix.setName(row[j]);
+            return;
+        }
+
+        if(j==columnMatches.getIncomePriceMatch()){
+            row[j] = row[j].replace(" ", "");
+            priceAutotechnix.setPrice(row[j]);
+            return;
+        }
+        if(j==columnMatches.getAvailableMatch()){
+            row[j] = row[j].replace(" ", "");
+            priceAutotechnix.setAvailableKiev1(row[j]);
+            return;
+        }
     }
+
 
 
 }

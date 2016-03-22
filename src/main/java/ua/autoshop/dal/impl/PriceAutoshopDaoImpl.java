@@ -304,7 +304,7 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
         entityManager.getTransaction().begin();
             Query q = entityManager.createNativeQuery("CREATE TABLE IF NOT EXISTS price_autoshop2 LIKE price_autoshop");
             q.executeUpdate();
-            Query q1 = entityManager.createNativeQuery("INSERT INTO price_autoshop2 (brand, wholesale_price, retail_price, tomarket_retail, tomarket_wholesale, available, code, name, supplier, shelf, category, additional_information) SELECT brand, wholesale_price, retail_price, tomarket_retail, tomarket_wholesale, available, code, name, supplier, shelf, category, additional_information FROM price_autoshop ORDER BY code");
+            Query q1 = entityManager.createNativeQuery("INSERT INTO price_autoshop2 (brand,income_price, wholesale_price, retail_price, tomarket_retail, tomarket_wholesale, available, code, name, supplier, shelf, category, additional_information, picture) SELECT brand,income_price, wholesale_price, retail_price, tomarket_retail, tomarket_wholesale, available, code, name, supplier, shelf, category, additional_information, picture FROM price_autoshop ORDER BY code");
             q1.executeUpdate();
             Query q2 = entityManager.createNativeQuery("DROP TABLE price_autoshop");
             q2.executeUpdate();
@@ -319,6 +319,11 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
 
     @Override
     public PriceAutoshop findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
+
+    @Override
+    public PriceAutoshop getColumnMatches(String className) {
         return null;
     }
 

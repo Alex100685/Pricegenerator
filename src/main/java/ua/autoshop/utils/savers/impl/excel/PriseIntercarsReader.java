@@ -29,8 +29,7 @@ public class PriseIntercarsReader extends BaseExcelReader {
         }
     }
 
-
-    @Override
+    /*@Override
     protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
         PriceIntercarsi priceIntercarsi = (PriceIntercarsi) price;
 
@@ -103,6 +102,51 @@ public class PriseIntercarsReader extends BaseExcelReader {
                 value = value.replace(" ", "");
             }
             priceIntercarsi.setAvailableUj7(value);
+        }
+        return priceIntercarsi;
+    }*/
+
+
+    @Override
+    protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
+        PriceIntercarsi priceIntercarsi = (PriceIntercarsi) price;
+
+        if(cell.getColumnIndex()==columnMatches.getCodeMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceIntercarsi.setArticule(value);
+            priceIntercarsi.setCode(value);
+            return priceIntercarsi;
+        }
+        if(cell.getColumnIndex()==columnMatches.getBrandMatch()){
+            priceIntercarsi.setBrand(value);
+            return priceIntercarsi;
+        }
+        if(cell.getColumnIndex()==columnMatches.getNameMatch()){
+            priceIntercarsi.setName(value);
+            return priceIntercarsi;
+        }
+        if(cell.getColumnIndex()==columnMatches.getRetailPriceMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceIntercarsi.setRetailPrice(value);
+            return priceIntercarsi;
+        }
+        if(cell.getColumnIndex()==columnMatches.getWholesalePriceMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceIntercarsi.setWholesalePrice(value);
+            return priceIntercarsi;
+        }
+        if(cell.getColumnIndex()==columnMatches.getAvailableMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceIntercarsi.setAvailableUr1(value);
+            return priceIntercarsi;
         }
         return priceIntercarsi;
     }

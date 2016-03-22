@@ -73,7 +73,7 @@ public class BaseExcelReader <T extends BaseModel> extends BaseReader {
         return workbook;
     }
 
-    protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value){
+    /*protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value){
         PriceGerasimenko priceGerasimenko = (PriceGerasimenko) price;
         if(value!=null) {
             value = value.replace(" ", "");
@@ -104,6 +104,29 @@ public class BaseExcelReader <T extends BaseModel> extends BaseReader {
         }
         if(cell.getColumnIndex()==7){
             priceGerasimenko.setAvailableOnAnother(value);
+        }
+        return priceGerasimenko;
+    }*/
+
+    protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value){
+        PriceGerasimenko priceGerasimenko = (PriceGerasimenko) price;
+        if(value!=null) {
+            value = value.replace(" ", "");
+        }
+        if(cell.getColumnIndex()==columnMatches.getCodeMatch()){
+            priceGerasimenko.setCatalogNumber(value);
+        }
+        if(cell.getColumnIndex()==columnMatches.getBrandMatch()){
+            priceGerasimenko.setBrand(value);
+        }
+        if(cell.getColumnIndex()==columnMatches.getNameMatch()){
+            priceGerasimenko.setProductDescription(value);
+        }
+        if(cell.getColumnIndex()==columnMatches.getIncomePriceMatch()){
+            priceGerasimenko.setClientPrice(value);
+        }
+        if(cell.getColumnIndex()==columnMatches.getAvailableMatch()){
+            priceGerasimenko.setAvailableOnCentralYourBranch(value);
         }
         return priceGerasimenko;
     }

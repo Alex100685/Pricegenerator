@@ -157,14 +157,14 @@
 
 
     function onclickLoadPage(){
-      $(".loader").fadeIn(4000);
-      $(".container").fadeIn(4000);
+      $(".loader").fadeIn(1000);
+      $(".container").fadeIn(1000);
     }
 
     $(document).ready(function(){
 
-      $(".container").fadeIn(4000);
-      $(".loader").fadeOut(4000);
+      $(".container").fadeIn(1000);
+      $(".loader").fadeOut(1000);
 
     });
 
@@ -201,6 +201,7 @@
       <th align="center" style="width: 200px; "><b>Выбрать прайс</b></th>
       <th align="center" style="width: 200px; "><b>Загрузить</b></th>
       <th align="center" style="width: 200px; "><b>Удалить</b></th>
+      <th align="center" style="width: 200px; "><b>Редактировать соответствие колонок</b></th>
     </tr>
     </thead>
 
@@ -216,6 +217,7 @@
         </td>
         </form>
         <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Автотехникс"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+        <td align="center" style="width: 200px; "><a class="search" title="Редактировать соответствие данных с колонками в прайсе" href="/admin/updateColumnMatches?name=PriceAutotechnix">Редактировать</a></td>
       </tr>
 
       <tr>
@@ -230,6 +232,7 @@
           </td>
         </form>
         <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Интеркарс"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+        <td align="center" style="width: 200px; "><a class="search" title="Редактировать соответствие данных с колонками в прайсе" href="/admin/updateColumnMatches?name=PriceIntercarsi">Редактировать</a></td>
       </tr>
 
       <tr>
@@ -244,6 +247,7 @@
           </td>
         </form>
         <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Влад"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+        <td align="center" style="width: 200px; "><a class="search" title="Редактировать соответствие данных с колонками в прайсе" href="/admin/updateColumnMatches?name=PriceVlad">Редактировать</a></td>
       </tr>
 
       <tr>
@@ -258,6 +262,7 @@
           </td>
         </form>
         <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Элит"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+        <td align="center" style="width: 200px; "><a class="search" title="Редактировать соответствие данных с колонками в прайсе" href="/admin/updateColumnMatches?name=PriceGerasimenko">Редактировать</a></td>
       </tr>
 
     <tr>
@@ -272,6 +277,7 @@
         </td>
       </form>
       <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Генстар"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+      <td align="center" style="width: 200px; "><a class="search" title="Редактировать соответствие данных с колонками в прайсе" href="/admin/updateColumnMatches?name=PriceGenstar">Редактировать</a></td>
     </tr>
 
     <tr>
@@ -286,6 +292,7 @@
         </td>
       </form>
       <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Амперис"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+      <td align="center" style="width: 200px; "><a class="search" title="Редактировать соответствие данных с колонками в прайсе" href="/admin/updateColumnMatches?name=PriceAmperis">Редактировать</a></td>
     </tr>
 
     <tr>
@@ -300,6 +307,7 @@
         </td>
       </form>
       <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Томаркет"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+      <td align="center" style="width: 200px; "><a class="search" title="Редактировать соответствие данных с колонками в прайсе" href="/admin/updateColumnMatches?name=PriceTomarket">Редактировать</a></td>
     </tr>
 
     <tr>
@@ -314,6 +322,7 @@
         </td>
       </form>
       <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Юниктрейд"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+      <td align="center" style="width: 200px; "><a class="search" title="Редактировать соответствие данных с колонками в прайсе" href="/admin/updateColumnMatches?name=PriceUnicTrade">Редактировать</a></td>
     </tr>
 
     <tr>
@@ -328,6 +337,7 @@
         </td>
       </form>
       <td align="center" style="width: 200px; "><a class="search" title="Очистить" href="/admin/deletePrice?name=Элиторигинал"><img class="image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/trash.png"></a></td>
+      <td align="center" style="width: 200px; "><a class="search" title="Редактировать соответствие данных с колонками в прайсе" href="/admin/updateColumnMatches?name=PriceElitOriginal">Редактировать</a></td>
     </tr>
 
   </table>

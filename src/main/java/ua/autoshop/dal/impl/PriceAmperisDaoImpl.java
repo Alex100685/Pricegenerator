@@ -3,6 +3,7 @@ package ua.autoshop.dal.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.CommonVariables;
 import ua.autoshop.utils.filecreator.BrandMatcherContent;
 import ua.autoshop.utils.filecreator.CsvCreator;
 import ua.autoshop.utils.marginmaker.MarginMaker;
@@ -108,12 +109,15 @@ public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
             entityManager.getTransaction().begin();
             for (PriceAmperis price : priceList)
             {
+                CommonVariables.writeToFile = true;
                 PriceAutoshop priceAutoshop = new PriceAutoshop();
                 priceAutoshop.setName(price.getName());
                 priceAutoshop.setAvailable(price.getAvailable());
                 priceAutoshop.setBrand(price.getProductGroup());
                 String code = createTrueArticule(price, csvCreator);
                 priceAutoshop.setCode(code);
+                Double incomePrice = MarginMaker.getTrueIncomePrice(price.getPrice(), margin);
+                priceAutoshop.setIncomePrice(incomePrice);
                 Double priceAshopWholesale = MarginMaker.addMarginToPrice(price.getPrice(), wholesaleMargin);
                 priceAshopWholesale = MarginMaker.roundPrice(priceAshopWholesale);
                 priceAutoshop.setWholesalePrice(priceAshopWholesale);
@@ -123,7 +127,9 @@ public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
                 priceAutoshop.setSupplier("Амперис");
                 priceAutoshop.setShelf("Амперис");
                 priceAutoshop.setAdditionalInformation("Доставка в течении 2 часов");
-                entityManager.persist(priceAutoshop);
+                if(CommonVariables.writeToFile == true) {
+                    entityManager.persist(priceAutoshop);
+                }
                 price = null;
             }
 
@@ -196,6 +202,11 @@ public class PriceAmperisDaoImpl implements Dao<PriceAmperis> {
 
     @Override
     public PriceAmperis findByThreeParams(String brand, String trueBrand, String cut) {
+        return null;
+    }
+
+    @Override
+    public PriceAmperis getColumnMatches(String className) {
         return null;
     }
 }

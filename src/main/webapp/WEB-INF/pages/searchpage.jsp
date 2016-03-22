@@ -162,6 +162,7 @@
 
       <th align="center" style="width: 200px; "><b>Бренд</b></th>
       <th align="center" style="width: 200px; "><b>Закупочная цена</b></th>
+      <th align="center" style="width: 200px; "><b>Оптовая цена</b></th>
       <th align="center" style="width: 200px; "><b>Розничная цена</b></th>
       <th align="center" style="width: 200px; "><b>Наличие всего</b></th>
       <th align="center" style="width: 200px; "><b>Код</b></th>
@@ -174,6 +175,7 @@
       <c:forEach items="${mainprice}" var="price">
       <tr>
         <td align="right" style="width: 200px; ">${price.brand}</td>
+        <td align="center" style="width: 200px; ">${price.incomePrice}</td>
         <td align="center" style="width: 200px; ">${price.wholesalePrice}</td>
         <td align="center" style="width: 200px; ">${price.retailPrice}</td>
         <td align="center" style="width: 200px; ">${price.available}</td>

@@ -75,4 +75,8 @@ public interface Manager {
     void saveAllPriceUnicTrade(List<PriceUnicTrade> priceList);
 
     void saveAllPriceElitOriginal(List<PriceElitOriginal> priceList);
+
+    ColumnMatches getColumnMatches(Class clazz);
+
+    void saveColumnMatch(ColumnMatches columnMatches);
 }

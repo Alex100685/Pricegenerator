@@ -24,6 +24,8 @@ public class PriceVladReader extends BaseCsvReader {
         super(clazz);
     }
 
+    /*
+    @Override
     protected void writeCellToObject(BaseModel baseModel, String [] row, int j) {
         PriceVlad priceVlad = (PriceVlad) baseModel;
         row[j] = row[j].replace("\"", "");
@@ -65,6 +67,37 @@ public class PriceVladReader extends BaseCsvReader {
         }
         if(j==7){
             priceVlad.setComment(row[j]);
+        }
+    }*/
+
+    @Override
+    protected void writeCellToObject(BaseModel baseModel, String [] row, int j) {
+        PriceVlad priceVlad = (PriceVlad) baseModel;
+        row[j] = row[j].replace("\"", "");
+        row[j] = row[j].replace(" ", "");
+        if(j==columnMatches.getBrandMatch()){
+            priceVlad.setBrand(row[j]);
+            return;
+        }
+        if(j==columnMatches.getNameMatch()){
+            priceVlad.setFullName(row[j]);
+            return;
+        }
+        if(j==columnMatches.getCodeMatch()){
+            row[j] = row[j].replace(" ", "");
+            priceVlad.setArticule(row[j]);
+            return;
+        }
+        if(j==columnMatches.getIncomePriceMatch()){
+            row[j] = row[j].replace(" ", "");
+            priceVlad.setPrice(row[j]);
+            return;
+        }
+        if(j==columnMatches.getAvailableMatch()){
+            row[j] = row[j].replace(">", "");
+            row[j] = row[j].replace("<", "");
+            priceVlad.setLeftByDefault(row[j]);
+            return;
         }
     }
 

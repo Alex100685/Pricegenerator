@@ -35,7 +35,7 @@ public class PriceElitReader extends BaseExcelReader {
     }
 
 
-    protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value){
+    /*protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value){
         PriceGerasimenko priceGerasimenko = (PriceGerasimenko) price;
 
         if(cell.getColumnIndex()==0) {
@@ -91,6 +91,42 @@ public class PriceElitReader extends BaseExcelReader {
                 value = value.replace(" ", "");
             }
             priceGerasimenko.setAvailableOnAnother(value);
+        }
+        return priceGerasimenko;
+    }*/
+
+    protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value){
+        PriceGerasimenko priceGerasimenko = (PriceGerasimenko) price;
+
+        if(cell.getColumnIndex()==columnMatches.getCodeMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceGerasimenko.setCatalogNumber(value);
+            return priceGerasimenko;
+        }
+        if(cell.getColumnIndex()==columnMatches.getBrandMatch()){
+            priceGerasimenko.setBrand(value);
+            return priceGerasimenko;
+        }
+        if(cell.getColumnIndex()==columnMatches.getNameMatch()){
+            priceGerasimenko.setProductDescription(value);
+            return priceGerasimenko;
+        }
+        if(cell.getColumnIndex()==columnMatches.getIncomePriceMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceGerasimenko.setClientPrice(value);
+            return priceGerasimenko;
+        }
+        if(cell.getColumnIndex()==columnMatches.getAvailableMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+                value = value.replace("+", "");
+            }
+            priceGerasimenko.setAvailableOnCentralYourBranch(value);
+            return priceGerasimenko;
         }
         return priceGerasimenko;
     }

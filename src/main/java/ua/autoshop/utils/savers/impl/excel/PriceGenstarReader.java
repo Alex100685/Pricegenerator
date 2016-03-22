@@ -23,7 +23,7 @@ public class PriceGenstarReader extends BaseExcelReader {
         }
     }
 
-    @Override
+    /*@Override
     protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
         PriceGenstar priceGenstar = (PriceGenstar) price;
 
@@ -53,6 +53,37 @@ public class PriceGenstarReader extends BaseExcelReader {
             return priceGenstar;
         }
         if(cell.getColumnIndex()==6){
+            priceGenstar.setAvailable(value);
+        }
+        return priceGenstar;
+    }*/
+
+    @Override
+    protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
+        PriceGenstar priceGenstar = (PriceGenstar) price;
+
+        if(cell.getColumnIndex()==columnMatches.getNameMatch()) {
+
+            priceGenstar.setName(value);
+            return priceGenstar;
+        }
+        if(cell.getColumnIndex()==columnMatches.getBrandMatch()){
+
+            priceGenstar.setBrand(value);
+            return priceGenstar;
+        }
+        if(cell.getColumnIndex()==columnMatches.getCodeMatch()){
+            priceGenstar.setArticule(value);
+            return priceGenstar;
+        }
+        if(cell.getColumnIndex()==columnMatches.getIncomePriceMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceGenstar.setPrice(value);
+            return priceGenstar;
+        }
+        if(cell.getColumnIndex()==columnMatches.getAvailableMatch()){
             priceGenstar.setAvailable(value);
         }
         return priceGenstar;

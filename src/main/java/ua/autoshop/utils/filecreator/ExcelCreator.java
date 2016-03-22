@@ -71,11 +71,12 @@ public class ExcelCreator extends FileCreator {
     public void createHeaders(){
         row = (SXSSFRow) sheet.createRow(rowNumber);
         row.createCell(0).setCellValue("Бренд");
-        row.createCell(1).setCellValue("Розничная цена");
-        row.createCell(2).setCellValue("Наличие всего");
-        row.createCell(3).setCellValue("Код");
-        row.createCell(4).setCellValue("Описание");
-        row.createCell(5).setCellValue("Поставщик");
+        row.createCell(1).setCellValue("Категория");
+        row.createCell(2).setCellValue("Розничная цена");
+        row.createCell(3).setCellValue("Наличие всего");
+        row.createCell(4).setCellValue("Код");
+        row.createCell(5).setCellValue("Описание");
+        row.createCell(6).setCellValue("Поставщик");
     }
 
     @Override
@@ -85,14 +86,15 @@ public class ExcelCreator extends FileCreator {
         rowAutoXCatalogTOMarket.createCell(1).setCellValue("БРЕНД");
         rowAutoXCatalogTOMarket.createCell(2).setCellValue("НАЗВАНИЕ");
         rowAutoXCatalogTOMarket.createCell(3).setCellValue("КОЛИЧЕСТВО");
-        rowAutoXCatalogTOMarket.createCell(4).setCellValue("ЦЕНА ОПТ");
-        rowAutoXCatalogTOMarket.createCell(5).setCellValue("ЦЕНА РОЗНИЦА");
-        rowAutoXCatalogTOMarket.createCell(6).setCellValue("СРОК ПОСТАВКИ");
-        rowAutoXCatalogTOMarket.createCell(7).setCellValue("КАТЕГОРИЯ");
-        rowAutoXCatalogTOMarket.createCell(8).setCellValue("ОПИСАНИЕ");
-        rowAutoXCatalogTOMarket.createCell(9).setCellValue("КАРТИНКА");
-        rowAutoXCatalogTOMarket.createCell(10).setCellValue("ДОП.ИНФО");
-        rowAutoXCatalogTOMarket.createCell(11).setCellValue("ПОЛКА");
+        rowAutoXCatalogTOMarket.createCell(4).setCellValue("ЦЕНА ВХОД");
+        rowAutoXCatalogTOMarket.createCell(5).setCellValue("ЦЕНА ОПТ");
+        rowAutoXCatalogTOMarket.createCell(6).setCellValue("ЦЕНА РОЗНИЦА");
+        rowAutoXCatalogTOMarket.createCell(7).setCellValue("СРОК ПОСТАВКИ");
+        rowAutoXCatalogTOMarket.createCell(8).setCellValue("КАТЕГОРИЯ");
+        rowAutoXCatalogTOMarket.createCell(9).setCellValue("ОПИСАНИЕ");
+        rowAutoXCatalogTOMarket.createCell(10).setCellValue("КАРТИНКА");
+        rowAutoXCatalogTOMarket.createCell(11).setCellValue("ДОП.ИНФО");
+        rowAutoXCatalogTOMarket.createCell(12).setCellValue("ПОЛКА");
 
     }
 
@@ -127,18 +129,24 @@ public class ExcelCreator extends FileCreator {
         else{
             row.createCell(0).setCellValue(price.getBrand());
         }
-        row.createCell(1).setCellValue(Double.toString(price.getRetailPrice()));
-        row.createCell(2).setCellValue(price.getAvailable());
+        if(price.getCategory()!=null){
+            row.createCell(1).setCellValue(price.getCategory());
+        }
+        else {
+            row.createCell(1).setCellValue("11");
+        }
+        row.createCell(2).setCellValue(Double.toString(price.getRetailPrice()));
+        row.createCell(3).setCellValue(price.getAvailable());
         if(bmc!=null){
             String code = price.getCode();
             code = code.replace(bmc.getArtCut(), "").trim();
-            row.createCell(3).setCellValue(code);
+            row.createCell(4).setCellValue(code);
         }else{
-            row.createCell(3).setCellValue(price.getCode());
+            row.createCell(4).setCellValue(price.getCode());
         }
 
-        row.createCell(4).setCellValue(price.getName());
-        row.createCell(5).setCellValue(price.getSupplier());
+        row.createCell(5).setCellValue(price.getName());
+        row.createCell(6).setCellValue(price.getSupplier());
 
     }
 
@@ -166,32 +174,34 @@ public class ExcelCreator extends FileCreator {
         rowAutoXCatalogTOMarket.createCell(2).setCellValue(price.getName());
         rowAutoXCatalogTOMarket.createCell(3).setCellValue(price.getAvailable());
         if(!price.getSupplier().equals("ТОМАРКЕТ")) {
-            rowAutoXCatalogTOMarket.createCell(4).setCellValue(price.getWholesalePrice());
-            rowAutoXCatalogTOMarket.createCell(5).setCellValue(price.getRetailPrice());
+            rowAutoXCatalogTOMarket.createCell(4).setCellValue(price.getIncomePrice());
+            rowAutoXCatalogTOMarket.createCell(5).setCellValue(price.getWholesalePrice());
+            rowAutoXCatalogTOMarket.createCell(6).setCellValue(price.getRetailPrice());
         }else{
-            rowAutoXCatalogTOMarket.createCell(4).setCellValue(price.getWholesaleToMarket());
-            rowAutoXCatalogTOMarket.createCell(5).setCellValue(price.getRetailTomarket());
+            rowAutoXCatalogTOMarket.createCell(4).setCellValue(price.getIncomePrice());
+            rowAutoXCatalogTOMarket.createCell(5).setCellValue(price.getWholesaleToMarket());
+            rowAutoXCatalogTOMarket.createCell(6).setCellValue(price.getRetailTomarket());
         }
-        rowAutoXCatalogTOMarket.createCell(6).setCellValue("1");
+        rowAutoXCatalogTOMarket.createCell(7).setCellValue("1");
         if(price.getCategory()!=null){
-            rowAutoXCatalogTOMarket.createCell(7).setCellValue(price.getCategory());
+            rowAutoXCatalogTOMarket.createCell(8).setCellValue(price.getCategory());
         }
         else {
-            rowAutoXCatalogTOMarket.createCell(7).setCellValue("11");
+            rowAutoXCatalogTOMarket.createCell(9).setCellValue("11");
         }
-        rowAutoXCatalogTOMarket.createCell(8).setCellValue(" "); //no description field
-        rowAutoXCatalogTOMarket.createCell(9).setCellValue(" "); //no picture field
+        rowAutoXCatalogTOMarket.createCell(9).setCellValue(" "); //no description field
+        rowAutoXCatalogTOMarket.createCell(10).setCellValue(" "); //no picture field
         if(price.getSupplier().equals("ТОМАРКЕТ")){
-            rowAutoXCatalogTOMarket.createCell(10).setCellValue(" "); //no picture field
+            rowAutoXCatalogTOMarket.createCell(11).setCellValue(price.getPicture());
         }
         else{
             if(comment!=null && !comment.equals("")) {
-                rowAutoXCatalogTOMarket.createCell(10).setCellValue(comment.getText());
+                rowAutoXCatalogTOMarket.createCell(11).setCellValue(comment.getText());
             }else{
-                rowAutoXCatalogTOMarket.createCell(10).setCellValue(price.getAdditionalInformation());
+                rowAutoXCatalogTOMarket.createCell(11).setCellValue(price.getAdditionalInformation());
             }
         }
-        rowAutoXCatalogTOMarket.createCell(11).setCellValue(price.getShelf());
+        rowAutoXCatalogTOMarket.createCell(12).setCellValue(price.getShelf());
 
 
     }
@@ -228,7 +238,7 @@ public class ExcelCreator extends FileCreator {
         }
         rowAutoXCatalogAutoshopNet.createCell(7).setCellValue(" "); //no description field
         rowAutoXCatalogAutoshopNet.createCell(8).setCellValue(" "); //no picture field
-        rowAutoXCatalogAutoshopNet.createCell(9).setCellValue(" "); //no picture field
+        rowAutoXCatalogAutoshopNet.createCell(9).setCellValue(price.getPicture());
         rowAutoXCatalogTOMarket.createCell(10).setCellValue(price.getShelf());
 
     }

@@ -92,6 +92,7 @@ public class CsvCreator extends FileCreator {
     public void createHeaders() {
         try {
             csvOutput.write("Бренд");
+            csvOutput.write("Категория");
             csvOutput.write("Розничная цена");
             csvOutput.write("Наличие всего");
             csvOutput.write("Код");
@@ -112,6 +113,7 @@ public class CsvCreator extends FileCreator {
             csvOutputAutoXCatalogTOMarket.write("БРЕНД");
             csvOutputAutoXCatalogTOMarket.write("НАЗВАНИЕ");
             csvOutputAutoXCatalogTOMarket.write("КОЛИЧЕСТВО");
+            csvOutputAutoXCatalogTOMarket.write("ЦЕНА ВХОД");
             csvOutputAutoXCatalogTOMarket.write("ЦЕНА ОПТ");
             csvOutputAutoXCatalogTOMarket.write("ЦЕНА РОЗНИЦА");
             csvOutputAutoXCatalogTOMarket.write("СРОК ПОСТАВКИ");
@@ -155,6 +157,8 @@ public class CsvCreator extends FileCreator {
         try {
             BrandMatcherContent bmc = brandMatchesMap.get(price.getBrand());
 
+
+
             if(bmc!=null){
                 String trueBrand =  bmc.getTrueBrand();
                 csvOutput.write(trueBrand);
@@ -162,7 +166,12 @@ public class CsvCreator extends FileCreator {
             else{
                 csvOutput.write(price.getBrand());
             }
-            csvOutput.write(price.getBrand());
+
+            if(price.getCategory()!=null){
+                csvOutput.write(price.getCategory());
+            }else{
+                csvOutput.write("11");
+            }
             csvOutput.write(Double.toString(price.getRetailPrice()));
             csvOutput.write(price.getAvailable());
             if(bmc!=null && price.getCode()!=null && bmc.getArtCut()!=null) {
@@ -207,9 +216,11 @@ public class CsvCreator extends FileCreator {
             csvOutputAutoXCatalogTOMarket.write(price.getName());
             csvOutputAutoXCatalogTOMarket.write(price.getAvailable());
             if(!price.getSupplier().equals("ТОМАРКЕТ")) {
+                csvOutputAutoXCatalogTOMarket.write(String.valueOf(price.getIncomePrice()));
                 csvOutputAutoXCatalogTOMarket.write(String.valueOf(price.getWholesalePrice()));
                 csvOutputAutoXCatalogTOMarket.write(String.valueOf(price.getRetailPrice()));
             }else{
+                csvOutputAutoXCatalogTOMarket.write(String.valueOf(price.getIncomePrice()));
                 csvOutputAutoXCatalogTOMarket.write(String.valueOf(price.getWholesaleToMarket()));
                 csvOutputAutoXCatalogTOMarket.write(String.valueOf(price.getRetailTomarket()));
             }
@@ -220,7 +231,7 @@ public class CsvCreator extends FileCreator {
                 csvOutputAutoXCatalogTOMarket.write("11");
             }
             csvOutputAutoXCatalogTOMarket.write(" "); //no description field
-            csvOutputAutoXCatalogTOMarket.write(" "); //no picture field
+            csvOutputAutoXCatalogTOMarket.write(price.getPicture());
             if(price.getSupplier().equals("ТОМАРКЕТ")){
                 csvOutputAutoXCatalogTOMarket.write(" "); //
             }
@@ -275,7 +286,7 @@ public class CsvCreator extends FileCreator {
             }
             csvOutputAutoXCatalogAutoshopNet.write(" "); //no description field
             csvOutputAutoXCatalogAutoshopNet.write(" "); //no picture field
-            csvOutputAutoXCatalogAutoshopNet.write(" "); //no picture field
+            csvOutputAutoXCatalogAutoshopNet.write(price.getPicture());
             csvOutputAutoXCatalogAutoshopNet.write(price.getShelf());
             csvOutputAutoXCatalogAutoshopNet.flush();
             csvOutputAutoXCatalogAutoshopNet.endRecord();

@@ -23,7 +23,7 @@ public class PriceTomarketReader extends BaseExcelReader {
         }
     }
 
-    @Override
+    /*@Override
     protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
         PriceTomarket priceTomarket = (PriceTomarket) price;
 
@@ -70,6 +70,52 @@ public class PriceTomarketReader extends BaseExcelReader {
         }
         if(cell.getColumnIndex()==12){
             priceTomarket.setShelfOfProduct(value);
+        }
+        return priceTomarket;
+    }*/
+
+
+    @Override
+    protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
+        PriceTomarket priceTomarket = (PriceTomarket) price;
+
+        if(cell.getColumnIndex()==columnMatches.getCategoryMatch()){
+            priceTomarket.setCategoryName(value);
+            return priceTomarket;
+        }
+        if(cell.getColumnIndex()==columnMatches.getNameMatch()){
+            priceTomarket.setProductName(value);
+            return priceTomarket;
+        }
+        if(cell.getColumnIndex()==columnMatches.getBrandMatch()){
+            priceTomarket.setBrand(value);
+            return priceTomarket;
+        }
+        if(cell.getColumnIndex()==columnMatches.getCodeMatch()){
+            priceTomarket.setArticule(value.trim());
+            return priceTomarket;
+        }
+        if(cell.getColumnIndex()==columnMatches.getIncomePriceMatch()){
+            priceTomarket.setIncomePrice(value);
+            return priceTomarket;
+        }
+        if(cell.getColumnIndex()==columnMatches.getWholesalePriceMatch()){
+            priceTomarket.setWholesalePrice(value);
+            return priceTomarket;
+        }
+        if(cell.getColumnIndex()==columnMatches.getRetailPriceMatch()){
+            priceTomarket.setRetailPrice(value);
+            return priceTomarket;
+        }
+        if(cell.getColumnIndex()==columnMatches.getAvailableMatch()){
+            priceTomarket.setAvailableOnStock(value);
+            return priceTomarket;
+        }
+        if(cell.getColumnIndex()==columnMatches.getShelfMatch()){
+            priceTomarket.setShelfOfProduct(value);
+        }
+        if(cell.getColumnIndex()==columnMatches.getPictureMatch()){
+            priceTomarket.setPicture(value);
         }
         return priceTomarket;
     }

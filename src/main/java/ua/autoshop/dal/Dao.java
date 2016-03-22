@@ -40,4 +40,6 @@ public interface Dao <T extends BaseModel> {
     void sortPriceByArticule();
 
     T findByThreeParams(String brand, String trueBrand, String cut);
+
+    T getColumnMatches(String className);
 }

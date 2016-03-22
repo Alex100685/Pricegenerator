@@ -106,4 +106,9 @@ public class MarginDaoImpl implements Dao {
     public Margin findByThreeParams(String brand, String trueBrand, String cut) {
         return null;
     }
+
+    @Override
+    public BaseModel getColumnMatches(String className) {
+        return null;
+    }
 }

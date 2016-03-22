@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import ua.autoshop.config.ApplicationContextHolder;
 import ua.autoshop.dal.manager.Manager;
 import ua.autoshop.model.BaseModel;
+import ua.autoshop.model.ColumnMatches;
 import ua.autoshop.utils.sixlsx.excel.xlsx.Sheet;
 import ua.autoshop.utils.sixlsx.excel.xlsx.SimpleXLSXWorkbook;
 
@@ -51,9 +52,12 @@ public abstract class BaseReader <T extends BaseModel> {
 
     protected static final String MANAGER_BEAN_NAME = "readerManager";
 
+    protected ColumnMatches columnMatches;
+
     public BaseReader(Class <T> clazz){
         this.clazz = clazz;
         readerManager = (Manager) ApplicationContextHolder.getContext().getBean(MANAGER_BEAN_NAME);
+        columnMatches = readerManager.getColumnMatches(clazz);
     }
 
     protected T buildInstance()

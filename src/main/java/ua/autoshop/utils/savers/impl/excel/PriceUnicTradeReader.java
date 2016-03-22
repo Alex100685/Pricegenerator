@@ -20,7 +20,7 @@ public class PriceUnicTradeReader extends BaseExcelReader {
         }
     }
 
-    @Override
+    /*@Override
     protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
         PriceUnicTrade priceUnicTrade = (PriceUnicTrade) price;
 
@@ -61,6 +61,53 @@ public class PriceUnicTradeReader extends BaseExcelReader {
                 value = value.replace(" ", "");
             }
             priceUnicTrade.setCurrency(value);
+        }
+        return priceUnicTrade;
+    }*/
+
+    @Override
+    protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
+        PriceUnicTrade priceUnicTrade = (PriceUnicTrade) price;
+
+        if(cell.getColumnIndex()==columnMatches.getCodeMatch()) {
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceUnicTrade.setArticule(value);
+            return priceUnicTrade;
+        }
+        if(cell.getColumnIndex()==columnMatches.getNameMatch()){
+            if(value==null) {
+                value = "";
+            }
+            priceUnicTrade.setName(value);
+            return priceUnicTrade;
+        }
+        if(cell.getColumnIndex()==columnMatches.getBrandMatch()){
+            priceUnicTrade.setBrand(value);
+            return priceUnicTrade;
+        }
+        if(cell.getColumnIndex()==columnMatches.getAvailableMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceUnicTrade.setAvailable(value);
+            return priceUnicTrade;
+        }
+        if(cell.getColumnIndex()==columnMatches.getIncomePriceMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceUnicTrade.setPrice(value);
+            return priceUnicTrade;
+        }
+        if(cell.getColumnIndex()==columnMatches.getCurrencyMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceUnicTrade.setCurrency(value);
+            return priceUnicTrade;
+
         }
         return priceUnicTrade;
     }

@@ -5,6 +5,7 @@ import org.apache.poi.ss.usermodel.Row;
 import ua.autoshop.model.BaseModel;
 import ua.autoshop.model.PriceElitOriginal;
 import ua.autoshop.model.PriceUnicTrade;
+import ua.autoshop.utils.CommonVariables;
 
 /**
  * Created by Пользователь on 13.12.2015.
@@ -21,7 +22,7 @@ public class PriceElitOriginalReader extends BaseExcelReader {
         }
     }
 
-    @Override
+    /*@Override
     protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
         PriceElitOriginal priceElitOriginal = (PriceElitOriginal) price;
 
@@ -69,6 +70,51 @@ public class PriceElitOriginalReader extends BaseExcelReader {
                 value = value.replace(" ", "");
             }
             priceElitOriginal.setAvailable(value);
+        }
+        return priceElitOriginal;
+    }*/
+
+    @Override
+    protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
+        PriceElitOriginal priceElitOriginal = (PriceElitOriginal) price;
+
+        if(cell.getColumnIndex()==columnMatches.getCodeMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceElitOriginal.setArticule(value);
+            return priceElitOriginal;
+        }
+        if(cell.getColumnIndex()==columnMatches.getBrandMatch()){
+            priceElitOriginal.setBrand(value);
+            return priceElitOriginal;
+        }
+        if(cell.getColumnIndex()==columnMatches.getNameMatch()){
+            if(value==null){
+                value = "";
+            }
+            priceElitOriginal.setName(value);
+            return priceElitOriginal;
+        }
+        if(cell.getColumnIndex()==columnMatches.getIncomePriceMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceElitOriginal.setPrice(value);
+            return priceElitOriginal;
+        }
+        if(cell.getColumnIndex()==columnMatches.getAvailableMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceElitOriginal.setAvailable(value);
+        }
+        if(cell.getColumnIndex()==columnMatches.getSupplyCondition()){
+            if(value==null){
+                value = "";
+            }
+            priceElitOriginal.setSupplyCondition(value);
+            return priceElitOriginal;
         }
         return priceElitOriginal;
     }

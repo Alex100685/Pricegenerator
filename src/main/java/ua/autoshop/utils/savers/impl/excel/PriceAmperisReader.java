@@ -20,7 +20,7 @@ public class PriceAmperisReader extends BaseExcelReader {
         }
     }
 
-    @Override
+   /* @Override
     protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
         PriceAmperis priceAmperis = (PriceAmperis) price;
 
@@ -50,6 +50,40 @@ public class PriceAmperisReader extends BaseExcelReader {
             return priceAmperis;
         }
         if(cell.getColumnIndex()==5){
+            if(value.contains(",")) {
+                value = value.substring(0, value.indexOf(','));
+            }
+            priceAmperis.setAvailable(value);
+        }
+        return priceAmperis;
+    }*/
+
+
+    @Override
+    protected BaseModel writeCellToObject(BaseModel price, Cell cell, String value) {
+        PriceAmperis priceAmperis = (PriceAmperis) price;
+
+        if(cell.getColumnIndex()==columnMatches.getCodeMatch()){
+
+            priceAmperis.setFullCode(value);
+            return priceAmperis;
+        }
+        if(cell.getColumnIndex()==columnMatches.getNameMatch()){
+            priceAmperis.setName(value);
+            return priceAmperis;
+        }
+        if(cell.getColumnIndex()==columnMatches.getCategoryMatch()){
+            priceAmperis.setProductGroup(value);
+            return priceAmperis;
+        }
+        if(cell.getColumnIndex()==columnMatches.getIncomePriceMatch()){
+            if(value!=null) {
+                value = value.replace(" ", "");
+            }
+            priceAmperis.setPrice(value);
+            return priceAmperis;
+        }
+        if(cell.getColumnIndex()==columnMatches.getAvailableMatch()){
             if(value.contains(",")) {
                 value = value.substring(0, value.indexOf(','));
             }

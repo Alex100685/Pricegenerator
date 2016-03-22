@@ -131,6 +131,11 @@ public class AppConfig {
     }
 
     @Bean
+    public Dao <ColumnMatches> daoColumnMatches() {
+        return new ColumnMatchesDaoImpl();
+    }
+
+    @Bean
     public EntityManager entityManager() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pricegenerator");
         return emf.createEntityManager();

@@ -85,6 +85,11 @@ public class UserDaoImpl implements Dao<User> {
     }
 
     @Override
+    public User getColumnMatches(String className) {
+        return null;
+    }
+
+    @Override
     public void saveList(List<User> priceList) {
 
     }

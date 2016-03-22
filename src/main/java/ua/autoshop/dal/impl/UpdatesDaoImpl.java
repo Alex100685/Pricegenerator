@@ -89,6 +89,11 @@ public class UpdatesDaoImpl implements Dao<Updates> {
     }
 
     @Override
+    public Updates getColumnMatches(String className) {
+        return null;
+    }
+
+    @Override
     public void saveList(List<Updates> priceList) {
 
     }

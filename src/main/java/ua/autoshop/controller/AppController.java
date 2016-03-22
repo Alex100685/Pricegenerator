@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.crypto.keygen.KeyGenerators;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -1556,6 +1557,72 @@ public class AppController {
 
         return new ModelAndView("brandmatches", "barndmatchesList", manager.getBrandMatches());
     }
+
+    @RequestMapping(value = "/admin/updateColumnMatches")
+    public ModelAndView updateColumnMatches(HttpServletRequest request){
+        String columnMatchName = request.getParameter("name");
+        Class clazz = null;
+        try {
+            clazz = Class.forName("ua.autoshop.model."+columnMatchName);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        ColumnMatches columnMatches = manager.getColumnMatches(clazz);
+        return new ModelAndView("columnMatches", "columnMatches", columnMatches);
+    }
+
+    @RequestMapping(value = "/admin/saveColumnMatch")
+    public ModelAndView saveColumnMatch(
+            @ModelAttribute(value="matchName") String matchName,
+            @ModelAttribute(value="name") String name,
+            @ModelAttribute(value="brand") String brand,
+            @ModelAttribute(value="category") String category,
+            @ModelAttribute(value="incomingprice") String incomingprice,
+            @ModelAttribute(value="wholesaleprice") String wholesaleprice,
+            @ModelAttribute(value="retailprice") String retailprice,
+            @ModelAttribute(value="available") String available,
+            @ModelAttribute(value="code") String code,
+            @ModelAttribute(value="shelf") String shelf,
+            @ModelAttribute(value="supplier") String supplier,
+            @ModelAttribute(value="supplycondition") String supplyCondition,
+            @ModelAttribute(value="picture") String picture,
+            @ModelAttribute(value="currency") String currency,
+            HttpServletRequest request){
+        Class clazz = null;
+        try {
+            clazz = Class.forName("ua.autoshop.model."+matchName);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        ColumnMatches columnMatches = manager.getColumnMatches(clazz);
+
+        columnMatches.setAvailableMatch(prepareValue(available));
+        columnMatches.setBrandMatch(prepareValue(brand));
+        columnMatches.setCategoryMatch(prepareValue(category));
+        columnMatches.setIncomePriceMatch(prepareValue(incomingprice));
+        columnMatches.setWholesalePriceMatch(prepareValue(wholesaleprice));
+        columnMatches.setRetailPriceMatch(prepareValue(retailprice));
+        columnMatches.setNameMatch(prepareValue(name));
+        columnMatches.setCodeMatch(prepareValue(code));
+        columnMatches.setShelfMatch(prepareValue(shelf));
+        columnMatches.setSupplierMatch(prepareValue(supplier));
+        columnMatches.setSupplyCondition(prepareValue(supplyCondition));
+        columnMatches.setPictureMatch(prepareValue(picture));
+        columnMatches.setCurrencyMatch(prepareValue(currency));
+        manager.saveColumnMatch(columnMatches);
+        columnMatches = manager.getColumnMatches(clazz);
+        return new ModelAndView("columnMatches", "columnMatches", columnMatches);
+    }
+
+    private Integer prepareValue(String value){
+        if(value.equals("")){
+            return null;
+        }
+        else{
+           return Integer.parseInt(value)-1;
+        }
+    }
+
 
     @RequestMapping(value = "/admin/deletePrice")
     public ModelAndView deletePrice(
