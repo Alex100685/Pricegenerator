@@ -1,5 +1,6 @@
 ua\autoshop\utils\savers\impl\excel\PriceTomarketReader.class
 ua\autoshop\utils\savers\PriceReaderContext.class
+ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginAsg.class
 ua\autoshop\dal\impl\PriceGenstarDaoImpl.class
 ua\autoshop\utils\sixlsx\excel\support\XLSXWriterSupport.class
 ua\autoshop\dal\manager\ManagerImpl.class
@@ -32,8 +33,10 @@ ua\autoshop\config\ApplicationContextHolder.class
 ua\autoshop\utils\sixlsx\excel\xlsx\IndexedObject.class
 ua\autoshop\utils\combiner\defaultcolmatches\PriceAutotechnixDefaultColumnMatcher.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginElitWholesale.class
+ua\autoshop\utils\currencyrate\CurrencyList.class
 ua\autoshop\utils\sixlsx\excel\support\XLSWriterSupport.class
 ua\autoshop\utils\combiner\defaultcolmatches\ColumnMatchesDefaultContext.class
+ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginAsgWholesale.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginVlad.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginElitOriginal.class
 ua\autoshop\utils\combiner\defaultcolmatches\PriceElitOriginalDefaultColumnMatcher.class
@@ -48,6 +51,7 @@ ua\autoshop\utils\sixlsx\excel\xlsx\CellStyle.class
 ua\autoshop\model\BrandMatches.class
 ua\autoshop\utils\sixlsx\excel\xlsx\SimpleXLSXWorkbook$XMLStreamCreator.class
 ua\autoshop\dal\impl\UserDaoImpl.class
+ua\autoshop\model\AsgModel.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginGenstarWholesale.class
 ua\autoshop\model\PriceAutoshop.class
 ua\autoshop\utils\savers\impl\excel\PriceGenstarReader.class
@@ -75,6 +79,7 @@ ua\autoshop\utils\sixlsx\excel\xlsx\TestSJXLSX.class
 ua\autoshop\utils\sixlsx\excel\xlsx\Sheet$SheetRowReader.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginIntercarsWholesale.class
 ua\autoshop\model\PriceGerasimenko.class
+ua\autoshop\utils\combiner\defaultcolmatches\PriceAsgDefaultColumnMatcher.class
 ua\autoshop\utils\combiner\defaultcolmatches\PriceElitDefaultColumnMatcher.class
 ua\autoshop\utils\sixlsx\excel\xlsx\SimpleXLSXWorkbook$BidirectionMap.class
 ua\autoshop\utils\savers\impl\csv\PriceAutotechnixReader.class
@@ -82,11 +87,13 @@ ua\autoshop\model\User.class
 ua\autoshop\utils\combiner\defaultcolmatches\PriceUnicTradeDefaultColumnMatcher.class
 ua\autoshop\utils\sixlsx\excel\ReaderSupport.class
 ua\autoshop\utils\sixlsx\excel\xlsx\SheetCommentWriter.class
+ua\autoshop\utils\currencyrate\CurrencyRateReader.class
 ua\autoshop\utils\filecreator\FileCreatorContext.class
 ua\autoshop\model\PriceVlad.class
 ua\autoshop\utils\sixlsx\excel\support\XLSReaderSupport.class
 ua\autoshop\dal\impl\PriceTomarketImpl.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginTomarketRetail.class
+ua\autoshop\utils\savers\impl\csv\PriceAsgReader.class
 ua\autoshop\utils\sixlsx\excel\xlsx\FontRegion.class
 ua\autoshop\dal\impl\PriceElitOriginalDaoImpl.class
 ua\autoshop\utils\filecreator\CsvCreator.class
@@ -98,7 +105,9 @@ ua\autoshop\dal\impl\PriceAutotechnixDaoImpl.class
 ua\autoshop\utils\combiner\defaultcolmatches\PriseIntercarsDefaultColumnMatcher.class
 ua\autoshop\config\WebInitializer.class
 ua\autoshop\utils\savers\impl\excel\PriceUnicTradeReader.class
+ua\autoshop\utils\currencyrate\Currency.class
 ua\autoshop\utils\sixlsx\excel\xlsx\SimpleXLSXWorkbook.class
+ua\autoshop\dal\impl\AsgModelDaoImpl.class
 ua\autoshop\dal\impl\ColumnMatchesDaoImpl.class
 ua\autoshop\model\PriceGenstar.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginVladWholesale.class

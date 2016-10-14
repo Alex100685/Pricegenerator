@@ -65,6 +65,12 @@ public class MarginService {
         if(margin.getPriceName().equals("Юник ТРЕЙД ОПТ")){
             baseMargin = new DefaultMarginUnicTradeWholesale(margin);
         }
+        if(margin.getPriceName().equals("ASG РОЗНИЦА")){
+            baseMargin = new DefaultMarginAsg(margin);
+        }
+        if(margin.getPriceName().equals("ASG ОПТ")){
+            baseMargin = new DefaultMarginAsgWholesale(margin);
+        }
 
         return baseMargin;
     }

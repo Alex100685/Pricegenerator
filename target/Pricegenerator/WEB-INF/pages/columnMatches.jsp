@@ -453,9 +453,9 @@
 
         <td align="center" style="width: 200px; ">
           <select class="search"
-                  <%--<c:if test="${columnMatches.currencyMatch==null}">
+                  <c:if test="${columnMatches.currencyMatch==null}">
                     disabled="true"
-                  </c:if>--%>
+                  </c:if>
                   name="currency">
             <c:set var="no" value="нет" />
             <c:if test="${columnMatches.currencyMatch!=null}">

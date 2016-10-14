@@ -32,6 +32,8 @@ public interface Manager {
 
     void saveAllPriceVlad(List<PriceVlad> priceList);
 
+    void saveAllPriceAsg(List<AsgModel> priceList);
+
     void saveAllPriceElit(List<PriceGerasimenko> priceList);
 
     public Margin [] getAllMargin();

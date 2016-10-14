@@ -120,7 +120,7 @@ public class PriceTomarketImpl implements Dao<PriceTomarket> {
                 Double wholesalePriceTomarket = MarginMaker.addWholesalePrice(price.getWholesalePrice(), wholesaleMargin);
                 priceAutoshop.setWholesaleToMarket(wholesalePriceTomarket);
                 priceAutoshop.setWholesalePrice(priceAshopWholesale);
-                priceAutoshop.setCategory(price.getIdCategoty());
+                priceAutoshop.setCategory(price.getCategoryName());
                 Double priceAshop = MarginMaker.addMarginToPrice(price.getIncomePrice(), margin);
                 priceAshop = MarginMaker.roundPrice(priceAshop);
                 priceAutoshop.setRetailPrice(priceAshop);

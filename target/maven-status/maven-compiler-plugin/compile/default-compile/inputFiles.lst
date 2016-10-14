@@ -50,11 +50,14 @@ D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\savers\impl\csv\Price
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\sixlsx\excel\xlsx\Fill.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginElit.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\model\BaseModel.java
+D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\currencyrate\Currency.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\dal\impl\CommentImpl.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\security\CustomUserDetailsUser.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginIntercars.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\sixlsx\excel\xlsx\TestSJXLSX.java
+D:\Projects\Pricegenerator\src\main\java\ua\autoshop\dal\impl\AsgModelDaoImpl.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\savers\impl\csv\PriceVladReader.java
+D:\Projects\Pricegenerator\src\main\java\ua\autoshop\model\AsgModel.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\model\Updates.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\sixlsx\excel\xlsx\Cell.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\marginmaker\MarginMaker.java
@@ -75,6 +78,7 @@ D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargi
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\sixlsx\excel\support\CellFormat.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\sixlsx\excel\support\XLSXReaderSupport.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\dal\impl\PriceGerasimenkoDaoImpl.java
+D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\currencyrate\CurrencyRateReader.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\dal\Dao.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\sixlsx\excel\xlsx\ExcelUtils.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\controller\AppController.java
@@ -89,10 +93,13 @@ D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\filecreator\ExcelCrea
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\dal\impl\PriceTomarketImpl.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginAmperis.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\model\PriceVlad.java
+D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\defaultcolmatches\PriceAsgDefaultColumnMatcher.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\defaultcolmatches\PriceElitOriginalDefaultColumnMatcher.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginTomarket.java
+D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginAsgWholesale.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\model\PriceGenstar.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginAutotechnix.java
+D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginAsg.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\sorter\SortByPrice.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\filecreator\BrandMatcherContent.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\config\ApplicationContextHolder.java
@@ -103,6 +110,7 @@ D:\Projects\Pricegenerator\src\main\java\ua\autoshop\dal\impl\PriceVladDaoImpl.j
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\filecreator\CsvCreator.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\sixlsx\excel\xlsx\ParsableEntry.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\CommonVariables.java
+D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\currencyrate\CurrencyList.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\sixlsx\excel\xlsx\Font.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\savers\impl\excel\PriceGenstarReader.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginAutotechnixWholesale.java
@@ -111,6 +119,7 @@ D:\Projects\Pricegenerator\src\main\java\ua\autoshop\dal\manager\ManagerImpl.jav
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\defaultcolmatches\PriceGenstarDefaultColumnMatcher.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\dal\impl\PriceGenstarDaoImpl.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\defaultcolmatches\ColumnMatchesDefaultContext.java
+D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\savers\impl\csv\PriceAsgReader.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginGenstar.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\model\PriceIntercarsi.java
 D:\Projects\Pricegenerator\src\main\java\ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginBase.java

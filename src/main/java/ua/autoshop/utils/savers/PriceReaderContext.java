@@ -3,6 +3,7 @@ package ua.autoshop.utils.savers;
 import org.springframework.stereotype.Component;
 import ua.autoshop.model.*;
 import ua.autoshop.utils.savers.impl.*;
+import ua.autoshop.utils.savers.impl.csv.PriceAsgReader;
 import ua.autoshop.utils.savers.impl.csv.PriceAutotechnixReader;
 import ua.autoshop.utils.savers.impl.csv.PriceVladReader;
 import ua.autoshop.utils.savers.impl.excel.*;
@@ -33,6 +34,9 @@ public class PriceReaderContext {
         }
         if(index.equals("amp")){
             baseReader = new PriceAmperisReader(PriceAmperis.class);
+        }
+        if(index.equals("ASG")){
+            baseReader = new PriceAsgReader(AsgModel.class);
         }
         if(index.equals("to")){
             baseReader = new PriceTomarketReader(PriceTomarket.class);

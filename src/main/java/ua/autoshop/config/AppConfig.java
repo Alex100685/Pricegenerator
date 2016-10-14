@@ -131,6 +131,9 @@ public class AppConfig {
     }
 
     @Bean
+    public Dao <AsgModel> daoPriceAsg() {return new AsgModelDaoImpl();}
+
+    @Bean
     public Dao <ColumnMatches> daoColumnMatches() {
         return new ColumnMatchesDaoImpl();
     }

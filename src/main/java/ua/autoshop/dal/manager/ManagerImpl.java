@@ -38,6 +38,9 @@ public class ManagerImpl implements Manager {
     Dao <PriceGerasimenko> daoPriceG;
 
     @Autowired
+    Dao <AsgModel> asgModelDao;
+
+    @Autowired
     Dao <PriceVlad> daoPriceV;
 
     @Autowired
@@ -72,7 +75,7 @@ public class ManagerImpl implements Manager {
 
 
     public Updates [] getAllUpdates() {
-        Updates[] updateArray = new Updates[9];
+        Updates[] updateArray = new Updates[10];
         Updates updAutotechniks = daoUpdates.findByName("Автотехникс");
         Updates updIntercars = daoUpdates.findByName("Интеркарс");
         Updates updVlad = daoUpdates.findByName("Влад");
@@ -82,6 +85,8 @@ public class ManagerImpl implements Manager {
         Updates updTomarket = daoUpdates.findByName("ТОМАРКЕТ");
         Updates updUnicTrade = daoUpdates.findByName("Юник ТРЕЙД");
         Updates updElitOriginal = daoUpdates.findByName("Элит ОРИГИНАЛ");
+        Updates updAsg = daoUpdates.findByName("ASG");
+
         updateArray[0] = updAutotechniks;
         updateArray[1] = updIntercars;
         updateArray[2] = updVlad;
@@ -91,12 +96,13 @@ public class ManagerImpl implements Manager {
         updateArray[6] = updTomarket;
         updateArray[7] = updUnicTrade;
         updateArray[8] = updElitOriginal;
+        updateArray[9] = updAsg;
 
         return updateArray;
     }
 
     public Margin [] getAllMargin(){
-        Margin [] marginArray = new Margin [18];
+        Margin [] marginArray = new Margin [20];
         Margin mAutotechniks = daoMargin.findByName("Автотехникс");
         if(mAutotechniks == null){
             mAutotechniks = createNewMarginWithName("Автотехникс");
@@ -171,6 +177,15 @@ public class ManagerImpl implements Manager {
             mElitOriginalW = createNewMarginWithName("Элит ОРИГИНАЛ ОПТ");
         }
 
+        Margin mAsgRetail = daoMargin.findByName("ASG РОЗНИЦА");
+        if(mElitOriginalRetail == null){
+            mElitOriginalRetail = createNewMarginWithName("ASG РОЗНИЦА");
+        }
+        Margin mAsgW = daoMargin.findByName("ASG ОПТ");
+        if(mElitOriginalW == null){
+            mElitOriginalW = createNewMarginWithName("ASG ОПТ");
+        }
+
         marginArray [0] = mAutotechniks;
         marginArray [8] = mAutotechniksW;
         marginArray [1] = mIntercars;
@@ -189,6 +204,8 @@ public class ManagerImpl implements Manager {
         marginArray [15] = mUnicTradeW;
         marginArray [16] = mElitOriginalRetail;
         marginArray [17] = mElitOriginalW;
+        marginArray [18] = mAsgRetail;
+        marginArray [19] = mAsgW;
 
         return marginArray;
     }
@@ -205,15 +222,29 @@ public class ManagerImpl implements Manager {
 
     @Override
     public void createCommonPriceInDB() {
-        daoPriceA.iterateAllAndSaveToMainTable(getMarginByName("Автотехникс"));
-        daoPriceG.iterateAllAndSaveToMainTable(getMarginByName("Элит"));
-        daoPriceI.iterateAllAndSaveToMainTable(getMarginByName("Интеркарс"));
-        daoPriceV.iterateAllAndSaveToMainTable(getMarginByName("Влад"));
-        daoPriceGenstar.iterateAllAndSaveToMainTable(getMarginByName("Генстар"));
-        daoPriceAmperis.iterateAllAndSaveToMainTable(getMarginByName("Амперис"));
-        daoPriceT.iterateAllAndSaveToMainTable(getMarginByName("ТОМАРКЕТ РОЗНИЦА"));
-        daoPriceUnicTrade.iterateAllAndSaveToMainTable(getMarginByName("Юник ТРЕЙД РОЗНИЦА"));
-        daoPriceElitOriginal.iterateAllAndSaveToMainTable(getMarginByName("Элит ОРИГИНАЛ РОЗНИЦА"));
+        getAllMargin();
+        daoPriceA.iterateAllAndSaveToMainTable(getOrCreateMargin("Автотехникс", "Автотехникс ОПТ"));
+        daoPriceG.iterateAllAndSaveToMainTable(getOrCreateMargin("Элит", "Элит ОПТ"));
+        daoPriceI.iterateAllAndSaveToMainTable(getOrCreateMargin("Интеркарс", "Интеркарс ОПТ"));
+        daoPriceV.iterateAllAndSaveToMainTable(getOrCreateMargin("Влад", "Влад ОПТ"));
+        daoPriceGenstar.iterateAllAndSaveToMainTable(getOrCreateMargin("Генстар", "Генстар ОПТ"));
+        daoPriceAmperis.iterateAllAndSaveToMainTable(getOrCreateMargin("Амперис", "Амперис ОПТ"));
+        daoPriceT.iterateAllAndSaveToMainTable(getOrCreateMargin("ТОМАРКЕТ РОЗНИЦА", "ТОМАРКЕТ ОПТ"));
+        daoPriceUnicTrade.iterateAllAndSaveToMainTable(getOrCreateMargin("Юник ТРЕЙД РОЗНИЦА", "Юник ТРЕЙД ОПТ"));
+        daoPriceElitOriginal.iterateAllAndSaveToMainTable(getOrCreateMargin("Элит ОРИГИНАЛ РОЗНИЦА", "Элит ОРИГИНАЛ ОПТ"));
+        asgModelDao.iterateAllAndSaveToMainTable(getOrCreateMargin("ASG РОЗНИЦА", "ASG ОПТ"));
+    }
+
+    private Margin getOrCreateMargin(String retailMarginName, String wholesaleMarginName){
+        Margin m = getMarginByName(retailMarginName);
+        if(m == null){
+            m = createNewMarginWithName(retailMarginName);
+        }
+        Margin m2 = getMarginByName(wholesaleMarginName);
+        if(m2 == null){
+            createNewMarginWithName(wholesaleMarginName);
+        }
+        return m;
     }
 
     @Override
@@ -410,6 +441,11 @@ public class ManagerImpl implements Manager {
     @Override
     public void saveAllPriceVlad(List<PriceVlad> priceList) {
         daoPriceV.saveList(priceList);
+    }
+
+    @Override
+    public void saveAllPriceAsg(List<AsgModel> priceList) {
+        asgModelDao.saveList(priceList);
     }
 
     @Override

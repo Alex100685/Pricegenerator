@@ -39,6 +39,9 @@ public class ColumnMatchesDefaultContext {
         if(className.equals("PriceElitOriginal")){
             matchesSetter = new PriceElitOriginalDefaultColumnMatcher(className);
         }
+        if(className.equals("AsgModel")){
+            matchesSetter = new PriceAsgDefaultColumnMatcher(className);
+        }
         return matchesSetter;
     }
 }

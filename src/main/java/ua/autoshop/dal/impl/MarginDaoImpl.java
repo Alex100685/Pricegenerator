@@ -5,6 +5,7 @@ import ua.autoshop.dal.Dao;
 import ua.autoshop.model.*;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class MarginDaoImpl implements Dao {
             Margin m = (Margin) query.getSingleResult();
             entityManager.getTransaction().commit();
             return m;
-        }catch(Exception e){
+        }catch(NoResultException e){
             entityManager.getTransaction().rollback();
             return null;
         }
