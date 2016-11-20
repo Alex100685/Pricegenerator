@@ -2,7 +2,10 @@ package ua.autoshop.dal.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
+import ua.autoshop.dal.DaoImpl;
+import ua.autoshop.dal.annotation.AllowNullResult;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.filecreator.CsvCreator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -12,58 +15,13 @@ import java.util.List;
 /**
  * Created by Пользователь on 14.10.2015.
  */
-public class MarginDaoImpl implements Dao {
+public class MarginDaoImpl extends DaoImpl<Margin> {
 
-    @Autowired
-    EntityManager entityManager;
-
+    @AllowNullResult
     @Override
-    public List findAll() {
-        return null;
-    }
-
-    @Override
-    public List<PriceAutoshop> findByCode(String code) {
-        return null;
-    }
-
-    @Override
-    public BaseModel findByName(String name) {
-        try{
-            entityManager.getTransaction().begin();
-            Query query = entityManager.createQuery("SELECT m FROM Margin m WHERE m.priceName ='"+name+"'", Margin.class);
-            Margin m = (Margin) query.getSingleResult();
-            entityManager.getTransaction().commit();
-            return m;
-        }catch(NoResultException e){
-            entityManager.getTransaction().rollback();
-            return null;
-        }
-    }
-
-    @Override
-    public void delete(BaseModel object) {
-
-    }
-
-    @Override
-    public void save() {
-
-    }
-
-    @Override
-    public void saveList(List priceList) {
-
-    }
-
-    @Override
-    public void cleanTable() {
-
-    }
-
-    @Override
-    public void iterateAllAndSaveToMainTable(Margin margin) {
-
+    public Margin findByName(String name) {
+        Query query = entityManager.createQuery("SELECT m FROM Margin m WHERE m.priceName ='"+name+"'", Margin.class);
+        return (Margin) query.getSingleResult();
     }
 
     @Override
@@ -72,44 +30,27 @@ public class MarginDaoImpl implements Dao {
     }
 
     @Override
-    public void save(BaseModel margin) {
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.persist((Margin)margin);
-            entityManager.getTransaction().commit();
-        }catch(Exception e){
-            entityManager.getTransaction().rollback();
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public List<PriceAutoshop> getByPrice(String pattern) {
+    public String getWholeSaleMarginName() {
         return null;
     }
 
     @Override
-    public List<PriceAutoshop> getByCode(String pattern) {
+    protected String getTableName() {
         return null;
     }
 
     @Override
-    public List<PriceAutoshop> getByName(String pattern) {
-        return null;
+    protected boolean conditionToSave(Margin margin) {
+        return false;
     }
 
     @Override
-    public void sortPriceByArticule() {
+    protected void fillPriceFields(Margin margin, Margin margin2, Margin wholeSaleMargin, CsvCreator csvCreator) {
 
     }
 
     @Override
-    public Margin findByThreeParams(String brand, String trueBrand, String cut) {
-        return null;
-    }
-
-    @Override
-    public BaseModel getColumnMatches(String className) {
+    protected String getEnityClassName() {
         return null;
     }
 }
