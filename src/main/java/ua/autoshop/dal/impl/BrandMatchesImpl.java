@@ -2,7 +2,10 @@ package ua.autoshop.dal.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
+import ua.autoshop.dal.DaoImpl;
+import ua.autoshop.dal.annotation.AllowNullResult;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.filecreator.CsvCreator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -12,27 +15,10 @@ import java.util.List;
 /**
  * Created by Пользователь on 05.12.2015.
  */
-public class BrandMatchesImpl implements Dao <BrandMatches> {
+public class BrandMatchesImpl extends DaoImpl<BrandMatches> {
 
-    @Autowired
-    EntityManager entityManager;
 
-    @Override
-    public List <BrandMatches> findAll() {
-        try{
-            Query query = entityManager.createQuery("SELECT b FROM BrandMatches b");
-            List <BrandMatches> matchesList = (List <BrandMatches>) query.getResultList();
-            return matchesList;
-        } catch(NoResultException e) {
-            return null;
-        }
-    }
-
-    @Override
-    public List<PriceAutoshop> findByCode(String code) {
-        return null;
-    }
-
+    @AllowNullResult
     @Override
     public BrandMatches findByName(String name) {
         try {
@@ -46,75 +32,16 @@ public class BrandMatchesImpl implements Dao <BrandMatches> {
     }
 
     @Override
-    public void delete(BrandMatches bm) {
-        try {
-            entityManager.getTransaction().begin();
-            entityManager.remove(bm);
-            entityManager.getTransaction().commit();
-        }
-        catch(Exception e){
-            entityManager.getTransaction().rollback();
-        }
+    protected String getEnityClassName() {
+        return "BrandMatches";
     }
 
     @Override
-    public void save() {
-
-    }
-
-    @Override
-    public void saveList(List priceList) {
-
-    }
-
-    @Override
-    public void cleanTable() {
-
-    }
-
-    @Override
-    public void iterateAllAndSaveToMainTable(Margin margin) {
-
-    }
-
-    @Override
-    public List getAllModelsIterable(int offset, int max) {
+    public String getWholeSaleMarginName() {
         return null;
     }
 
-    @Override
-    public void save(BrandMatches brandMatches) {
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.persist(brandMatches);
-            entityManager.getTransaction().commit();
-        } catch (Exception ex) {
-            entityManager.getTransaction().rollback();
-            ex.printStackTrace();
-        }
-
-    }
-
-    @Override
-    public List<PriceAutoshop> getByPrice(String pattern) {
-        return null;
-    }
-
-    @Override
-    public List<PriceAutoshop> getByCode(String pattern) {
-        return null;
-    }
-
-    @Override
-    public List<PriceAutoshop> getByName(String pattern) {
-        return null;
-    }
-
-    @Override
-    public void sortPriceByArticule() {
-
-    }
-
+    @AllowNullResult
     @Override
     public BrandMatches findByThreeParams(String brand, String trueBrand, String cut) {
         try {
@@ -128,7 +55,22 @@ public class BrandMatchesImpl implements Dao <BrandMatches> {
     }
 
     @Override
-    public BrandMatches getColumnMatches(String className) {
+    public List getAllModelsIterable(int offset, int max) {
         return null;
+    }
+
+    @Override
+    protected String getTableName() {
+        return "brand_matches";
+    }
+
+    @Override
+    protected boolean conditionToSave(BrandMatches brandMatches) {
+        return false;
+    }
+
+    @Override
+    protected void fillPriceFields(BrandMatches brandMatches, Margin margin, Margin wholeSaleMargin, CsvCreator csvCreator) {
+
     }
 }

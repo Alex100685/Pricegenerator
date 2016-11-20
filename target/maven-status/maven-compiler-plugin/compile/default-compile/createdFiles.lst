@@ -25,12 +25,14 @@ ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginUnicTrade.class
 ua\autoshop\utils\filecreator\BrandMatcherContent.class
 ua\autoshop\security\CustomUserDetailsUser.class
 ua\autoshop\utils\savers\impl\excel\PriceAmperisReader.class
+ua\autoshop\config\EntityManagerTransactionPostProcessor$1.class
 ua\autoshop\model\Updates.class
 ua\autoshop\utils\sixlsx\excel\xlsx\RichText.class
 ua\autoshop\model\PriceUnicTrade.class
 ua\autoshop\utils\sixlsx\excel\support\XLSXReaderSupport$XLSXObjectIterator.class
 ua\autoshop\config\ApplicationContextHolder.class
 ua\autoshop\utils\sixlsx\excel\xlsx\IndexedObject.class
+ua\autoshop\dal\annotation\AllowNullResult.class
 ua\autoshop\utils\combiner\defaultcolmatches\PriceAutotechnixDefaultColumnMatcher.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginElitWholesale.class
 ua\autoshop\utils\currencyrate\CurrencyList.class
@@ -40,6 +42,7 @@ ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginAsgWholesale.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginVlad.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginElitOriginal.class
 ua\autoshop\utils\combiner\defaultcolmatches\PriceElitOriginalDefaultColumnMatcher.class
+ua\autoshop\config\EntityManagerTransactionPostProcessor.class
 ua\autoshop\dal\impl\UpdatesDaoImpl.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginGenstar.class
 ua\autoshop\utils\combiner\defaultcolmatches\PriceAmperisDefaultColumnMatcher.class
@@ -93,6 +96,7 @@ ua\autoshop\model\PriceVlad.class
 ua\autoshop\utils\sixlsx\excel\support\XLSReaderSupport.class
 ua\autoshop\dal\impl\PriceTomarketImpl.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginTomarketRetail.class
+ua\autoshop\dal\annotation\EntityManagerTransaction.class
 ua\autoshop\utils\savers\impl\csv\PriceAsgReader.class
 ua\autoshop\utils\sixlsx\excel\xlsx\FontRegion.class
 ua\autoshop\dal\impl\PriceElitOriginalDaoImpl.class
@@ -108,6 +112,7 @@ ua\autoshop\utils\savers\impl\excel\PriceUnicTradeReader.class
 ua\autoshop\utils\currencyrate\Currency.class
 ua\autoshop\utils\sixlsx\excel\xlsx\SimpleXLSXWorkbook.class
 ua\autoshop\dal\impl\AsgModelDaoImpl.class
+ua\autoshop\config\EntityManagerTransactionPostProcessor$TransactionTemplate.class
 ua\autoshop\dal\impl\ColumnMatchesDaoImpl.class
 ua\autoshop\model\PriceGenstar.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginVladWholesale.class
@@ -116,6 +121,8 @@ ua\autoshop\dal\impl\PriceGerasimenkoDaoImpl.class
 ua\autoshop\utils\sixlsx\excel\xlsx\SimpleXLSXWorkbook$ModifyEntry.class
 ua\autoshop\utils\combiner\defaultcolmatches\PriceGenstarDefaultColumnMatcher.class
 ua\autoshop\utils\sixlsx\excel\WriterSupport.class
+ua\autoshop\config\EntityManagerTransactionPostProcessor$TransactionTemplate$1.class
+ua\autoshop\dal\DaoImpl.class
 ua\autoshop\controller\AppController.class
 ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginUnicTradeWholesale.class
 ua\autoshop\utils\savers\impl\excel\PriceElitReader.class
@@ -132,6 +139,8 @@ ua\autoshop\utils\combiner\dafaultmargin\DefaultMarginAmperis.class
 ua\autoshop\utils\sixlsx\excel\support\XLSXReaderSupport.class
 ua\autoshop\utils\sixlsx\excel\support\XLSReaderSupport$XLSObjectIterator.class
 ua\autoshop\utils\sixlsx\excel\xlsx\SimpleXLSXWorkbook$Commiter.class
+ua\autoshop\config\EntityManagerTransactionPostProcessor$TransactionExecutor.class
+ua\autoshop\config\EntityManagerTransactionPostProcessor$TransactionTemplate$2.class
 ua\autoshop\dal\impl\PriceVladDaoImpl.class
 ua\autoshop\utils\writer\ExcelWriter.class
 ua\autoshop\dal\impl\BrandMatchesImpl.class

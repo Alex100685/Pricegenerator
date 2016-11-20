@@ -13,7 +13,7 @@ public interface Dao <T extends BaseModel> {
 
     List <T> findAll();
 
-    List<PriceAutoshop> findByCode(String code);
+    List<T> findByCode(String code);
 
     T findByName(String name);
 
@@ -31,15 +31,17 @@ public interface Dao <T extends BaseModel> {
 
     public void save(T t);
 
-    List<PriceAutoshop> getByPrice(String pattern);
+    List<T> getByPrice(String pattern);
 
-    List<PriceAutoshop> getByCode(String pattern);
+    List<T> getByCode(String pattern);
 
-    List<PriceAutoshop> getByName(String pattern);
+    List<T> getByName(String pattern);
 
     void sortPriceByArticule();
 
     T findByThreeParams(String brand, String trueBrand, String cut);
 
     T getColumnMatches(String className);
+
+
 }

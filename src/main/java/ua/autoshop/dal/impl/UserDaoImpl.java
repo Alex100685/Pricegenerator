@@ -2,9 +2,13 @@ package ua.autoshop.dal.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
+import ua.autoshop.dal.DaoImpl;
+import ua.autoshop.dal.annotation.AllowNullResult;
 import ua.autoshop.model.Margin;
 import ua.autoshop.model.PriceAutoshop;
 import ua.autoshop.model.User;
+import ua.autoshop.utils.filecreator.CsvCreator;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
@@ -12,105 +16,41 @@ import java.util.List;
 /**
  * Created by Пользователь on 08.10.2015.
  */
-public class UserDaoImpl implements Dao<User> {
-
-    @Autowired
-    private EntityManager entityManager;
-
-    @Override
-    public List<User> findAll() {
-        return null;
-    }
-
-    @Override
-    public List<PriceAutoshop> findByCode(String code) {
-        return null;
-    }
+public class UserDaoImpl extends DaoImpl<User> {
 
     @Override
     public User findByName(String name) {
-        try{
-            entityManager.getTransaction().begin();
-            Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.username ='"+name+"'", User.class);
-            User u = (User) query.getSingleResult();
-            entityManager.getTransaction().commit();
-            return u;
-        }catch(Exception e){
-            entityManager.getTransaction().rollback();
-            return null;
-        }
+        Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.username ='"+name+"'", User.class);
+        return  (User) query.getSingleResult();
     }
 
     @Override
-    public void delete(User object) {
-
-    }
-
-    @Override
-    public void save(User user) {
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.persist(user);
-            entityManager.getTransaction().commit();
-        } catch (Exception ex) {
-            entityManager.getTransaction().rollback();
-            ex.printStackTrace();
-        }
-
-    }
-
-    @Override
-    public List<PriceAutoshop> getByPrice(String pattern) {
+    public List getAllModelsIterable(int offset, int max) {
         return null;
     }
 
     @Override
-    public List<PriceAutoshop> getByCode(String pattern) {
+    protected String getTableName() {
+        return "users";
+    }
+
+    @Override
+    protected boolean conditionToSave(User user) {
+        return false;
+    }
+
+    @Override
+    protected void fillPriceFields(User user, Margin margin, Margin wholeSaleMargin, CsvCreator csvCreator) {
+
+    }
+
+    @Override
+    protected String getEnityClassName() {
+        return "User";
+    }
+
+    @Override
+    public String getWholeSaleMarginName() {
         return null;
-    }
-
-    @Override
-    public List<PriceAutoshop> getByName(String pattern) {
-        return null;
-    }
-
-    @Override
-    public void sortPriceByArticule() {
-
-    }
-
-    @Override
-    public User findByThreeParams(String brand, String trueBrand, String cut) {
-        return null;
-    }
-
-    @Override
-    public User getColumnMatches(String className) {
-        return null;
-    }
-
-    @Override
-    public void saveList(List<User> priceList) {
-
-    }
-
-    @Override
-    public void cleanTable() {
-
-    }
-
-    @Override
-    public void iterateAllAndSaveToMainTable(Margin margin) {
-
-    }
-
-    @Override
-    public List<User> getAllModelsIterable(int offset, int max) {
-        return null;
-    }
-
-    @Override
-    public void save() {
-
     }
 }

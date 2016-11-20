@@ -4,6 +4,8 @@ package ua.autoshop.config;
  * Created by Пользователь on 08.10.2015.
  */
 
+import org.hibernate.jpa.internal.EntityManagerImpl;
+import org.hibernate.jpa.spi.AbstractEntityManagerImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -27,9 +29,7 @@ import javax.persistence.Persistence;
 @Configuration
 @ComponentScan("ua.autoshop")
 @EnableWebMvc
-//@EnableScheduling
 @ImportResource("WEB-INF/spring-security.xml")
-@EnableAspectJAutoProxy
 public class AppConfig {
 
 
@@ -157,6 +157,11 @@ public class AppConfig {
     @Bean
     public CommonsMultipartResolver multipartResolver() {
         return new CommonsMultipartResolver();
+    }
+
+    @Bean
+    EntityManagerTransactionPostProcessor entityManagerTransactionPostProcessor(){
+        return new EntityManagerTransactionPostProcessor();
     }
 
 }

@@ -5,7 +5,11 @@ import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.autoshop.dal.Dao;
+import ua.autoshop.dal.DaoImpl;
+import ua.autoshop.dal.annotation.AllowNullResult;
+import ua.autoshop.dal.annotation.EntityManagerTransaction;
 import ua.autoshop.model.*;
+import ua.autoshop.utils.filecreator.CsvCreator;
 import ua.autoshop.utils.filecreator.FileCreator;
 import ua.autoshop.utils.filecreator.FileCreatorContext;
 import ua.autoshop.utils.marginmaker.MarginMaker;
@@ -24,76 +28,15 @@ import java.util.Set;
 /**
  * Created by Пользователь on 13.10.2015.
  */
-public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
-
-    @Autowired
-    EntityManager entityManager;
+public class PriceAutoshopDaoImpl extends DaoImpl<PriceAutoshop> {
 
     PriceAutoshop lastWrittenPrice;
 
-
-
-
-    @Override
-    public List<PriceAutoshop> findAll() {
-        return null;
-    }
-
+    @AllowNullResult
     @Override
     public List <PriceAutoshop> findByCode(String code) {
-        try{
-            Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE p.code = '"+code+"'");
-            List <PriceAutoshop> priceList = (List<PriceAutoshop>) query.getResultList();
-            return priceList;
-        } catch(NoResultException e) {
-            return null;
-        }
-    }
-
-    public List<String> fetchAllToMarketEntities(){
-        try{
-            Query query = entityManager.createQuery("SELECT p.articule FROM PriceTomarket p");
-            List <String> codeSet = (List <String>) query.getResultList();
-            return codeSet;
-        } catch(NoResultException e) {
-            return null;
-        }
-    }
-
-
-    @Override
-    public PriceAutoshop findByName(String name) {
-        return null;
-    }
-
-    @Override
-    public void delete(PriceAutoshop object) {
-        entityManager.getTransaction().begin();
-        entityManager.remove(object);
-        entityManager.getTransaction().commit();
-    }
-
-    @Override
-    public void save() {
-
-    }
-
-    @Override
-    public void saveList(List<PriceAutoshop> priceList) {
-
-    }
-
-    @Override
-    public void cleanTable() {
-        try{
-            entityManager.getTransaction().begin();
-            Query q = entityManager.createNativeQuery("DELETE FROM price_autoshop");
-            q.executeUpdate();
-            entityManager.getTransaction().commit();
-        }catch(Exception e){
-            entityManager.getTransaction().rollback();
-        }
-
+        Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE p.code = '"+code+"'");
+        return (List<PriceAutoshop>) query.getResultList();
     }
 
     private PriceAutoshop createCommonNextRowIfNecessary(PriceAutoshop commonPriceEntity, PriceAutoshop price, FileCreator fileCreator){
@@ -167,7 +110,6 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
                 PriceAutoshop autoXCatalogAutoshopNetEntity = null;
 
         List<PriceAutoshop> priceList;
-        //SortByPrice sbp = new SortByPrice();
         fileCreator.prepareForReading("/output"+fileCreator.getSuffix());
         fileCreator.prepareForReadingAutoXCatalogTOMarket("/outputto" + fileCreator.getSuffix());
         fileCreator.prepareForReadingAutoXCatalogAutoshopNet("/outputauto"+fileCreator.getSuffix());
@@ -185,20 +127,6 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
                 if(!price.getSupplier().equals("ТОМАРКЕТ")) {
                     autoXCatalogAutoshopNetEntity = createAutoXCatalogAutoshopNetNextRowIfNecessary(autoXCatalogAutoshopNetEntity, price, fileCreator);
                 }
-
-                /*List <PriceAutoshop> duplicateList = daoPriceAshop.findByCode(price.getCode());
-                if(duplicateList!=null) {
-                    if(duplicateList.size()>1) {
-                        PriceAutoshop[] priceAutoshops = new PriceAutoshop[duplicateList.size()];
-                        for (int i = 0; i < duplicateList.size(); i++) {
-                            priceAutoshops[i] = duplicateList.get(i);
-                        }
-                        Arrays.sort(priceAutoshops, sbp);
-                        for (int j = 1; j < priceAutoshops.length; j++) {
-                            daoPriceAshop.delete(priceAutoshops[j]);
-                        }
-                    }
-                }*/
             }
             entityManager.clear();
             offset += priceList.size();
@@ -213,27 +141,8 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
     }
 
     public Comment getComment() {
-        try{
-            entityManager.getTransaction().begin();
-            Query query = entityManager.createQuery("SELECT c FROM Comment c WHERE c.id ="+1, Comment.class);
-            Comment c = (Comment) query.getSingleResult();
-            entityManager.getTransaction().commit();
-            return c;
-        }catch(Exception e){
-            entityManager.getTransaction().rollback();
-            return null;
-        }
-    }
-
-    public void saveComment(Comment comment) {
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.persist(comment);
-            entityManager.getTransaction().commit();
-        }catch(Exception e){
-            entityManager.getTransaction().rollback();
-            e.printStackTrace();
-        }
+        Query query = entityManager.createQuery("SELECT c FROM Comment c WHERE c.id ="+1, Comment.class);
+        return  (Comment) query.getSingleResult();
     }
 
     @Override
@@ -242,90 +151,64 @@ public class PriceAutoshopDaoImpl implements Dao<PriceAutoshop> {
         return entityManager.createNativeQuery("SELECT * FROM price_autoshop LIMIT "+offset+", "+max, PriceAutoshop.class).getResultList();
     }
 
-    /*@Override
-    public List<PriceAutoshop> getAllModelsIterable(int offset, int max)
-    {
-        //entityManager.clear();
-        return entityManager.createQuery("SELECT p FROM PriceAutoshop p", PriceAutoshop.class).setFirstResult(offset).setMaxResults(max).getResultList();
-    }*/
-
-    @Override
-    public void save(PriceAutoshop priceAutoshop) {
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.persist(priceAutoshop);
-            entityManager.getTransaction().commit();
-        } catch (Exception ex) {
-            entityManager.getTransaction().rollback();
-            ex.printStackTrace();
-        }
-
-    }
-
+    @AllowNullResult
     @Override
     public List<PriceAutoshop> getByPrice(String pattern) {
-        try{
-            List<PriceAutoshop> list = new ArrayList<>();
-            Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE CAST(p.retailPrice AS string) LIKE '%"+pattern+"%'", PriceAutoshop.class).setMaxResults(500);
-            list = query.getResultList();
-            return list;
-        } catch(NoResultException e) {
-            return null;
-        }
+        Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE CAST(p.retailPrice AS string) LIKE '%"+pattern+"%'", PriceAutoshop.class).setMaxResults(500);
+        return (List<PriceAutoshop>) query.getResultList();
     }
 
+    @AllowNullResult
     @Override
     public List<PriceAutoshop> getByCode(String pattern) {
-        try{
-            List<PriceAutoshop> list = new ArrayList<>();
-            Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE p.code LIKE '%"+pattern+"%'", PriceAutoshop.class).setMaxResults(500);
-            list = query.getResultList();
-            return list;
-        } catch(NoResultException e) {
-            return null;
-        }
+        Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE p.code LIKE '%"+pattern+"%'", PriceAutoshop.class).setMaxResults(500);
+        return (List<PriceAutoshop>) query.getResultList();
     }
 
+    @AllowNullResult
     @Override
     public List<PriceAutoshop> getByName(String pattern) {
-        try{
-            List<PriceAutoshop> list = new ArrayList<>();
-            Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE p.name LIKE '%"+pattern+"%'", PriceAutoshop.class).setMaxResults(500);
-            list = query.getResultList();
-            return list;
-        } catch(NoResultException e) {
-            return null;
-        }
+        Query query = entityManager.createQuery("SELECT p FROM PriceAutoshop p WHERE p.name LIKE '%"+pattern+"%'", PriceAutoshop.class).setMaxResults(500);
+        return (List<PriceAutoshop>) query.getResultList();
+
     }
 
+    @EntityManagerTransaction
     @Override
     public void sortPriceByArticule() {
-        try{
-        entityManager.getTransaction().begin();
-            Query q = entityManager.createNativeQuery("CREATE TABLE IF NOT EXISTS price_autoshop2 LIKE price_autoshop");
-            q.executeUpdate();
-            Query q1 = entityManager.createNativeQuery("INSERT INTO price_autoshop2 (brand,income_price, wholesale_price, retail_price, tomarket_retail, tomarket_wholesale, available, code, name, supplier, shelf, category, additional_information, picture) SELECT brand,income_price, wholesale_price, retail_price, tomarket_retail, tomarket_wholesale, available, code, name, supplier, shelf, category, additional_information, picture FROM price_autoshop ORDER BY code");
-            q1.executeUpdate();
-            Query q2 = entityManager.createNativeQuery("DROP TABLE price_autoshop");
-            q2.executeUpdate();
-            Query q3 = entityManager.createNativeQuery("RENAME TABLE price_autoshop2 TO price_autoshop");
-            q3.executeUpdate();
-        entityManager.getTransaction().commit();
-    } catch (Exception ex) {
-        entityManager.getTransaction().rollback();
-        ex.printStackTrace();
-    }
+        Query q = entityManager.createNativeQuery("CREATE TABLE IF NOT EXISTS price_autoshop2 LIKE price_autoshop");
+        q.executeUpdate();
+        Query q1 = entityManager.createNativeQuery("INSERT INTO price_autoshop2 (brand,income_price, wholesale_price, retail_price, tomarket_retail, tomarket_wholesale, available, code, name, supplier, shelf, category, additional_information, picture) SELECT brand,income_price, wholesale_price, retail_price, tomarket_retail, tomarket_wholesale, available, code, name, supplier, shelf, category, additional_information, picture FROM price_autoshop ORDER BY code");
+        q1.executeUpdate();
+        Query q2 = entityManager.createNativeQuery("DROP TABLE price_autoshop");
+        q2.executeUpdate();
+        Query q3 = entityManager.createNativeQuery("RENAME TABLE price_autoshop2 TO price_autoshop");
+        q3.executeUpdate();
     }
 
     @Override
-    public PriceAutoshop findByThreeParams(String brand, String trueBrand, String cut) {
+    protected String getTableName() {
         return null;
     }
 
     @Override
-    public PriceAutoshop getColumnMatches(String className) {
-        return null;
+    protected boolean conditionToSave(PriceAutoshop priceAutoshop) {
+        return false;
     }
 
+    @Override
+    protected void fillPriceFields(PriceAutoshop priceAutoshop, Margin margin, Margin wholeSaleMargin, CsvCreator csvCreator) {
+
+    }
+
+    @Override
+    protected String getEnityClassName() {
+        return "PriceAutoshop";
+    }
+
+    @Override
+    public String getWholeSaleMarginName() {
+        return null;
+    }
 
 }
